@@ -1,0 +1,2807 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/5/2022 3:34:49 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="YITBARK"
+  DTS:CreatorName="YITBARK\HP"
+  DTS:DTSID="{BE3CE1F8-ED47-4F9F-B3D5-41A750FD5640}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.521.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Policy"
+  DTS:PackageType="5"
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{09449ABC-4A6A-4310-AA5B-2B71DC49961C}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[yitbark\tariku.TARDIS]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{768127D5-48DE-4EA3-A76B-A4BBE9A95B02}"
+      DTS:ObjectName="yitbark\tariku.TARDIS">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=yitbark\tariku;Initial Catalog=TARDIS;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[yitbark\tariku.TardisStage]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{93E499B3-D943-4651-ABD6-627E6922B710}"
+      DTS:ObjectName="yitbark\tariku.TardisStage">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=yitbark\tariku;Initial Catalog=TardisStage;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\delete from Policy"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{89DBF4A2-775D-414E-8D79-073E71DE177B}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="delete from Policy"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022 CTP2.0; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{93E499B3-D943-4651-ABD6-627E6922B710}"
+          SQLTask:SqlStatementSource="delete from Policy" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Policy"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{C8BA1C1E-5F87-4D95-9012-078B5634EA7C}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Policy"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Policy\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Policy]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Policy\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[yitbark\tariku.TardisStage]"
+                  connectionManagerRefId="Package.ConnectionManagers[yitbark\tariku.TardisStage]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[MasterNumber]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="MasterNumber"
+                      externalMetadataColumnId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MasterNumber]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[MasterNumber]" />
+                    <inputColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[MasterSeq]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="MasterSeq"
+                      externalMetadataColumnId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MasterSeq]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[MasterSeq]" />
+                    <inputColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[MasterTitle]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="MasterTitle"
+                      externalMetadataColumnId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MasterTitle]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[MasterTitle]" />
+                    <inputColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[MasterStatusCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="MasterStatusCode"
+                      externalMetadataColumnId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MasterStatusCode]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[MasterStatusCode]" />
+                    <inputColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[StatusID]"
+                      cachedDataType="i4"
+                      cachedName="StatusID"
+                      externalMetadataColumnId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StatusID]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[StatusID]" />
+                    <inputColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[MasterProductCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="6"
+                      cachedName="MasterProductCode"
+                      externalMetadataColumnId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MasterProductCode]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[MasterProductCode]" />
+                    <inputColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ProductID]"
+                      cachedDataType="i4"
+                      cachedName="ProductID"
+                      externalMetadataColumnId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductID]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductID]" />
+                    <inputColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[YearOfAccount]"
+                      cachedDataType="i4"
+                      cachedName="YearOfAccount"
+                      externalMetadataColumnId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[YearOfAccount]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[YearOfAccount]" />
+                    <inputColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[MasterReference]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="15"
+                      cachedName="MasterReference"
+                      externalMetadataColumnId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MasterReference]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[MasterReference]" />
+                    <inputColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[MasterSlipNumber]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="12"
+                      cachedName="MasterSlipNumber"
+                      externalMetadataColumnId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MasterSlipNumber]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[MasterSlipNumber]" />
+                    <inputColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[AssuredNameCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="AssuredNameCode"
+                      externalMetadataColumnId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AssuredNameCode]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[AssuredNameCode]" />
+                    <inputColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[AssuredID]"
+                      cachedDataType="i4"
+                      cachedName="AssuredID"
+                      externalMetadataColumnId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AssuredID]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[AssuredID]" />
+                    <inputColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[BrokerNameCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="BrokerNameCode"
+                      externalMetadataColumnId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BrokerNameCode]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[BrokerNameCode]" />
+                    <inputColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[BrokerID]"
+                      cachedDataType="i4"
+                      cachedName="BrokerID"
+                      externalMetadataColumnId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BrokerID]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[BrokerID]" />
+                    <inputColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DepartmentName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="DepartmentName"
+                      externalMetadataColumnId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DepartmentName]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[DepartmentName]" />
+                    <inputColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DepartmentID]"
+                      cachedDataType="i4"
+                      cachedName="DepartmentID"
+                      externalMetadataColumnId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DepartmentID]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[DepartmentID]" />
+                    <inputColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[BranchID]"
+                      cachedDataType="i4"
+                      cachedName="BranchID"
+                      externalMetadataColumnId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BranchID]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[BranchID]" />
+                    <inputColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[BranchName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="8"
+                      cachedName="BranchName"
+                      externalMetadataColumnId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BranchName]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[BranchName]" />
+                    <inputColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[AreaID]"
+                      cachedDataType="i4"
+                      cachedName="AreaID"
+                      externalMetadataColumnId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AreaID]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[AreaID]" />
+                    <inputColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Domicile]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="5"
+                      cachedName="Domicile"
+                      externalMetadataColumnId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Domicile]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[Domicile]" />
+                    <inputColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ClassCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="ClassCode"
+                      externalMetadataColumnId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ClassCode]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[ClassCode]" />
+                    <inputColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ClassID]"
+                      cachedDataType="i4"
+                      cachedName="ClassID"
+                      externalMetadataColumnId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ClassID]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[ClassID]" />
+                    <inputColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TradeSectorCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="TradeSectorCode"
+                      externalMetadataColumnId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TradeSectorCode]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[TradeSectorCode]" />
+                    <inputColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TradeSectorID]"
+                      cachedDataType="i4"
+                      cachedName="TradeSectorID"
+                      externalMetadataColumnId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TradeSectorID]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[TradeSectorID]" />
+                    <inputColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Share]"
+                      cachedDataType="numeric"
+                      cachedName="Share"
+                      cachedPrecision="11"
+                      cachedScale="7"
+                      externalMetadataColumnId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Share]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[Share]" />
+                    <inputColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LineBasis]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="LineBasis"
+                      externalMetadataColumnId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LineBasis]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[LineBasis]" />
+                    <inputColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CompanyID]"
+                      cachedDataType="i4"
+                      cachedName="CompanyID"
+                      externalMetadataColumnId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CompanyID]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[CompanyID]" />
+                    <inputColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CompanyName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="8"
+                      cachedName="CompanyName"
+                      externalMetadataColumnId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CompanyName]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[CompanyName]" />
+                    <inputColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[InceptionDate]"
+                      cachedDataType="i4"
+                      cachedName="InceptionDate"
+                      externalMetadataColumnId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[InceptionDate]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[InceptionDate]" />
+                    <inputColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ExpiryDate]"
+                      cachedDataType="i4"
+                      cachedName="ExpiryDate"
+                      externalMetadataColumnId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ExpiryDate]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[ExpiryDate]" />
+                    <inputColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[WrittenDate]"
+                      cachedDataType="i4"
+                      cachedName="WrittenDate"
+                      externalMetadataColumnId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[WrittenDate]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[WrittenDate]" />
+                    <inputColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[UnderwriterNameCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="UnderwriterNameCode"
+                      externalMetadataColumnId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UnderwriterNameCode]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[UnderwriterNameCode]" />
+                    <inputColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[UnderwriterID]"
+                      cachedDataType="i4"
+                      cachedName="UnderwriterID"
+                      externalMetadataColumnId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UnderwriterID]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[UnderwriterID]" />
+                    <inputColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[MethodOfAcceptanceCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="6"
+                      cachedName="MethodOfAcceptanceCode"
+                      externalMetadataColumnId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MethodOfAcceptanceCode]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[MethodOfAcceptanceCode]" />
+                    <inputColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[MethodOfAcceptanceID]"
+                      cachedDataType="i4"
+                      cachedName="MethodOfAcceptanceID"
+                      externalMetadataColumnId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MethodOfAcceptanceID]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[MethodOfAcceptanceID]" />
+                    <inputColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ReinsuranceTypeCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="6"
+                      cachedName="ReinsuranceTypeCode"
+                      externalMetadataColumnId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ReinsuranceTypeCode]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[ReinsuranceTypeCode]" />
+                    <inputColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ReinsuranceTypeID]"
+                      cachedDataType="i4"
+                      cachedName="ReinsuranceTypeID"
+                      externalMetadataColumnId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ReinsuranceTypeID]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[ReinsuranceTypeID]" />
+                    <inputColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[NTUReasonCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="8"
+                      cachedName="NTUReasonCode"
+                      externalMetadataColumnId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NTUReasonCode]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[NTUReasonCode]" />
+                    <inputColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[NTUReasonID]"
+                      cachedDataType="i4"
+                      cachedName="NTUReasonID"
+                      externalMetadataColumnId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NTUReasonID]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[NTUReasonID]" />
+                    <inputColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[EndorsementStatus]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="EndorsementStatus"
+                      externalMetadataColumnId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EndorsementStatus]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[EndorsementStatus]" />
+                    <inputColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[RenewalStatusID]"
+                      cachedDataType="i4"
+                      cachedName="RenewalStatusID"
+                      externalMetadataColumnId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RenewalStatusID]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[RenewalStatusID]" />
+                    <inputColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[RenewalStatusCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="RenewalStatusCode"
+                      externalMetadataColumnId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RenewalStatusCode]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[RenewalStatusCode]" />
+                    <inputColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[RenewalBusinessFlagID]"
+                      cachedDataType="i4"
+                      cachedName="RenewalBusinessFlagID"
+                      externalMetadataColumnId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RenewalBusinessFlagID]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[RenewalBusinessFlagID]" />
+                    <inputColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[RenewalBusinessFlagCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="RenewalBusinessFlagCode"
+                      externalMetadataColumnId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RenewalBusinessFlagCode]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[RenewalBusinessFlagCode]" />
+                    <inputColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[RiskLocationID]"
+                      cachedDataType="i4"
+                      cachedName="RiskLocationID"
+                      externalMetadataColumnId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RiskLocationID]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[RiskLocationID]" />
+                    <inputColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[RiskLocationCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="5"
+                      cachedName="RiskLocationCode"
+                      externalMetadataColumnId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RiskLocationCode]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[RiskLocationCode]" />
+                    <inputColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[AuthorisedStatus]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="12"
+                      cachedName="AuthorisedStatus"
+                      externalMetadataColumnId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AuthorisedStatus]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[AuthorisedStatus]" />
+                    <inputColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[OriginalInceptionDate]"
+                      cachedDataType="i4"
+                      cachedName="OriginalInceptionDate"
+                      externalMetadataColumnId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OriginalInceptionDate]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[OriginalInceptionDate]" />
+                    <inputColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DateCreated]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="DateCreated"
+                      externalMetadataColumnId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateCreated]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateCreated]" />
+                    <inputColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DateExpired]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="DateExpired"
+                      externalMetadataColumnId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateExpired]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateExpired]" />
+                    <inputColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DateUpdated]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="DateUpdated"
+                      externalMetadataColumnId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateUpdated]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateUpdated]" />
+                    <inputColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CurrentYN]"
+                      cachedDataType="bool"
+                      cachedName="CurrentYN"
+                      externalMetadataColumnId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CurrentYN]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[CurrentYN]" />
+                    <inputColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SourceSystemID]"
+                      cachedDataType="i4"
+                      cachedName="SourceSystemID"
+                      externalMetadataColumnId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SourceSystemID]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[SourceSystemID]" />
+                    <inputColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[BatchID]"
+                      cachedDataType="i4"
+                      cachedName="BatchID"
+                      externalMetadataColumnId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BatchID]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[BatchID]" />
+                    <inputColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LeaderCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="LeaderCode"
+                      externalMetadataColumnId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LeaderCode]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[LeaderCode]" />
+                    <inputColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LeaderID]"
+                      cachedDataType="i4"
+                      cachedName="LeaderID"
+                      externalMetadataColumnId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LeaderID]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[LeaderID]" />
+                    <inputColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[TorusLeaderFlag]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="TorusLeaderFlag"
+                      externalMetadataColumnId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TorusLeaderFlag]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[TorusLeaderFlag]" />
+                    <inputColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[RenewableDate]"
+                      cachedDataType="i4"
+                      cachedName="RenewableDate"
+                      externalMetadataColumnId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RenewableDate]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[RenewableDate]" />
+                    <inputColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PolicyID]"
+                      cachedDataType="i4"
+                      cachedName="PolicyID"
+                      externalMetadataColumnId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PolicyID]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[PolicyID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PolicyID]"
+                      dataType="i4"
+                      name="PolicyID" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MasterNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="MasterNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MasterSeq]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="MasterSeq" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MasterTitle]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="MasterTitle" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MasterStatusCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="MasterStatusCode" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StatusID]"
+                      dataType="i4"
+                      name="StatusID" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MasterProductCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="6"
+                      name="MasterProductCode" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductID]"
+                      dataType="i4"
+                      name="ProductID" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[YearOfAccount]"
+                      dataType="i4"
+                      name="YearOfAccount" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MasterReference]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="MasterReference" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MasterSlipNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      name="MasterSlipNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AssuredNameCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="AssuredNameCode" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AssuredID]"
+                      dataType="i4"
+                      name="AssuredID" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BrokerNameCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="BrokerNameCode" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BrokerID]"
+                      dataType="i4"
+                      name="BrokerID" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DepartmentName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="DepartmentName" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DepartmentID]"
+                      dataType="i4"
+                      name="DepartmentID" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BranchID]"
+                      dataType="i4"
+                      name="BranchID" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BranchName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      name="BranchName" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AreaID]"
+                      dataType="i4"
+                      name="AreaID" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Domicile]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="Domicile" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ClassCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="ClassCode" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ClassID]"
+                      dataType="i4"
+                      name="ClassID" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TradeSectorCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="TradeSectorCode" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TradeSectorID]"
+                      dataType="i4"
+                      name="TradeSectorID" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Share]"
+                      dataType="numeric"
+                      name="Share"
+                      precision="11"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LineBasis]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="LineBasis" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CompanyID]"
+                      dataType="i4"
+                      name="CompanyID" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CompanyName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      name="CompanyName" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[InceptionDate]"
+                      dataType="i4"
+                      name="InceptionDate" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ExpiryDate]"
+                      dataType="i4"
+                      name="ExpiryDate" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[WrittenDate]"
+                      dataType="i4"
+                      name="WrittenDate" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UnderwriterNameCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="UnderwriterNameCode" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UnderwriterID]"
+                      dataType="i4"
+                      name="UnderwriterID" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MethodOfAcceptanceCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="6"
+                      name="MethodOfAcceptanceCode" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MethodOfAcceptanceID]"
+                      dataType="i4"
+                      name="MethodOfAcceptanceID" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ReinsuranceTypeCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="6"
+                      name="ReinsuranceTypeCode" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ReinsuranceTypeID]"
+                      dataType="i4"
+                      name="ReinsuranceTypeID" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NTUReasonCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      name="NTUReasonCode" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[NTUReasonID]"
+                      dataType="i4"
+                      name="NTUReasonID" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EndorsementStatus]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="EndorsementStatus" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RenewalStatusID]"
+                      dataType="i4"
+                      name="RenewalStatusID" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RenewalStatusCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="RenewalStatusCode" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RenewalBusinessFlagID]"
+                      dataType="i4"
+                      name="RenewalBusinessFlagID" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RenewalBusinessFlagCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="RenewalBusinessFlagCode" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RiskLocationID]"
+                      dataType="i4"
+                      name="RiskLocationID" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RiskLocationCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="RiskLocationCode" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AuthorisedStatus]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      name="AuthorisedStatus" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OriginalInceptionDate]"
+                      dataType="i4"
+                      name="OriginalInceptionDate" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateCreated]"
+                      dataType="dbTimeStamp"
+                      name="DateCreated" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateExpired]"
+                      dataType="dbTimeStamp"
+                      name="DateExpired" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateUpdated]"
+                      dataType="dbTimeStamp"
+                      name="DateUpdated" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CurrentYN]"
+                      dataType="bool"
+                      name="CurrentYN" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SourceSystemID]"
+                      dataType="i4"
+                      name="SourceSystemID" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BatchID]"
+                      dataType="i4"
+                      name="BatchID" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LeaderCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="LeaderCode" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LeaderID]"
+                      dataType="i4"
+                      name="LeaderID" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TorusLeaderFlag]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="TorusLeaderFlag" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RenewableDate]"
+                      dataType="i4"
+                      name="RenewableDate" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Policy\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Policy\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Policy\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Policy\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from dbo.Policy</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Policy\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[yitbark\tariku.TARDIS]"
+                  connectionManagerRefId="Package.ConnectionManagers[yitbark\tariku.TARDIS]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[PolicyID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PolicyID]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[PolicyID]"
+                      name="PolicyID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[MasterNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MasterNumber]"
+                      length="50"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[MasterNumber]"
+                      name="MasterNumber"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[MasterSeq]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MasterSeq]"
+                      length="50"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[MasterSeq]"
+                      name="MasterSeq"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[MasterTitle]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MasterTitle]"
+                      length="30"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[MasterTitle]"
+                      name="MasterTitle"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[MasterStatusCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MasterStatusCode]"
+                      length="2"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[MasterStatusCode]"
+                      name="MasterStatusCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[StatusID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[StatusID]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[StatusID]"
+                      name="StatusID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[MasterProductCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MasterProductCode]"
+                      length="6"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[MasterProductCode]"
+                      name="MasterProductCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ProductID]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductID]"
+                      name="ProductID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[YearOfAccount]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[YearOfAccount]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[YearOfAccount]"
+                      name="YearOfAccount"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[MasterReference]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MasterReference]"
+                      length="15"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[MasterReference]"
+                      name="MasterReference"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[MasterSlipNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MasterSlipNumber]"
+                      length="12"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[MasterSlipNumber]"
+                      name="MasterSlipNumber"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[AssuredNameCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AssuredNameCode]"
+                      length="50"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[AssuredNameCode]"
+                      name="AssuredNameCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[AssuredID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AssuredID]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[AssuredID]"
+                      name="AssuredID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[BrokerNameCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BrokerNameCode]"
+                      length="50"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[BrokerNameCode]"
+                      name="BrokerNameCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[BrokerID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BrokerID]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[BrokerID]"
+                      name="BrokerID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[DepartmentName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DepartmentName]"
+                      length="3"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[DepartmentName]"
+                      name="DepartmentName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[DepartmentID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DepartmentID]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[DepartmentID]"
+                      name="DepartmentID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[BranchID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BranchID]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[BranchID]"
+                      name="BranchID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[BranchName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BranchName]"
+                      length="8"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[BranchName]"
+                      name="BranchName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[AreaID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AreaID]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[AreaID]"
+                      name="AreaID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[Domicile]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Domicile]"
+                      length="5"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[Domicile]"
+                      name="Domicile"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[ClassCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ClassCode]"
+                      length="4"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[ClassCode]"
+                      name="ClassCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[ClassID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ClassID]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[ClassID]"
+                      name="ClassID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[TradeSectorCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TradeSectorCode]"
+                      length="4"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[TradeSectorCode]"
+                      name="TradeSectorCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[TradeSectorID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TradeSectorID]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[TradeSectorID]"
+                      name="TradeSectorID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[Share]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Share]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[Share]"
+                      name="Share"
+                      precision="11"
+                      scale="7"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[LineBasis]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LineBasis]"
+                      length="1"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[LineBasis]"
+                      name="LineBasis"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[CompanyID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CompanyID]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[CompanyID]"
+                      name="CompanyID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[CompanyName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CompanyName]"
+                      length="8"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[CompanyName]"
+                      name="CompanyName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[InceptionDate]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[InceptionDate]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[InceptionDate]"
+                      name="InceptionDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[ExpiryDate]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ExpiryDate]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[ExpiryDate]"
+                      name="ExpiryDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[WrittenDate]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[WrittenDate]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[WrittenDate]"
+                      name="WrittenDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[UnderwriterNameCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UnderwriterNameCode]"
+                      length="10"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[UnderwriterNameCode]"
+                      name="UnderwriterNameCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[UnderwriterID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UnderwriterID]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[UnderwriterID]"
+                      name="UnderwriterID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[MethodOfAcceptanceCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MethodOfAcceptanceCode]"
+                      length="6"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[MethodOfAcceptanceCode]"
+                      name="MethodOfAcceptanceCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[MethodOfAcceptanceID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MethodOfAcceptanceID]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[MethodOfAcceptanceID]"
+                      name="MethodOfAcceptanceID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[ReinsuranceTypeCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ReinsuranceTypeCode]"
+                      length="6"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[ReinsuranceTypeCode]"
+                      name="ReinsuranceTypeCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[ReinsuranceTypeID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ReinsuranceTypeID]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[ReinsuranceTypeID]"
+                      name="ReinsuranceTypeID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[NTUReasonCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[NTUReasonCode]"
+                      length="8"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[NTUReasonCode]"
+                      name="NTUReasonCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[NTUReasonID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[NTUReasonID]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[NTUReasonID]"
+                      name="NTUReasonID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[EndorsementStatus]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[EndorsementStatus]"
+                      length="1"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[EndorsementStatus]"
+                      name="EndorsementStatus"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[RenewalStatusID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RenewalStatusID]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[RenewalStatusID]"
+                      name="RenewalStatusID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[RenewalStatusCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RenewalStatusCode]"
+                      length="2"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[RenewalStatusCode]"
+                      name="RenewalStatusCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[RenewalBusinessFlagID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RenewalBusinessFlagID]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[RenewalBusinessFlagID]"
+                      name="RenewalBusinessFlagID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[RenewalBusinessFlagCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RenewalBusinessFlagCode]"
+                      length="1"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[RenewalBusinessFlagCode]"
+                      name="RenewalBusinessFlagCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[RiskLocationID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RiskLocationID]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[RiskLocationID]"
+                      name="RiskLocationID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[RiskLocationCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RiskLocationCode]"
+                      length="5"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[RiskLocationCode]"
+                      name="RiskLocationCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[AuthorisedStatus]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AuthorisedStatus]"
+                      length="12"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[AuthorisedStatus]"
+                      name="AuthorisedStatus"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[OriginalInceptionDate]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OriginalInceptionDate]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[OriginalInceptionDate]"
+                      name="OriginalInceptionDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateCreated]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DateCreated]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateCreated]"
+                      name="DateCreated"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateExpired]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DateExpired]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateExpired]"
+                      name="DateExpired"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateUpdated]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DateUpdated]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[DateUpdated]"
+                      name="DateUpdated"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[CurrentYN]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CurrentYN]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[CurrentYN]"
+                      name="CurrentYN"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[SourceSystemID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SourceSystemID]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[SourceSystemID]"
+                      name="SourceSystemID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[BatchID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BatchID]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[BatchID]"
+                      name="BatchID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[LeaderCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LeaderCode]"
+                      length="50"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[LeaderCode]"
+                      name="LeaderCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[LeaderID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LeaderID]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[LeaderID]"
+                      name="LeaderID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[TorusLeaderFlag]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TorusLeaderFlag]"
+                      length="1"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[TorusLeaderFlag]"
+                      name="TorusLeaderFlag"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[RenewableDate]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RenewableDate]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[RenewableDate]"
+                      name="RenewableDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[OXStatusCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OXStatusCode]"
+                      length="2"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[OXStatusCode]"
+                      name="OXStatusCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[OXStatusID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OXStatusID]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[OXStatusID]"
+                      name="OXStatusID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[AdditionalInsuredCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AdditionalInsuredCode]"
+                      length="50"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[AdditionalInsuredCode]"
+                      name="AdditionalInsuredCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[AdditionalInsuredID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AdditionalInsuredID]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[AdditionalInsuredID]"
+                      name="AdditionalInsuredID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[RIPolicyID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RIPolicyID]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[RIPolicyID]"
+                      name="RIPolicyID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[RIMasterReference]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RIMasterReference]"
+                      length="15"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[RIMasterReference]"
+                      name="RIMasterReference"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[SUBBrokerCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SUBBrokerCode]"
+                      length="50"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[SUBBrokerCode]"
+                      name="SUBBrokerCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[SUBBrokerID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SUBBrokerID]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[SUBBrokerID]"
+                      name="SUBBrokerID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[OBLIGEECode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OBLIGEECode]"
+                      length="50"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[OBLIGEECode]"
+                      name="OBLIGEECode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[OBLIGEEID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OBLIGEEID]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[OBLIGEEID]"
+                      name="OBLIGEEID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[LinkMasterNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LinkMasterNumber]"
+                      length="6"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[LinkMasterNumber]"
+                      name="LinkMasterNumber"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[LinkMasterSeq]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LinkMasterSeq]"
+                      length="3"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[LinkMasterSeq]"
+                      name="LinkMasterSeq"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[DecMasterFlag]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DecMasterFlag]"
+                      length="2"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[DecMasterFlag]"
+                      name="DecMasterFlag"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[LinkMasterReference]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LinkMasterReference]"
+                      length="15"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[LinkMasterReference]"
+                      name="LinkMasterReference"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[RIMasterTitle]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RIMasterTitle]"
+                      length="50"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[RIMasterTitle]"
+                      name="RIMasterTitle"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[BrokerContactCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BrokerContactCode]"
+                      length="50"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[BrokerContactCode]"
+                      name="BrokerContactCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[BrokerContactID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BrokerContactID]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[BrokerContactID]"
+                      name="BrokerContactID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[RIIWRef]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RIIWRef]"
+                      length="15"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[RIIWRef]"
+                      name="RIIWRef"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[ValidBrokerFlag]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ValidBrokerFlag]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[ValidBrokerFlag]"
+                      name="ValidBrokerFlag"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[MGAID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MGAID]"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[MGAID]"
+                      name="MGAID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[OldMasterTitle]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OldMasterTitle]"
+                      length="100"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].Columns[OldMasterTitle]"
+                      name="OldMasterTitle"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PolicyID]"
+                      dataType="i4"
+                      name="PolicyID" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MasterNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="MasterNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MasterSeq]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="MasterSeq" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MasterTitle]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="MasterTitle" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MasterStatusCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="MasterStatusCode" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[StatusID]"
+                      dataType="i4"
+                      name="StatusID" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MasterProductCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="6"
+                      name="MasterProductCode" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ProductID]"
+                      dataType="i4"
+                      name="ProductID" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[YearOfAccount]"
+                      dataType="i4"
+                      name="YearOfAccount" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MasterReference]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="MasterReference" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MasterSlipNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      name="MasterSlipNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AssuredNameCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="AssuredNameCode" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AssuredID]"
+                      dataType="i4"
+                      name="AssuredID" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BrokerNameCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="BrokerNameCode" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BrokerID]"
+                      dataType="i4"
+                      name="BrokerID" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DepartmentName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="DepartmentName" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DepartmentID]"
+                      dataType="i4"
+                      name="DepartmentID" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BranchID]"
+                      dataType="i4"
+                      name="BranchID" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BranchName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      name="BranchName" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AreaID]"
+                      dataType="i4"
+                      name="AreaID" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Domicile]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="Domicile" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ClassCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="ClassCode" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ClassID]"
+                      dataType="i4"
+                      name="ClassID" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TradeSectorCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="TradeSectorCode" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TradeSectorID]"
+                      dataType="i4"
+                      name="TradeSectorID" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Share]"
+                      dataType="numeric"
+                      name="Share"
+                      precision="11"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LineBasis]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="LineBasis" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CompanyID]"
+                      dataType="i4"
+                      name="CompanyID" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CompanyName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      name="CompanyName" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[InceptionDate]"
+                      dataType="i4"
+                      name="InceptionDate" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ExpiryDate]"
+                      dataType="i4"
+                      name="ExpiryDate" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[WrittenDate]"
+                      dataType="i4"
+                      name="WrittenDate" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UnderwriterNameCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="UnderwriterNameCode" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UnderwriterID]"
+                      dataType="i4"
+                      name="UnderwriterID" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MethodOfAcceptanceCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="6"
+                      name="MethodOfAcceptanceCode" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MethodOfAcceptanceID]"
+                      dataType="i4"
+                      name="MethodOfAcceptanceID" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ReinsuranceTypeCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="6"
+                      name="ReinsuranceTypeCode" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ReinsuranceTypeID]"
+                      dataType="i4"
+                      name="ReinsuranceTypeID" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[NTUReasonCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      name="NTUReasonCode" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[NTUReasonID]"
+                      dataType="i4"
+                      name="NTUReasonID" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[EndorsementStatus]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="EndorsementStatus" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RenewalStatusID]"
+                      dataType="i4"
+                      name="RenewalStatusID" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RenewalStatusCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="RenewalStatusCode" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RenewalBusinessFlagID]"
+                      dataType="i4"
+                      name="RenewalBusinessFlagID" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RenewalBusinessFlagCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="RenewalBusinessFlagCode" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RiskLocationID]"
+                      dataType="i4"
+                      name="RiskLocationID" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RiskLocationCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="RiskLocationCode" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AuthorisedStatus]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      name="AuthorisedStatus" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OriginalInceptionDate]"
+                      dataType="i4"
+                      name="OriginalInceptionDate" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DateCreated]"
+                      dataType="dbTimeStamp"
+                      name="DateCreated" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DateExpired]"
+                      dataType="dbTimeStamp"
+                      name="DateExpired" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DateUpdated]"
+                      dataType="dbTimeStamp"
+                      name="DateUpdated" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CurrentYN]"
+                      dataType="bool"
+                      name="CurrentYN" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SourceSystemID]"
+                      dataType="i4"
+                      name="SourceSystemID" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BatchID]"
+                      dataType="i4"
+                      name="BatchID" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LeaderCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="LeaderCode" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LeaderID]"
+                      dataType="i4"
+                      name="LeaderID" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[TorusLeaderFlag]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="TorusLeaderFlag" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RenewableDate]"
+                      dataType="i4"
+                      name="RenewableDate" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OXStatusCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="OXStatusCode" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OXStatusID]"
+                      dataType="i4"
+                      name="OXStatusID" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AdditionalInsuredCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="AdditionalInsuredCode" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[AdditionalInsuredID]"
+                      dataType="i4"
+                      name="AdditionalInsuredID" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RIPolicyID]"
+                      dataType="i4"
+                      name="RIPolicyID" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RIMasterReference]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="RIMasterReference" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SUBBrokerCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="SUBBrokerCode" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SUBBrokerID]"
+                      dataType="i4"
+                      name="SUBBrokerID" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OBLIGEECode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="OBLIGEECode" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OBLIGEEID]"
+                      dataType="i4"
+                      name="OBLIGEEID" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LinkMasterNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="6"
+                      name="LinkMasterNumber" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LinkMasterSeq]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="LinkMasterSeq" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[DecMasterFlag]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="DecMasterFlag" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LinkMasterReference]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="LinkMasterReference" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RIMasterTitle]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="RIMasterTitle" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BrokerContactCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="BrokerContactCode" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[BrokerContactID]"
+                      dataType="i4"
+                      name="BrokerContactID" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[RIIWRef]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="RIIWRef" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ValidBrokerFlag]"
+                      dataType="bool"
+                      name="ValidBrokerFlag" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[MGAID]"
+                      dataType="i4"
+                      name="MGAID" />
+                    <externalMetadataColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OldMasterTitle]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="OldMasterTitle" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PolicyID]"
+                      dataType="i4"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PolicyID]"
+                      name="PolicyID" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MasterNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MasterNumber]"
+                      name="MasterNumber" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MasterSeq]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MasterSeq]"
+                      name="MasterSeq" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MasterTitle]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MasterTitle]"
+                      name="MasterTitle" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MasterStatusCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MasterStatusCode]"
+                      name="MasterStatusCode" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[StatusID]"
+                      dataType="i4"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[StatusID]"
+                      name="StatusID" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MasterProductCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="6"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MasterProductCode]"
+                      name="MasterProductCode" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ProductID]"
+                      dataType="i4"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ProductID]"
+                      name="ProductID" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[YearOfAccount]"
+                      dataType="i4"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[YearOfAccount]"
+                      name="YearOfAccount" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MasterReference]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MasterReference]"
+                      name="MasterReference" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MasterSlipNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MasterSlipNumber]"
+                      name="MasterSlipNumber" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AssuredNameCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AssuredNameCode]"
+                      name="AssuredNameCode" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AssuredID]"
+                      dataType="i4"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AssuredID]"
+                      name="AssuredID" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BrokerNameCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BrokerNameCode]"
+                      name="BrokerNameCode" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BrokerID]"
+                      dataType="i4"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BrokerID]"
+                      name="BrokerID" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DepartmentName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DepartmentName]"
+                      name="DepartmentName" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DepartmentID]"
+                      dataType="i4"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DepartmentID]"
+                      name="DepartmentID" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BranchID]"
+                      dataType="i4"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BranchID]"
+                      name="BranchID" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BranchName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BranchName]"
+                      name="BranchName" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AreaID]"
+                      dataType="i4"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AreaID]"
+                      name="AreaID" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Domicile]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Domicile]"
+                      name="Domicile" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ClassCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ClassCode]"
+                      name="ClassCode" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ClassID]"
+                      dataType="i4"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ClassID]"
+                      name="ClassID" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TradeSectorCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TradeSectorCode]"
+                      name="TradeSectorCode" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TradeSectorID]"
+                      dataType="i4"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TradeSectorID]"
+                      name="TradeSectorID" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Share]"
+                      dataType="numeric"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Share]"
+                      name="Share"
+                      precision="11"
+                      scale="7" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LineBasis]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LineBasis]"
+                      name="LineBasis" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CompanyID]"
+                      dataType="i4"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CompanyID]"
+                      name="CompanyID" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CompanyName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CompanyName]"
+                      name="CompanyName" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[InceptionDate]"
+                      dataType="i4"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[InceptionDate]"
+                      name="InceptionDate" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ExpiryDate]"
+                      dataType="i4"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ExpiryDate]"
+                      name="ExpiryDate" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[WrittenDate]"
+                      dataType="i4"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[WrittenDate]"
+                      name="WrittenDate" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UnderwriterNameCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UnderwriterNameCode]"
+                      name="UnderwriterNameCode" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UnderwriterID]"
+                      dataType="i4"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UnderwriterID]"
+                      name="UnderwriterID" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MethodOfAcceptanceCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="6"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MethodOfAcceptanceCode]"
+                      name="MethodOfAcceptanceCode" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MethodOfAcceptanceID]"
+                      dataType="i4"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MethodOfAcceptanceID]"
+                      name="MethodOfAcceptanceID" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ReinsuranceTypeCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="6"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ReinsuranceTypeCode]"
+                      name="ReinsuranceTypeCode" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ReinsuranceTypeID]"
+                      dataType="i4"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ReinsuranceTypeID]"
+                      name="ReinsuranceTypeID" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[NTUReasonCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[NTUReasonCode]"
+                      name="NTUReasonCode" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[NTUReasonID]"
+                      dataType="i4"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[NTUReasonID]"
+                      name="NTUReasonID" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[EndorsementStatus]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[EndorsementStatus]"
+                      name="EndorsementStatus" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RenewalStatusID]"
+                      dataType="i4"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RenewalStatusID]"
+                      name="RenewalStatusID" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RenewalStatusCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RenewalStatusCode]"
+                      name="RenewalStatusCode" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RenewalBusinessFlagID]"
+                      dataType="i4"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RenewalBusinessFlagID]"
+                      name="RenewalBusinessFlagID" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RenewalBusinessFlagCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RenewalBusinessFlagCode]"
+                      name="RenewalBusinessFlagCode" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RiskLocationID]"
+                      dataType="i4"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RiskLocationID]"
+                      name="RiskLocationID" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RiskLocationCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RiskLocationCode]"
+                      name="RiskLocationCode" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AuthorisedStatus]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AuthorisedStatus]"
+                      name="AuthorisedStatus" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OriginalInceptionDate]"
+                      dataType="i4"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OriginalInceptionDate]"
+                      name="OriginalInceptionDate" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DateCreated]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DateCreated]"
+                      name="DateCreated" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DateExpired]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DateExpired]"
+                      name="DateExpired" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DateUpdated]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DateUpdated]"
+                      name="DateUpdated" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CurrentYN]"
+                      dataType="bool"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CurrentYN]"
+                      name="CurrentYN" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SourceSystemID]"
+                      dataType="i4"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SourceSystemID]"
+                      name="SourceSystemID" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BatchID]"
+                      dataType="i4"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BatchID]"
+                      name="BatchID" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LeaderCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LeaderCode]"
+                      name="LeaderCode" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LeaderID]"
+                      dataType="i4"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LeaderID]"
+                      name="LeaderID" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TorusLeaderFlag]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[TorusLeaderFlag]"
+                      name="TorusLeaderFlag" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RenewableDate]"
+                      dataType="i4"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RenewableDate]"
+                      name="RenewableDate" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OXStatusCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OXStatusCode]"
+                      name="OXStatusCode" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OXStatusID]"
+                      dataType="i4"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OXStatusID]"
+                      name="OXStatusID" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AdditionalInsuredCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AdditionalInsuredCode]"
+                      name="AdditionalInsuredCode" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AdditionalInsuredID]"
+                      dataType="i4"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[AdditionalInsuredID]"
+                      name="AdditionalInsuredID" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RIPolicyID]"
+                      dataType="i4"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RIPolicyID]"
+                      name="RIPolicyID" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RIMasterReference]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RIMasterReference]"
+                      name="RIMasterReference" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SUBBrokerCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SUBBrokerCode]"
+                      name="SUBBrokerCode" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SUBBrokerID]"
+                      dataType="i4"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SUBBrokerID]"
+                      name="SUBBrokerID" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OBLIGEECode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OBLIGEECode]"
+                      name="OBLIGEECode" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OBLIGEEID]"
+                      dataType="i4"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OBLIGEEID]"
+                      name="OBLIGEEID" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LinkMasterNumber]"
+                      codePage="1252"
+                      dataType="str"
+                      length="6"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LinkMasterNumber]"
+                      name="LinkMasterNumber" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LinkMasterSeq]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LinkMasterSeq]"
+                      name="LinkMasterSeq" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DecMasterFlag]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[DecMasterFlag]"
+                      name="DecMasterFlag" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LinkMasterReference]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LinkMasterReference]"
+                      name="LinkMasterReference" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RIMasterTitle]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RIMasterTitle]"
+                      name="RIMasterTitle" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BrokerContactCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BrokerContactCode]"
+                      name="BrokerContactCode" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BrokerContactID]"
+                      dataType="i4"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[BrokerContactID]"
+                      name="BrokerContactID" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RIIWRef]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[RIIWRef]"
+                      name="RIIWRef" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ValidBrokerFlag]"
+                      dataType="bool"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ValidBrokerFlag]"
+                      name="ValidBrokerFlag" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MGAID]"
+                      dataType="i4"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MGAID]"
+                      name="MGAID" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OldMasterTitle]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OldMasterTitle]"
+                      name="OldMasterTitle" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Policy.Paths[OLE DB Source Output]"
+              endId="Package\Policy\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Policy\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{5B3909B2-49F2-408C-8ADD-DAA446549DF5}"
+      DTS:From="Package\delete from Policy"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Policy" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="166,42"
+          Id="Package\delete from Policy"
+          TopLeft="5.5,5.5" />
+        <NodeLayout
+          Size="108,42"
+          Id="Package\Policy"
+          TopLeft="17.5,101.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="88.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-17,54"
+              Start="0,0"
+              End="-17,46.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23"
+                    Point2="0,27"
+                    Point3="-4,27" />
+                  <mssgle:LineSegment
+                    End="-13,27" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-13,27"
+                    Point2="-17,27"
+                    Point3="-17,31" />
+                  <mssgle:LineSegment
+                    End="-17,46.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Policy">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="157,42"
+          Id="Package\Policy\OLE DB Source"
+          TopLeft="5.5,4.5" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Policy\OLE DB Destination"
+          TopLeft="58.5,111.5" />
+        <EdgeLayout
+          Id="Package\Policy.Paths[OLE DB Source Output]"
+          TopLeft="84,46.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="63,65"
+              Start="0,0"
+              End="63,57.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28.5"
+                    Point2="0,32.5"
+                    Point3="4,32.5" />
+                  <mssgle:LineSegment
+                    End="59,32.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="59,32.5"
+                    Point2="63,32.5"
+                    Point3="63,36.5" />
+                  <mssgle:LineSegment
+                    End="63,57.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Policy\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Policy\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

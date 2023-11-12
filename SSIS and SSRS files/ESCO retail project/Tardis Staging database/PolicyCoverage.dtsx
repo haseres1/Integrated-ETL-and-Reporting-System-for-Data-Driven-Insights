@@ -1,0 +1,938 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/4/2022 11:32:05 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="YITBARK"
+  DTS:CreatorName="YITBARK\HP"
+  DTS:DTSID="{0F6FEC42-B051-4AEE-8CCE-A2438059B871}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.521.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="PolicyCoverage"
+  DTS:PackageType="5"
+  DTS:VersionBuild="4"
+  DTS:VersionGUID="{E0C8D2EC-F9C4-434C-A9F5-B55AB109AEF9}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{674749B6-965F-4217-8240-94732A5FA8CD}"
+      DTS:ObjectName="Excel Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\HP\OneDrive - montgomerycollege.edu\Documents\SQL server traning\SQL Project\Vijay project\Tardis_DWH\STAGING\COVERAGE,DEDUCTION,PREMIUM,LIMIT.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[yitbark\tariku.TardisStage]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{8B293CDA-93AC-48CE-80C9-822861E97DFA}"
+      DTS:ObjectName="yitbark\tariku.TardisStage">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=yitbark\tariku;Initial Catalog=TardisStage;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\delete from PolicyCoverage"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{17D1C4FA-FD3C-43E0-BECC-CD61586531D4}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="delete from PolicyCoverage"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022 CTP2.0; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{8B293CDA-93AC-48CE-80C9-822861E97DFA}"
+          SQLTask:SqlStatementSource="delete from PolicyCoverage" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\loading to PolicyCoverage"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{6F65B862-0520-4DB9-9CFB-2641D7FF2F7E}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="loading to PolicyCoverage"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\loading to PolicyCoverage\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\loading to PolicyCoverage\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\loading to PolicyCoverage\Data Conversion.Inputs[Data Conversion Input].Columns[SectionKey]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="SectionKey"
+                      lineageId="Package\loading to PolicyCoverage\Excel Source.Outputs[Excel Source Output].Columns[SectionKey]" />
+                    <inputColumn
+                      refId="Package\loading to PolicyCoverage\Data Conversion.Inputs[Data Conversion Input].Columns[CoverageKey]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CoverageKey"
+                      lineageId="Package\loading to PolicyCoverage\Excel Source.Outputs[Excel Source Output].Columns[CoverageKey]" />
+                    <inputColumn
+                      refId="Package\loading to PolicyCoverage\Data Conversion.Inputs[Data Conversion Input].Columns[CoverageTypeCode]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CoverageTypeCode"
+                      lineageId="Package\loading to PolicyCoverage\Excel Source.Outputs[Excel Source Output].Columns[CoverageTypeCode]" />
+                    <inputColumn
+                      refId="Package\loading to PolicyCoverage\Data Conversion.Inputs[Data Conversion Input].Columns[MinDeductible]"
+                      cachedDataType="r8"
+                      cachedName="MinDeductible"
+                      lineageId="Package\loading to PolicyCoverage\Excel Source.Outputs[Excel Source Output].Columns[MinDeductible]" />
+                    <inputColumn
+                      refId="Package\loading to PolicyCoverage\Data Conversion.Inputs[Data Conversion Input].Columns[MaxDeductible]"
+                      cachedDataType="r8"
+                      cachedName="MaxDeductible"
+                      lineageId="Package\loading to PolicyCoverage\Excel Source.Outputs[Excel Source Output].Columns[MaxDeductible]" />
+                    <inputColumn
+                      refId="Package\loading to PolicyCoverage\Data Conversion.Inputs[Data Conversion Input].Columns[CoverageSeq]"
+                      cachedDataType="r8"
+                      cachedName="CoverageSeq"
+                      lineageId="Package\loading to PolicyCoverage\Excel Source.Outputs[Excel Source Output].Columns[CoverageSeq]" />
+                    <inputColumn
+                      refId="Package\loading to PolicyCoverage\Data Conversion.Inputs[Data Conversion Input].Columns[CoverageTitle]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CoverageTitle"
+                      lineageId="Package\loading to PolicyCoverage\Excel Source.Outputs[Excel Source Output].Columns[CoverageTitle]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\loading to PolicyCoverage\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\loading to PolicyCoverage\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\loading to PolicyCoverage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SectionKey]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="17"
+                      lineageId="Package\loading to PolicyCoverage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SectionKey]"
+                      name="Copy of SectionKey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\loading to PolicyCoverage\Excel Source.Outputs[Excel Source Output].Columns[SectionKey]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\loading to PolicyCoverage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of CoverageKey]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="17"
+                      lineageId="Package\loading to PolicyCoverage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of CoverageKey]"
+                      name="Copy of CoverageKey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\loading to PolicyCoverage\Excel Source.Outputs[Excel Source Output].Columns[CoverageKey]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\loading to PolicyCoverage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of CoverageTypeCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="4"
+                      lineageId="Package\loading to PolicyCoverage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of CoverageTypeCode]"
+                      name="Copy of CoverageTypeCode"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\loading to PolicyCoverage\Excel Source.Outputs[Excel Source Output].Columns[CoverageTypeCode]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\loading to PolicyCoverage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of MinDeductible]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\loading to PolicyCoverage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of MinDeductible]"
+                      name="Copy of MinDeductible"
+                      precision="19"
+                      scale="2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\loading to PolicyCoverage\Excel Source.Outputs[Excel Source Output].Columns[MinDeductible]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\loading to PolicyCoverage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of MaxDeductible]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\loading to PolicyCoverage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of MaxDeductible]"
+                      name="Copy of MaxDeductible"
+                      precision="19"
+                      scale="2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\loading to PolicyCoverage\Excel Source.Outputs[Excel Source Output].Columns[MaxDeductible]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\loading to PolicyCoverage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of CoverageSeq]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="3"
+                      lineageId="Package\loading to PolicyCoverage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of CoverageSeq]"
+                      name="Copy of CoverageSeq"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\loading to PolicyCoverage\Excel Source.Outputs[Excel Source Output].Columns[CoverageSeq]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\loading to PolicyCoverage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of CoverageTitle]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="30"
+                      lineageId="Package\loading to PolicyCoverage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of CoverageTitle]"
+                      name="Copy of CoverageTitle"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\loading to PolicyCoverage\Excel Source.Outputs[Excel Source Output].Columns[CoverageTitle]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\loading to PolicyCoverage\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\loading to PolicyCoverage\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\loading to PolicyCoverage\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\loading to PolicyCoverage\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\loading to PolicyCoverage\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\loading to PolicyCoverage\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\loading to PolicyCoverage\Excel Source"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="Excel Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">'Coverage data$'</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\loading to PolicyCoverage\Excel Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\loading to PolicyCoverage\Excel Source.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\loading to PolicyCoverage\Excel Source.Outputs[Excel Source Output].Columns[SectionKey]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\loading to PolicyCoverage\Excel Source.Outputs[Excel Source Output].ExternalColumns[SectionKey]"
+                      length="255"
+                      lineageId="Package\loading to PolicyCoverage\Excel Source.Outputs[Excel Source Output].Columns[SectionKey]"
+                      name="SectionKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\loading to PolicyCoverage\Excel Source.Outputs[Excel Source Output].Columns[CoverageKey]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\loading to PolicyCoverage\Excel Source.Outputs[Excel Source Output].ExternalColumns[CoverageKey]"
+                      length="255"
+                      lineageId="Package\loading to PolicyCoverage\Excel Source.Outputs[Excel Source Output].Columns[CoverageKey]"
+                      name="CoverageKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\loading to PolicyCoverage\Excel Source.Outputs[Excel Source Output].Columns[CoverageTypeCode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\loading to PolicyCoverage\Excel Source.Outputs[Excel Source Output].ExternalColumns[CoverageTypeCode]"
+                      length="255"
+                      lineageId="Package\loading to PolicyCoverage\Excel Source.Outputs[Excel Source Output].Columns[CoverageTypeCode]"
+                      name="CoverageTypeCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\loading to PolicyCoverage\Excel Source.Outputs[Excel Source Output].Columns[MinDeductible]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\loading to PolicyCoverage\Excel Source.Outputs[Excel Source Output].ExternalColumns[MinDeductible]"
+                      lineageId="Package\loading to PolicyCoverage\Excel Source.Outputs[Excel Source Output].Columns[MinDeductible]"
+                      name="MinDeductible"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\loading to PolicyCoverage\Excel Source.Outputs[Excel Source Output].Columns[MaxDeductible]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\loading to PolicyCoverage\Excel Source.Outputs[Excel Source Output].ExternalColumns[MaxDeductible]"
+                      lineageId="Package\loading to PolicyCoverage\Excel Source.Outputs[Excel Source Output].Columns[MaxDeductible]"
+                      name="MaxDeductible"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\loading to PolicyCoverage\Excel Source.Outputs[Excel Source Output].Columns[CoverageSeq]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\loading to PolicyCoverage\Excel Source.Outputs[Excel Source Output].ExternalColumns[CoverageSeq]"
+                      lineageId="Package\loading to PolicyCoverage\Excel Source.Outputs[Excel Source Output].Columns[CoverageSeq]"
+                      name="CoverageSeq"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\loading to PolicyCoverage\Excel Source.Outputs[Excel Source Output].Columns[CoverageTitle]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\loading to PolicyCoverage\Excel Source.Outputs[Excel Source Output].ExternalColumns[CoverageTitle]"
+                      length="255"
+                      lineageId="Package\loading to PolicyCoverage\Excel Source.Outputs[Excel Source Output].Columns[CoverageTitle]"
+                      name="CoverageTitle"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\loading to PolicyCoverage\Excel Source.Outputs[Excel Source Output].ExternalColumns[SectionKey]"
+                      dataType="wstr"
+                      length="255"
+                      name="SectionKey" />
+                    <externalMetadataColumn
+                      refId="Package\loading to PolicyCoverage\Excel Source.Outputs[Excel Source Output].ExternalColumns[CoverageKey]"
+                      dataType="wstr"
+                      length="255"
+                      name="CoverageKey" />
+                    <externalMetadataColumn
+                      refId="Package\loading to PolicyCoverage\Excel Source.Outputs[Excel Source Output].ExternalColumns[CoverageTypeCode]"
+                      dataType="wstr"
+                      length="255"
+                      name="CoverageTypeCode" />
+                    <externalMetadataColumn
+                      refId="Package\loading to PolicyCoverage\Excel Source.Outputs[Excel Source Output].ExternalColumns[MinDeductible]"
+                      dataType="r8"
+                      name="MinDeductible" />
+                    <externalMetadataColumn
+                      refId="Package\loading to PolicyCoverage\Excel Source.Outputs[Excel Source Output].ExternalColumns[MaxDeductible]"
+                      dataType="r8"
+                      name="MaxDeductible" />
+                    <externalMetadataColumn
+                      refId="Package\loading to PolicyCoverage\Excel Source.Outputs[Excel Source Output].ExternalColumns[CoverageSeq]"
+                      dataType="r8"
+                      name="CoverageSeq" />
+                    <externalMetadataColumn
+                      refId="Package\loading to PolicyCoverage\Excel Source.Outputs[Excel Source Output].ExternalColumns[CoverageTitle]"
+                      dataType="wstr"
+                      length="255"
+                      name="CoverageTitle" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\loading to PolicyCoverage\Excel Source.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\loading to PolicyCoverage\Excel Source.Outputs[Excel Source Error Output].Columns[SectionKey]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\loading to PolicyCoverage\Excel Source.Outputs[Excel Source Error Output].Columns[SectionKey]"
+                      name="SectionKey" />
+                    <outputColumn
+                      refId="Package\loading to PolicyCoverage\Excel Source.Outputs[Excel Source Error Output].Columns[CoverageKey]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\loading to PolicyCoverage\Excel Source.Outputs[Excel Source Error Output].Columns[CoverageKey]"
+                      name="CoverageKey" />
+                    <outputColumn
+                      refId="Package\loading to PolicyCoverage\Excel Source.Outputs[Excel Source Error Output].Columns[CoverageTypeCode]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\loading to PolicyCoverage\Excel Source.Outputs[Excel Source Error Output].Columns[CoverageTypeCode]"
+                      name="CoverageTypeCode" />
+                    <outputColumn
+                      refId="Package\loading to PolicyCoverage\Excel Source.Outputs[Excel Source Error Output].Columns[MinDeductible]"
+                      dataType="r8"
+                      lineageId="Package\loading to PolicyCoverage\Excel Source.Outputs[Excel Source Error Output].Columns[MinDeductible]"
+                      name="MinDeductible" />
+                    <outputColumn
+                      refId="Package\loading to PolicyCoverage\Excel Source.Outputs[Excel Source Error Output].Columns[MaxDeductible]"
+                      dataType="r8"
+                      lineageId="Package\loading to PolicyCoverage\Excel Source.Outputs[Excel Source Error Output].Columns[MaxDeductible]"
+                      name="MaxDeductible" />
+                    <outputColumn
+                      refId="Package\loading to PolicyCoverage\Excel Source.Outputs[Excel Source Error Output].Columns[CoverageSeq]"
+                      dataType="r8"
+                      lineageId="Package\loading to PolicyCoverage\Excel Source.Outputs[Excel Source Error Output].Columns[CoverageSeq]"
+                      name="CoverageSeq" />
+                    <outputColumn
+                      refId="Package\loading to PolicyCoverage\Excel Source.Outputs[Excel Source Error Output].Columns[CoverageTitle]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\loading to PolicyCoverage\Excel Source.Outputs[Excel Source Error Output].Columns[CoverageTitle]"
+                      name="CoverageTitle" />
+                    <outputColumn
+                      refId="Package\loading to PolicyCoverage\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\loading to PolicyCoverage\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\loading to PolicyCoverage\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\loading to PolicyCoverage\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\loading to PolicyCoverage\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[PolicyCoverage]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\loading to PolicyCoverage\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[yitbark\tariku.TardisStage]"
+                  connectionManagerRefId="Package.ConnectionManagers[yitbark\tariku.TardisStage]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\loading to PolicyCoverage\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\loading to PolicyCoverage\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of SectionKey]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="17"
+                      cachedName="Copy of SectionKey"
+                      externalMetadataColumnId="Package\loading to PolicyCoverage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SectionKey]"
+                      lineageId="Package\loading to PolicyCoverage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SectionKey]" />
+                    <inputColumn
+                      refId="Package\loading to PolicyCoverage\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of CoverageKey]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="17"
+                      cachedName="Copy of CoverageKey"
+                      externalMetadataColumnId="Package\loading to PolicyCoverage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CoverageKey]"
+                      lineageId="Package\loading to PolicyCoverage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of CoverageKey]" />
+                    <inputColumn
+                      refId="Package\loading to PolicyCoverage\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of CoverageTypeCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="Copy of CoverageTypeCode"
+                      externalMetadataColumnId="Package\loading to PolicyCoverage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CoverageTypeCode]"
+                      lineageId="Package\loading to PolicyCoverage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of CoverageTypeCode]" />
+                    <inputColumn
+                      refId="Package\loading to PolicyCoverage\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of MinDeductible]"
+                      cachedDataType="numeric"
+                      cachedName="Copy of MinDeductible"
+                      cachedPrecision="19"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\loading to PolicyCoverage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MinDeductible]"
+                      lineageId="Package\loading to PolicyCoverage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of MinDeductible]" />
+                    <inputColumn
+                      refId="Package\loading to PolicyCoverage\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of MaxDeductible]"
+                      cachedDataType="numeric"
+                      cachedName="Copy of MaxDeductible"
+                      cachedPrecision="19"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\loading to PolicyCoverage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MaxDeductible]"
+                      lineageId="Package\loading to PolicyCoverage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of MaxDeductible]" />
+                    <inputColumn
+                      refId="Package\loading to PolicyCoverage\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of CoverageSeq]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="Copy of CoverageSeq"
+                      externalMetadataColumnId="Package\loading to PolicyCoverage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CoverageSequence]"
+                      lineageId="Package\loading to PolicyCoverage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of CoverageSeq]" />
+                    <inputColumn
+                      refId="Package\loading to PolicyCoverage\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of CoverageTitle]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="Copy of CoverageTitle"
+                      externalMetadataColumnId="Package\loading to PolicyCoverage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CoverageTitle]"
+                      lineageId="Package\loading to PolicyCoverage\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of CoverageTitle]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\loading to PolicyCoverage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SectionKey]"
+                      codePage="1252"
+                      dataType="str"
+                      length="17"
+                      name="SectionKey" />
+                    <externalMetadataColumn
+                      refId="Package\loading to PolicyCoverage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CoverageKey]"
+                      codePage="1252"
+                      dataType="str"
+                      length="17"
+                      name="CoverageKey" />
+                    <externalMetadataColumn
+                      refId="Package\loading to PolicyCoverage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CoverageTypeCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="CoverageTypeCode" />
+                    <externalMetadataColumn
+                      refId="Package\loading to PolicyCoverage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MinDeductible]"
+                      dataType="numeric"
+                      name="MinDeductible"
+                      precision="19"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\loading to PolicyCoverage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MaxDeductible]"
+                      dataType="numeric"
+                      name="MaxDeductible"
+                      precision="19"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\loading to PolicyCoverage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CoverageSequence]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="CoverageSequence" />
+                    <externalMetadataColumn
+                      refId="Package\loading to PolicyCoverage\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CoverageTitle]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="CoverageTitle" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\loading to PolicyCoverage\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\loading to PolicyCoverage\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\loading to PolicyCoverage\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\loading to PolicyCoverage\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\loading to PolicyCoverage\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\loading to PolicyCoverage\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\loading to PolicyCoverage.Paths[Data Conversion Output]"
+              endId="Package\loading to PolicyCoverage\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\loading to PolicyCoverage\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\loading to PolicyCoverage.Paths[Excel Source Output]"
+              endId="Package\loading to PolicyCoverage\Data Conversion.Inputs[Data Conversion Input]"
+              name="Excel Source Output"
+              startId="Package\loading to PolicyCoverage\Excel Source.Outputs[Excel Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{03E5DD78-839E-4F4A-93D7-0007CD27C825}"
+      DTS:From="Package\delete from PolicyCoverage"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\loading to PolicyCoverage" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="170,42"
+          Id="Package\delete from PolicyCoverage"
+          TopLeft="52.5,15.5" />
+        <NodeLayout
+          Size="207,42"
+          Id="Package\loading to PolicyCoverage"
+          TopLeft="48.5,115.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="137.5,57.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="14.5,58"
+              Start="0,0"
+              End="14.5,50.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25"
+                    Point2="0,29"
+                    Point3="4,29" />
+                  <mssgle:LineSegment
+                    End="10.5,29" />
+                  <mssgle:CubicBezierSegment
+                    Point1="10.5,29"
+                    Point2="14.5,29"
+                    Point3="14.5,33" />
+                  <mssgle:LineSegment
+                    End="14.5,50.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\loading to PolicyCoverage">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="161,42"
+          Id="Package\loading to PolicyCoverage\Data Conversion"
+          TopLeft="196.5,82.5" />
+        <NodeLayout
+          Size="144,42"
+          Id="Package\loading to PolicyCoverage\Excel Source"
+          TopLeft="5.5,5.5" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\loading to PolicyCoverage\OLE DB Destination"
+          TopLeft="54.5,149.5" />
+        <EdgeLayout
+          Id="Package\loading to PolicyCoverage.Paths[Excel Source Output]"
+          TopLeft="77.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="199.5,35"
+              Start="0,0"
+              End="199.5,27.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.5"
+                    Point2="0,17.5"
+                    Point3="4,17.5" />
+                  <mssgle:LineSegment
+                    End="195.5,17.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="195.5,17.5"
+                    Point2="199.5,17.5"
+                    Point3="199.5,21.5" />
+                  <mssgle:LineSegment
+                    End="199.5,27.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\loading to PolicyCoverage.Paths[Data Conversion Output]"
+          TopLeft="277,124.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-134,25"
+              Start="0,0"
+              End="-134,17.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,8.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,8.5"
+                    Point2="0,12.5"
+                    Point3="-4,12.5" />
+                  <mssgle:LineSegment
+                    End="-130,12.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-130,12.5"
+                    Point2="-134,12.5"
+                    Point3="-134,16.5" />
+                  <mssgle:LineSegment
+                    End="-134,17.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\loading to PolicyCoverage\Excel Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\loading to PolicyCoverage\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

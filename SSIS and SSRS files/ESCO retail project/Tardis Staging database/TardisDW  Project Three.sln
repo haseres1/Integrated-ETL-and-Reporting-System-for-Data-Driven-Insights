@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32510.428
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{C9674DCB-5085-4A16-B785-4C70DD1589BD}") = "TardisStaging", "TardisStaging\TardisStaging.dtproj", "{E05E00CE-5991-45AC-AC6A-CCB6716F1DCA}"
+EndProject
+Project("{C9674DCB-5085-4A16-B785-4C70DD1589BD}") = "TardisDW", "Integration Services Project1\TardisDW.dtproj", "{5B74DD6F-6EE5-415D-AB90-0BA1D61F2437}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E05E00CE-5991-45AC-AC6A-CCB6716F1DCA}.Development|Default.ActiveCfg = Development
+		{E05E00CE-5991-45AC-AC6A-CCB6716F1DCA}.Development|Default.Build.0 = Development
+		{5B74DD6F-6EE5-415D-AB90-0BA1D61F2437}.Development|Default.ActiveCfg = Development
+		{5B74DD6F-6EE5-415D-AB90-0BA1D61F2437}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C7D1E649-C674-4089-8BD5-785BEC1AF26E}
+	EndGlobalSection
+EndGlobal

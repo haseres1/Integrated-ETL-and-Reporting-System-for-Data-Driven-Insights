@@ -1,0 +1,1050 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/4/2022 11:33:58 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="YITBARK"
+  DTS:CreatorName="YITBARK\HP"
+  DTS:DTSID="{06C6B44A-CD00-49C9-845F-58CF4C07CABA}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.521.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Deduction"
+  DTS:PackageType="5"
+  DTS:VersionBuild="13"
+  DTS:VersionGUID="{CDD311C7-738A-42BA-A49F-88974C4B8807}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{BFE2C9FA-E38D-4B1A-A59E-91FB3182C13C}"
+      DTS:ObjectName="Excel Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\HP\OneDrive - montgomerycollege.edu\Documents\SQL server traning\SQL Project\Vijay project\Tardis_DWH\STAGING\COVERAGE,DEDUCTION,PREMIUM,LIMIT.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[yitbark\tariku.EBC_Bank_ProjectDW]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{C49E1B17-8279-4867-B40C-B11D6D99B7CF}"
+      DTS:ObjectName="yitbark\tariku.EBC_Bank_ProjectDW">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=yitbark\tariku;Initial Catalog=EBC_Bank_ProjectDW;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[yitbark\tariku.TARDIS]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{689C5F1F-BB81-43E6-BF4E-5E846D36745D}"
+      DTS:ObjectName="yitbark\tariku.TARDIS">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=yitbark\tariku;Initial Catalog=TARDIS;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[yitbark\tariku.TardisStage]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{F93A9978-6A8C-4E83-AE6E-ACA613D0E167}"
+      DTS:ObjectName="yitbark\tariku.TardisStage">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=yitbark\tariku;Initial Catalog=TardisStage;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\deduction"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{5965e07a-7e7f-40fb-85f6-452332ba2fc1}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="deduction"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\deduction\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\deduction\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\deduction\Data Conversion.Inputs[Data Conversion Input].Columns[CoverageKey]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CoverageKey"
+                      lineageId="Package\deduction\Excel Source.Outputs[Excel Source Output].Columns[CoverageKey]" />
+                    <inputColumn
+                      refId="Package\deduction\Data Conversion.Inputs[Data Conversion Input].Columns[SourceIdentifier]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="SourceIdentifier"
+                      lineageId="Package\deduction\Excel Source.Outputs[Excel Source Output].Columns[SourceIdentifier]" />
+                    <inputColumn
+                      refId="Package\deduction\Data Conversion.Inputs[Data Conversion Input].Columns[TransactionCode]"
+                      cachedDataType="r8"
+                      cachedName="TransactionCode"
+                      lineageId="Package\deduction\Excel Source.Outputs[Excel Source Output].Columns[TransactionCode]" />
+                    <inputColumn
+                      refId="Package\deduction\Data Conversion.Inputs[Data Conversion Input].Columns[CurrCode]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CurrCode"
+                      lineageId="Package\deduction\Excel Source.Outputs[Excel Source Output].Columns[CurrCode]" />
+                    <inputColumn
+                      refId="Package\deduction\Data Conversion.Inputs[Data Conversion Input].Columns[Date]"
+                      cachedDataType="date"
+                      cachedName="Date"
+                      lineageId="Package\deduction\Excel Source.Outputs[Excel Source Output].Columns[Date]" />
+                    <inputColumn
+                      refId="Package\deduction\Data Conversion.Inputs[Data Conversion Input].Columns[FXRate]"
+                      cachedDataType="r8"
+                      cachedName="FXRate"
+                      lineageId="Package\deduction\Excel Source.Outputs[Excel Source Output].Columns[FXRate]" />
+                    <inputColumn
+                      refId="Package\deduction\Data Conversion.Inputs[Data Conversion Input].Columns[RevenueTypeCode]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="RevenueTypeCode"
+                      lineageId="Package\deduction\Excel Source.Outputs[Excel Source Output].Columns[RevenueTypeCode]" />
+                    <inputColumn
+                      refId="Package\deduction\Data Conversion.Inputs[Data Conversion Input].Columns[DeductionAmount]"
+                      cachedDataType="r8"
+                      cachedName="DeductionAmount"
+                      lineageId="Package\deduction\Excel Source.Outputs[Excel Source Output].Columns[DeductionAmount]" />
+                    <inputColumn
+                      refId="Package\deduction\Data Conversion.Inputs[Data Conversion Input].Columns[Percentgage]"
+                      cachedDataType="r8"
+                      cachedName="Percentgage"
+                      lineageId="Package\deduction\Excel Source.Outputs[Excel Source Output].Columns[Percentgage]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\deduction\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\deduction\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\deduction\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of CoverageKey]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="17"
+                      lineageId="Package\deduction\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of CoverageKey]"
+                      name="Copy of CoverageKey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\deduction\Excel Source.Outputs[Excel Source Output].Columns[CoverageKey]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\deduction\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SourceIdentifier]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="150"
+                      lineageId="Package\deduction\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SourceIdentifier]"
+                      name="Copy of SourceIdentifier"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\deduction\Excel Source.Outputs[Excel Source Output].Columns[SourceIdentifier]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\deduction\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of TransactionCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="20"
+                      lineageId="Package\deduction\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of TransactionCode]"
+                      name="Copy of TransactionCode"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\deduction\Excel Source.Outputs[Excel Source Output].Columns[TransactionCode]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\deduction\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of CurrCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="3"
+                      lineageId="Package\deduction\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of CurrCode]"
+                      name="Copy of CurrCode"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\deduction\Excel Source.Outputs[Excel Source Output].Columns[CurrCode]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\deduction\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Date]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\deduction\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Date]"
+                      name="Copy of Date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\deduction\Excel Source.Outputs[Excel Source Output].Columns[Date]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\deduction\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of FXRate]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\deduction\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of FXRate]"
+                      name="Copy of FXRate"
+                      precision="18"
+                      scale="8"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\deduction\Excel Source.Outputs[Excel Source Output].Columns[FXRate]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\deduction\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of RevenueTypeCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="3"
+                      lineageId="Package\deduction\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of RevenueTypeCode]"
+                      name="Copy of RevenueTypeCode"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\deduction\Excel Source.Outputs[Excel Source Output].Columns[RevenueTypeCode]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\deduction\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of DeductionAmount]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\deduction\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of DeductionAmount]"
+                      name="Copy of DeductionAmount"
+                      precision="18"
+                      scale="2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\deduction\Excel Source.Outputs[Excel Source Output].Columns[DeductionAmount]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\deduction\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Percentgage]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\deduction\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Percentgage]"
+                      name="Copy of Percentgage"
+                      precision="18"
+                      scale="8"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\deduction\Excel Source.Outputs[Excel Source Output].Columns[Percentgage]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\deduction\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\deduction\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\deduction\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\deduction\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\deduction\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\deduction\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\deduction\Excel Source"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="Excel Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">Deduction$</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\deduction\Excel Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\deduction\Excel Source.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\deduction\Excel Source.Outputs[Excel Source Output].Columns[CoverageKey]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\deduction\Excel Source.Outputs[Excel Source Output].ExternalColumns[CoverageKey]"
+                      length="255"
+                      lineageId="Package\deduction\Excel Source.Outputs[Excel Source Output].Columns[CoverageKey]"
+                      name="CoverageKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\deduction\Excel Source.Outputs[Excel Source Output].Columns[SourceIdentifier]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\deduction\Excel Source.Outputs[Excel Source Output].ExternalColumns[SourceIdentifier]"
+                      length="255"
+                      lineageId="Package\deduction\Excel Source.Outputs[Excel Source Output].Columns[SourceIdentifier]"
+                      name="SourceIdentifier"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\deduction\Excel Source.Outputs[Excel Source Output].Columns[TransactionCode]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\deduction\Excel Source.Outputs[Excel Source Output].ExternalColumns[TransactionCode]"
+                      lineageId="Package\deduction\Excel Source.Outputs[Excel Source Output].Columns[TransactionCode]"
+                      name="TransactionCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\deduction\Excel Source.Outputs[Excel Source Output].Columns[CurrCode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\deduction\Excel Source.Outputs[Excel Source Output].ExternalColumns[CurrCode]"
+                      length="255"
+                      lineageId="Package\deduction\Excel Source.Outputs[Excel Source Output].Columns[CurrCode]"
+                      name="CurrCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\deduction\Excel Source.Outputs[Excel Source Output].Columns[Date]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\deduction\Excel Source.Outputs[Excel Source Output].ExternalColumns[Date]"
+                      lineageId="Package\deduction\Excel Source.Outputs[Excel Source Output].Columns[Date]"
+                      name="Date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\deduction\Excel Source.Outputs[Excel Source Output].Columns[FXRate]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\deduction\Excel Source.Outputs[Excel Source Output].ExternalColumns[FXRate]"
+                      lineageId="Package\deduction\Excel Source.Outputs[Excel Source Output].Columns[FXRate]"
+                      name="FXRate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\deduction\Excel Source.Outputs[Excel Source Output].Columns[RevenueTypeCode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\deduction\Excel Source.Outputs[Excel Source Output].ExternalColumns[RevenueTypeCode]"
+                      length="255"
+                      lineageId="Package\deduction\Excel Source.Outputs[Excel Source Output].Columns[RevenueTypeCode]"
+                      name="RevenueTypeCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\deduction\Excel Source.Outputs[Excel Source Output].Columns[DeductionAmount]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\deduction\Excel Source.Outputs[Excel Source Output].ExternalColumns[DeductionAmount]"
+                      lineageId="Package\deduction\Excel Source.Outputs[Excel Source Output].Columns[DeductionAmount]"
+                      name="DeductionAmount"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\deduction\Excel Source.Outputs[Excel Source Output].Columns[Percentgage]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\deduction\Excel Source.Outputs[Excel Source Output].ExternalColumns[Percentgage]"
+                      lineageId="Package\deduction\Excel Source.Outputs[Excel Source Output].Columns[Percentgage]"
+                      name="Percentgage"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\deduction\Excel Source.Outputs[Excel Source Output].ExternalColumns[CoverageKey]"
+                      dataType="wstr"
+                      length="255"
+                      name="CoverageKey" />
+                    <externalMetadataColumn
+                      refId="Package\deduction\Excel Source.Outputs[Excel Source Output].ExternalColumns[SourceIdentifier]"
+                      dataType="wstr"
+                      length="255"
+                      name="SourceIdentifier" />
+                    <externalMetadataColumn
+                      refId="Package\deduction\Excel Source.Outputs[Excel Source Output].ExternalColumns[TransactionCode]"
+                      dataType="r8"
+                      name="TransactionCode" />
+                    <externalMetadataColumn
+                      refId="Package\deduction\Excel Source.Outputs[Excel Source Output].ExternalColumns[CurrCode]"
+                      dataType="wstr"
+                      length="255"
+                      name="CurrCode" />
+                    <externalMetadataColumn
+                      refId="Package\deduction\Excel Source.Outputs[Excel Source Output].ExternalColumns[Date]"
+                      dataType="date"
+                      name="Date" />
+                    <externalMetadataColumn
+                      refId="Package\deduction\Excel Source.Outputs[Excel Source Output].ExternalColumns[FXRate]"
+                      dataType="r8"
+                      name="FXRate" />
+                    <externalMetadataColumn
+                      refId="Package\deduction\Excel Source.Outputs[Excel Source Output].ExternalColumns[RevenueTypeCode]"
+                      dataType="wstr"
+                      length="255"
+                      name="RevenueTypeCode" />
+                    <externalMetadataColumn
+                      refId="Package\deduction\Excel Source.Outputs[Excel Source Output].ExternalColumns[DeductionAmount]"
+                      dataType="r8"
+                      name="DeductionAmount" />
+                    <externalMetadataColumn
+                      refId="Package\deduction\Excel Source.Outputs[Excel Source Output].ExternalColumns[Percentgage]"
+                      dataType="r8"
+                      name="Percentgage" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\deduction\Excel Source.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\deduction\Excel Source.Outputs[Excel Source Error Output].Columns[CoverageKey]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\deduction\Excel Source.Outputs[Excel Source Error Output].Columns[CoverageKey]"
+                      name="CoverageKey" />
+                    <outputColumn
+                      refId="Package\deduction\Excel Source.Outputs[Excel Source Error Output].Columns[SourceIdentifier]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\deduction\Excel Source.Outputs[Excel Source Error Output].Columns[SourceIdentifier]"
+                      name="SourceIdentifier" />
+                    <outputColumn
+                      refId="Package\deduction\Excel Source.Outputs[Excel Source Error Output].Columns[TransactionCode]"
+                      dataType="r8"
+                      lineageId="Package\deduction\Excel Source.Outputs[Excel Source Error Output].Columns[TransactionCode]"
+                      name="TransactionCode" />
+                    <outputColumn
+                      refId="Package\deduction\Excel Source.Outputs[Excel Source Error Output].Columns[RevenueTypeCode]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\deduction\Excel Source.Outputs[Excel Source Error Output].Columns[RevenueTypeCode]"
+                      name="RevenueTypeCode" />
+                    <outputColumn
+                      refId="Package\deduction\Excel Source.Outputs[Excel Source Error Output].Columns[CurrCode]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\deduction\Excel Source.Outputs[Excel Source Error Output].Columns[CurrCode]"
+                      name="CurrCode" />
+                    <outputColumn
+                      refId="Package\deduction\Excel Source.Outputs[Excel Source Error Output].Columns[Date]"
+                      dataType="date"
+                      lineageId="Package\deduction\Excel Source.Outputs[Excel Source Error Output].Columns[Date]"
+                      name="Date" />
+                    <outputColumn
+                      refId="Package\deduction\Excel Source.Outputs[Excel Source Error Output].Columns[DeductionAmount]"
+                      dataType="r8"
+                      lineageId="Package\deduction\Excel Source.Outputs[Excel Source Error Output].Columns[DeductionAmount]"
+                      name="DeductionAmount" />
+                    <outputColumn
+                      refId="Package\deduction\Excel Source.Outputs[Excel Source Error Output].Columns[FXRate]"
+                      dataType="r8"
+                      lineageId="Package\deduction\Excel Source.Outputs[Excel Source Error Output].Columns[FXRate]"
+                      name="FXRate" />
+                    <outputColumn
+                      refId="Package\deduction\Excel Source.Outputs[Excel Source Error Output].Columns[Percentgage]"
+                      dataType="r8"
+                      lineageId="Package\deduction\Excel Source.Outputs[Excel Source Error Output].Columns[Percentgage]"
+                      name="Percentgage" />
+                    <outputColumn
+                      refId="Package\deduction\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\deduction\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\deduction\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\deduction\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\deduction\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Deduction]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\deduction\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[yitbark\tariku.TardisStage]"
+                  connectionManagerRefId="Package.ConnectionManagers[yitbark\tariku.TardisStage]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\deduction\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\deduction\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of CoverageKey]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="17"
+                      cachedName="Copy of CoverageKey"
+                      externalMetadataColumnId="Package\deduction\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CoverageKey]"
+                      lineageId="Package\deduction\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of CoverageKey]" />
+                    <inputColumn
+                      refId="Package\deduction\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of SourceIdentifier]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="150"
+                      cachedName="Copy of SourceIdentifier"
+                      externalMetadataColumnId="Package\deduction\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SourceIdentifier]"
+                      lineageId="Package\deduction\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SourceIdentifier]" />
+                    <inputColumn
+                      refId="Package\deduction\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of TransactionCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Copy of TransactionCode"
+                      externalMetadataColumnId="Package\deduction\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TransactionTypeCode]"
+                      lineageId="Package\deduction\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of TransactionCode]" />
+                    <inputColumn
+                      refId="Package\deduction\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of RevenueTypeCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="Copy of RevenueTypeCode"
+                      externalMetadataColumnId="Package\deduction\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RevenueTypeCode]"
+                      lineageId="Package\deduction\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of RevenueTypeCode]" />
+                    <inputColumn
+                      refId="Package\deduction\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of CurrCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="Copy of CurrCode"
+                      externalMetadataColumnId="Package\deduction\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CurrCode]"
+                      lineageId="Package\deduction\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of CurrCode]" />
+                    <inputColumn
+                      refId="Package\deduction\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Date]"
+                      cachedDataType="date"
+                      cachedName="Date"
+                      externalMetadataColumnId="Package\deduction\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Date]"
+                      lineageId="Package\deduction\Excel Source.Outputs[Excel Source Output].Columns[Date]" />
+                    <inputColumn
+                      refId="Package\deduction\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of DeductionAmount]"
+                      cachedDataType="numeric"
+                      cachedName="Copy of DeductionAmount"
+                      cachedPrecision="18"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\deduction\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DeductionAmount]"
+                      lineageId="Package\deduction\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of DeductionAmount]" />
+                    <inputColumn
+                      refId="Package\deduction\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of FXRate]"
+                      cachedDataType="numeric"
+                      cachedName="Copy of FXRate"
+                      cachedPrecision="18"
+                      cachedScale="8"
+                      externalMetadataColumnId="Package\deduction\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FXRate]"
+                      lineageId="Package\deduction\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of FXRate]" />
+                    <inputColumn
+                      refId="Package\deduction\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of Percentgage]"
+                      cachedDataType="numeric"
+                      cachedName="Copy of Percentgage"
+                      cachedPrecision="18"
+                      cachedScale="8"
+                      externalMetadataColumnId="Package\deduction\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DeductionPercentage]"
+                      lineageId="Package\deduction\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Percentgage]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\deduction\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CoverageKey]"
+                      codePage="1252"
+                      dataType="str"
+                      length="17"
+                      name="CoverageKey" />
+                    <externalMetadataColumn
+                      refId="Package\deduction\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SourceIdentifier]"
+                      codePage="1252"
+                      dataType="str"
+                      length="150"
+                      name="SourceIdentifier" />
+                    <externalMetadataColumn
+                      refId="Package\deduction\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TransactionTypeCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="TransactionTypeCode" />
+                    <externalMetadataColumn
+                      refId="Package\deduction\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RevenueTypeCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="RevenueTypeCode" />
+                    <externalMetadataColumn
+                      refId="Package\deduction\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CurrCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="CurrCode" />
+                    <externalMetadataColumn
+                      refId="Package\deduction\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Date]"
+                      dataType="dbDate"
+                      name="Date" />
+                    <externalMetadataColumn
+                      refId="Package\deduction\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DeductionAmount]"
+                      dataType="numeric"
+                      name="DeductionAmount"
+                      precision="19"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\deduction\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FXRate]"
+                      dataType="numeric"
+                      name="FXRate"
+                      precision="18"
+                      scale="8" />
+                    <externalMetadataColumn
+                      refId="Package\deduction\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DeductionPercentage]"
+                      dataType="numeric"
+                      name="DeductionPercentage"
+                      precision="18"
+                      scale="8" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\deduction\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\deduction\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\deduction\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\deduction\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\deduction\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\deduction\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\deduction.Paths[Data Conversion Output]"
+              endId="Package\deduction\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\deduction\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\deduction.Paths[Excel Source Output]"
+              endId="Package\deduction\Data Conversion.Inputs[Data Conversion Input]"
+              name="Excel Source Output"
+              startId="Package\deduction\Excel Source.Outputs[Excel Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\delete from deduction"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{4da34f60-30d2-4e98-bfbf-2099d0072adb}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="delete from deduction"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022 CTP2.0; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{F93A9978-6A8C-4E83-AE6E-ACA613D0E167}"
+          SQLTask:SqlStatementSource="delete from deduction" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{351b34c5-b320-4cd1-a8e7-7ca51fbc114b}"
+      DTS:From="Package\delete from deduction"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\deduction" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="127,42"
+          Id="Package\deduction"
+          TopLeft="223,160" />
+        <NodeLayout
+          Size="157,42"
+          Id="Package\delete from deduction"
+          TopLeft="155,19" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="233.5,61">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="53,99"
+              Start="0,0"
+              End="53,91.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,45.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,45.5"
+                    Point2="0,49.5"
+                    Point3="4,49.5" />
+                  <mssgle:LineSegment
+                    End="49,49.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="49,49.5"
+                    Point2="53,49.5"
+                    Point3="53,53.5" />
+                  <mssgle:LineSegment
+                    End="53,91.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\deduction">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="144,42"
+          Id="Package\deduction\Excel Source"
+          TopLeft="262.5,4.5" />
+        <NodeLayout
+          Size="167,42"
+          Id="Package\deduction\OLE DB Destination"
+          TopLeft="240.5,195.5" />
+        <NodeLayout
+          Size="161,42"
+          Id="Package\deduction\Data Conversion"
+          TopLeft="246.5,102.5" />
+        <EdgeLayout
+          Id="Package\deduction.Paths[Excel Source Output]"
+          TopLeft="330.75,46.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,56"
+              Start="0,0"
+              End="0,48.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,48.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\deduction.Paths[Data Conversion Output]"
+          TopLeft="325.5,144.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51"
+              Start="0,0"
+              End="0,43.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\deduction\Excel Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\deduction\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

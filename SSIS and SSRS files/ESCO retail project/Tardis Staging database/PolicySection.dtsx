@@ -1,0 +1,1123 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/4/2022 11:32:05 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="YITBARK"
+  DTS:CreatorName="YITBARK\HP"
+  DTS:DTSID="{B925A2B8-7B33-4B65-9167-A89B6B985E44}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.521.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="PolicySection"
+  DTS:PackageType="5"
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{A9D2AB2A-29E6-4B11-8151-B6FF67973306}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{4F5ABE0D-5518-4A2A-8D6A-672BACC30B0F}"
+      DTS:ObjectName="Excel Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\HP\OneDrive - montgomerycollege.edu\Documents\SQL server traning\SQL Project\Vijay project\Tardis_DWH\STAGING\Section.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[yitbark\tariku.TARDIS]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{6B4126A5-69E4-487B-9E44-ACBA90D72650}"
+      DTS:ObjectName="yitbark\tariku.TARDIS">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=yitbark\tariku;Initial Catalog=TARDIS;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[yitbark\tariku.TardisStage]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{0B47D8E5-85CE-4773-BCB9-2143892F6F5D}"
+      DTS:ObjectName="yitbark\tariku.TardisStage">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=yitbark\tariku;Initial Catalog=TardisStage;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\delete from PolicySection"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{7B4D4DBF-5E5A-486C-A81B-9965BF6BE064}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="delete from PolicySection"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022 CTP2.0; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{0B47D8E5-85CE-4773-BCB9-2143892F6F5D}"
+          SQLTask:SqlStatementSource="delete from PolicySection" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\PolicySection"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{E1457465-4A34-4739-8A2F-2CE9A63A06C5}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="PolicySection"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\PolicySection\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\PolicySection\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\PolicySection\Data Conversion.Inputs[Data Conversion Input].Columns[SectionKey]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="SectionKey"
+                      lineageId="Package\PolicySection\Excel Source.Outputs[Excel Source Output].Columns[SectionKey]" />
+                    <inputColumn
+                      refId="Package\PolicySection\Data Conversion.Inputs[Data Conversion Input].Columns[PolicyKey]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="PolicyKey"
+                      lineageId="Package\PolicySection\Excel Source.Outputs[Excel Source Output].Columns[PolicyKey]" />
+                    <inputColumn
+                      refId="Package\PolicySection\Data Conversion.Inputs[Data Conversion Input].Columns[SectionLongName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="SectionLongName"
+                      lineageId="Package\PolicySection\Excel Source.Outputs[Excel Source Output].Columns[SectionLongName]" />
+                    <inputColumn
+                      refId="Package\PolicySection\Data Conversion.Inputs[Data Conversion Input].Columns[SignedLinePercentage]"
+                      cachedDataType="r8"
+                      cachedName="SignedLinePercentage"
+                      lineageId="Package\PolicySection\Excel Source.Outputs[Excel Source Output].Columns[SignedLinePercentage]" />
+                    <inputColumn
+                      refId="Package\PolicySection\Data Conversion.Inputs[Data Conversion Input].Columns[SignedOrderPercentage]"
+                      cachedDataType="r8"
+                      cachedName="SignedOrderPercentage"
+                      lineageId="Package\PolicySection\Excel Source.Outputs[Excel Source Output].Columns[SignedOrderPercentage]" />
+                    <inputColumn
+                      refId="Package\PolicySection\Data Conversion.Inputs[Data Conversion Input].Columns[WrittenOrderPercentage]"
+                      cachedDataType="r8"
+                      cachedName="WrittenOrderPercentage"
+                      lineageId="Package\PolicySection\Excel Source.Outputs[Excel Source Output].Columns[WrittenOrderPercentage]" />
+                    <inputColumn
+                      refId="Package\PolicySection\Data Conversion.Inputs[Data Conversion Input].Columns[SectionTypeCode]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="SectionTypeCode"
+                      lineageId="Package\PolicySection\Excel Source.Outputs[Excel Source Output].Columns[SectionTypeCode]" />
+                    <inputColumn
+                      refId="Package\PolicySection\Data Conversion.Inputs[Data Conversion Input].Columns[SectionSubTypeCode]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="SectionSubTypeCode"
+                      lineageId="Package\PolicySection\Excel Source.Outputs[Excel Source Output].Columns[SectionSubTypeCode]" />
+                    <inputColumn
+                      refId="Package\PolicySection\Data Conversion.Inputs[Data Conversion Input].Columns[SectionTitle]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="SectionTitle"
+                      lineageId="Package\PolicySection\Excel Source.Outputs[Excel Source Output].Columns[SectionTitle]" />
+                    <inputColumn
+                      refId="Package\PolicySection\Data Conversion.Inputs[Data Conversion Input].Columns[Section Seq]"
+                      cachedDataType="r8"
+                      cachedName="Section Seq"
+                      lineageId="Package\PolicySection\Excel Source.Outputs[Excel Source Output].Columns[Section Seq]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\PolicySection\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\PolicySection\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\PolicySection\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SectionKey]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="17"
+                      lineageId="Package\PolicySection\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SectionKey]"
+                      name="Copy of SectionKey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\PolicySection\Excel Source.Outputs[Excel Source Output].Columns[SectionKey]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\PolicySection\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of PolicyKey]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="17"
+                      lineageId="Package\PolicySection\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of PolicyKey]"
+                      name="Copy of PolicyKey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\PolicySection\Excel Source.Outputs[Excel Source Output].Columns[PolicyKey]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\PolicySection\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SectionLongName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\PolicySection\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SectionLongName]"
+                      name="Copy of SectionLongName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\PolicySection\Excel Source.Outputs[Excel Source Output].Columns[SectionLongName]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\PolicySection\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SignedLinePercentage]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\PolicySection\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SignedLinePercentage]"
+                      name="Copy of SignedLinePercentage"
+                      precision="18"
+                      scale="8"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\PolicySection\Excel Source.Outputs[Excel Source Output].Columns[SignedLinePercentage]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\PolicySection\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SignedOrderPercentage]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\PolicySection\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SignedOrderPercentage]"
+                      name="Copy of SignedOrderPercentage"
+                      precision="18"
+                      scale="8"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\PolicySection\Excel Source.Outputs[Excel Source Output].Columns[SignedOrderPercentage]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\PolicySection\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of WrittenOrderPercentage]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\PolicySection\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of WrittenOrderPercentage]"
+                      name="Copy of WrittenOrderPercentage"
+                      precision="18"
+                      scale="8"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\PolicySection\Excel Source.Outputs[Excel Source Output].Columns[WrittenOrderPercentage]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\PolicySection\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SectionTypeCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="3"
+                      lineageId="Package\PolicySection\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SectionTypeCode]"
+                      name="Copy of SectionTypeCode"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\PolicySection\Excel Source.Outputs[Excel Source Output].Columns[SectionTypeCode]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\PolicySection\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SectionSubTypeCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="3"
+                      lineageId="Package\PolicySection\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SectionSubTypeCode]"
+                      name="Copy of SectionSubTypeCode"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\PolicySection\Excel Source.Outputs[Excel Source Output].Columns[SectionSubTypeCode]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\PolicySection\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SectionTitle]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\PolicySection\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SectionTitle]"
+                      name="Copy of SectionTitle"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\PolicySection\Excel Source.Outputs[Excel Source Output].Columns[SectionTitle]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\PolicySection\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Section Seq]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="2"
+                      lineageId="Package\PolicySection\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Section Seq]"
+                      name="Copy of Section Seq"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\PolicySection\Excel Source.Outputs[Excel Source Output].Columns[Section Seq]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\PolicySection\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\PolicySection\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\PolicySection\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\PolicySection\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\PolicySection\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\PolicySection\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\PolicySection\Excel Source"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="Excel Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">'Section data$'</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\PolicySection\Excel Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\PolicySection\Excel Source.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\PolicySection\Excel Source.Outputs[Excel Source Output].Columns[SectionKey]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\PolicySection\Excel Source.Outputs[Excel Source Output].ExternalColumns[SectionKey]"
+                      length="255"
+                      lineageId="Package\PolicySection\Excel Source.Outputs[Excel Source Output].Columns[SectionKey]"
+                      name="SectionKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\PolicySection\Excel Source.Outputs[Excel Source Output].Columns[PolicyKey]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\PolicySection\Excel Source.Outputs[Excel Source Output].ExternalColumns[PolicyKey]"
+                      length="255"
+                      lineageId="Package\PolicySection\Excel Source.Outputs[Excel Source Output].Columns[PolicyKey]"
+                      name="PolicyKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\PolicySection\Excel Source.Outputs[Excel Source Output].Columns[SectionLongName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\PolicySection\Excel Source.Outputs[Excel Source Output].ExternalColumns[SectionLongName]"
+                      length="255"
+                      lineageId="Package\PolicySection\Excel Source.Outputs[Excel Source Output].Columns[SectionLongName]"
+                      name="SectionLongName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\PolicySection\Excel Source.Outputs[Excel Source Output].Columns[SignedLinePercentage]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\PolicySection\Excel Source.Outputs[Excel Source Output].ExternalColumns[SignedLinePercentage]"
+                      lineageId="Package\PolicySection\Excel Source.Outputs[Excel Source Output].Columns[SignedLinePercentage]"
+                      name="SignedLinePercentage"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\PolicySection\Excel Source.Outputs[Excel Source Output].Columns[SignedOrderPercentage]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\PolicySection\Excel Source.Outputs[Excel Source Output].ExternalColumns[SignedOrderPercentage]"
+                      lineageId="Package\PolicySection\Excel Source.Outputs[Excel Source Output].Columns[SignedOrderPercentage]"
+                      name="SignedOrderPercentage"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\PolicySection\Excel Source.Outputs[Excel Source Output].Columns[WrittenOrderPercentage]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\PolicySection\Excel Source.Outputs[Excel Source Output].ExternalColumns[WrittenOrderPercentage]"
+                      lineageId="Package\PolicySection\Excel Source.Outputs[Excel Source Output].Columns[WrittenOrderPercentage]"
+                      name="WrittenOrderPercentage"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\PolicySection\Excel Source.Outputs[Excel Source Output].Columns[SectionTypeCode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\PolicySection\Excel Source.Outputs[Excel Source Output].ExternalColumns[SectionTypeCode]"
+                      length="255"
+                      lineageId="Package\PolicySection\Excel Source.Outputs[Excel Source Output].Columns[SectionTypeCode]"
+                      name="SectionTypeCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\PolicySection\Excel Source.Outputs[Excel Source Output].Columns[SectionSubTypeCode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\PolicySection\Excel Source.Outputs[Excel Source Output].ExternalColumns[SectionSubTypeCode]"
+                      length="255"
+                      lineageId="Package\PolicySection\Excel Source.Outputs[Excel Source Output].Columns[SectionSubTypeCode]"
+                      name="SectionSubTypeCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\PolicySection\Excel Source.Outputs[Excel Source Output].Columns[SectionTitle]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\PolicySection\Excel Source.Outputs[Excel Source Output].ExternalColumns[SectionTitle]"
+                      length="255"
+                      lineageId="Package\PolicySection\Excel Source.Outputs[Excel Source Output].Columns[SectionTitle]"
+                      name="SectionTitle"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\PolicySection\Excel Source.Outputs[Excel Source Output].Columns[Section Seq]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\PolicySection\Excel Source.Outputs[Excel Source Output].ExternalColumns[Section Seq]"
+                      lineageId="Package\PolicySection\Excel Source.Outputs[Excel Source Output].Columns[Section Seq]"
+                      name="Section Seq"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\PolicySection\Excel Source.Outputs[Excel Source Output].ExternalColumns[SectionKey]"
+                      dataType="wstr"
+                      length="255"
+                      name="SectionKey" />
+                    <externalMetadataColumn
+                      refId="Package\PolicySection\Excel Source.Outputs[Excel Source Output].ExternalColumns[PolicyKey]"
+                      dataType="wstr"
+                      length="255"
+                      name="PolicyKey" />
+                    <externalMetadataColumn
+                      refId="Package\PolicySection\Excel Source.Outputs[Excel Source Output].ExternalColumns[SectionLongName]"
+                      dataType="wstr"
+                      length="255"
+                      name="SectionLongName" />
+                    <externalMetadataColumn
+                      refId="Package\PolicySection\Excel Source.Outputs[Excel Source Output].ExternalColumns[SignedLinePercentage]"
+                      dataType="r8"
+                      name="SignedLinePercentage" />
+                    <externalMetadataColumn
+                      refId="Package\PolicySection\Excel Source.Outputs[Excel Source Output].ExternalColumns[SignedOrderPercentage]"
+                      dataType="r8"
+                      name="SignedOrderPercentage" />
+                    <externalMetadataColumn
+                      refId="Package\PolicySection\Excel Source.Outputs[Excel Source Output].ExternalColumns[WrittenOrderPercentage]"
+                      dataType="r8"
+                      name="WrittenOrderPercentage" />
+                    <externalMetadataColumn
+                      refId="Package\PolicySection\Excel Source.Outputs[Excel Source Output].ExternalColumns[SectionTypeCode]"
+                      dataType="wstr"
+                      length="255"
+                      name="SectionTypeCode" />
+                    <externalMetadataColumn
+                      refId="Package\PolicySection\Excel Source.Outputs[Excel Source Output].ExternalColumns[SectionSubTypeCode]"
+                      dataType="wstr"
+                      length="255"
+                      name="SectionSubTypeCode" />
+                    <externalMetadataColumn
+                      refId="Package\PolicySection\Excel Source.Outputs[Excel Source Output].ExternalColumns[SectionTitle]"
+                      dataType="wstr"
+                      length="255"
+                      name="SectionTitle" />
+                    <externalMetadataColumn
+                      refId="Package\PolicySection\Excel Source.Outputs[Excel Source Output].ExternalColumns[Section Seq]"
+                      dataType="r8"
+                      name="Section Seq" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\PolicySection\Excel Source.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\PolicySection\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\PolicySection\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\PolicySection\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\PolicySection\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\PolicySection\Excel Source.Outputs[Excel Source Error Output].Columns[SectionKey]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\PolicySection\Excel Source.Outputs[Excel Source Error Output].Columns[SectionKey]"
+                      name="SectionKey" />
+                    <outputColumn
+                      refId="Package\PolicySection\Excel Source.Outputs[Excel Source Error Output].Columns[PolicyKey]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\PolicySection\Excel Source.Outputs[Excel Source Error Output].Columns[PolicyKey]"
+                      name="PolicyKey" />
+                    <outputColumn
+                      refId="Package\PolicySection\Excel Source.Outputs[Excel Source Error Output].Columns[SectionLongName]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\PolicySection\Excel Source.Outputs[Excel Source Error Output].Columns[SectionLongName]"
+                      name="SectionLongName" />
+                    <outputColumn
+                      refId="Package\PolicySection\Excel Source.Outputs[Excel Source Error Output].Columns[SignedLinePercentage]"
+                      dataType="r8"
+                      lineageId="Package\PolicySection\Excel Source.Outputs[Excel Source Error Output].Columns[SignedLinePercentage]"
+                      name="SignedLinePercentage" />
+                    <outputColumn
+                      refId="Package\PolicySection\Excel Source.Outputs[Excel Source Error Output].Columns[SignedOrderPercentage]"
+                      dataType="r8"
+                      lineageId="Package\PolicySection\Excel Source.Outputs[Excel Source Error Output].Columns[SignedOrderPercentage]"
+                      name="SignedOrderPercentage" />
+                    <outputColumn
+                      refId="Package\PolicySection\Excel Source.Outputs[Excel Source Error Output].Columns[WrittenOrderPercentage]"
+                      dataType="r8"
+                      lineageId="Package\PolicySection\Excel Source.Outputs[Excel Source Error Output].Columns[WrittenOrderPercentage]"
+                      name="WrittenOrderPercentage" />
+                    <outputColumn
+                      refId="Package\PolicySection\Excel Source.Outputs[Excel Source Error Output].Columns[SectionTypeCode]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\PolicySection\Excel Source.Outputs[Excel Source Error Output].Columns[SectionTypeCode]"
+                      name="SectionTypeCode" />
+                    <outputColumn
+                      refId="Package\PolicySection\Excel Source.Outputs[Excel Source Error Output].Columns[SectionSubTypeCode]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\PolicySection\Excel Source.Outputs[Excel Source Error Output].Columns[SectionSubTypeCode]"
+                      name="SectionSubTypeCode" />
+                    <outputColumn
+                      refId="Package\PolicySection\Excel Source.Outputs[Excel Source Error Output].Columns[SectionTitle]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\PolicySection\Excel Source.Outputs[Excel Source Error Output].Columns[SectionTitle]"
+                      name="SectionTitle" />
+                    <outputColumn
+                      refId="Package\PolicySection\Excel Source.Outputs[Excel Source Error Output].Columns[Section Seq]"
+                      dataType="r8"
+                      lineageId="Package\PolicySection\Excel Source.Outputs[Excel Source Error Output].Columns[Section Seq]"
+                      name="Section Seq" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\PolicySection\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[PolicySection]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\PolicySection\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[yitbark\tariku.TardisStage]"
+                  connectionManagerRefId="Package.ConnectionManagers[yitbark\tariku.TardisStage]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\PolicySection\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\PolicySection\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of SectionKey]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="17"
+                      cachedName="Copy of SectionKey"
+                      externalMetadataColumnId="Package\PolicySection\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SectionKey]"
+                      lineageId="Package\PolicySection\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SectionKey]" />
+                    <inputColumn
+                      refId="Package\PolicySection\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of PolicyKey]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="17"
+                      cachedName="Copy of PolicyKey"
+                      externalMetadataColumnId="Package\PolicySection\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PolicyKey]"
+                      lineageId="Package\PolicySection\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of PolicyKey]" />
+                    <inputColumn
+                      refId="Package\PolicySection\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of SectionLongName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copy of SectionLongName"
+                      externalMetadataColumnId="Package\PolicySection\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SectionLongName]"
+                      lineageId="Package\PolicySection\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SectionLongName]" />
+                    <inputColumn
+                      refId="Package\PolicySection\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of SignedLinePercentage]"
+                      cachedDataType="numeric"
+                      cachedName="Copy of SignedLinePercentage"
+                      cachedPrecision="18"
+                      cachedScale="8"
+                      externalMetadataColumnId="Package\PolicySection\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SignedLinePercentage]"
+                      lineageId="Package\PolicySection\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SignedLinePercentage]" />
+                    <inputColumn
+                      refId="Package\PolicySection\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of SignedOrderPercentage]"
+                      cachedDataType="numeric"
+                      cachedName="Copy of SignedOrderPercentage"
+                      cachedPrecision="18"
+                      cachedScale="8"
+                      externalMetadataColumnId="Package\PolicySection\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SignedOrderPercentage]"
+                      lineageId="Package\PolicySection\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SignedOrderPercentage]" />
+                    <inputColumn
+                      refId="Package\PolicySection\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of WrittenOrderPercentage]"
+                      cachedDataType="numeric"
+                      cachedName="Copy of WrittenOrderPercentage"
+                      cachedPrecision="18"
+                      cachedScale="8"
+                      externalMetadataColumnId="Package\PolicySection\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[WrittenOrderPercentage]"
+                      lineageId="Package\PolicySection\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of WrittenOrderPercentage]" />
+                    <inputColumn
+                      refId="Package\PolicySection\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of SectionTypeCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="Copy of SectionTypeCode"
+                      externalMetadataColumnId="Package\PolicySection\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SectionTypeCode]"
+                      lineageId="Package\PolicySection\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SectionTypeCode]" />
+                    <inputColumn
+                      refId="Package\PolicySection\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of SectionSubTypeCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="Copy of SectionSubTypeCode"
+                      externalMetadataColumnId="Package\PolicySection\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SectionSubTypeCode]"
+                      lineageId="Package\PolicySection\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SectionSubTypeCode]" />
+                    <inputColumn
+                      refId="Package\PolicySection\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of SectionTitle]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copy of SectionTitle"
+                      externalMetadataColumnId="Package\PolicySection\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SectionTitle]"
+                      lineageId="Package\PolicySection\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SectionTitle]" />
+                    <inputColumn
+                      refId="Package\PolicySection\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of Section Seq]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="Copy of Section Seq"
+                      externalMetadataColumnId="Package\PolicySection\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SectionSequence]"
+                      lineageId="Package\PolicySection\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Section Seq]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\PolicySection\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SectionKey]"
+                      codePage="1252"
+                      dataType="str"
+                      length="17"
+                      name="SectionKey" />
+                    <externalMetadataColumn
+                      refId="Package\PolicySection\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PolicyKey]"
+                      codePage="1252"
+                      dataType="str"
+                      length="17"
+                      name="PolicyKey" />
+                    <externalMetadataColumn
+                      refId="Package\PolicySection\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SectionLongName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="SectionLongName" />
+                    <externalMetadataColumn
+                      refId="Package\PolicySection\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SignedLinePercentage]"
+                      dataType="numeric"
+                      name="SignedLinePercentage"
+                      precision="18"
+                      scale="8" />
+                    <externalMetadataColumn
+                      refId="Package\PolicySection\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SignedOrderPercentage]"
+                      dataType="numeric"
+                      name="SignedOrderPercentage"
+                      precision="18"
+                      scale="8" />
+                    <externalMetadataColumn
+                      refId="Package\PolicySection\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[WrittenOrderPercentage]"
+                      dataType="numeric"
+                      name="WrittenOrderPercentage"
+                      precision="18"
+                      scale="8" />
+                    <externalMetadataColumn
+                      refId="Package\PolicySection\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SectionTypeCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="SectionTypeCode" />
+                    <externalMetadataColumn
+                      refId="Package\PolicySection\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SectionSubTypeCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="SectionSubTypeCode" />
+                    <externalMetadataColumn
+                      refId="Package\PolicySection\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SectionTitle]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="SectionTitle" />
+                    <externalMetadataColumn
+                      refId="Package\PolicySection\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SectionSequence]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="SectionSequence" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\PolicySection\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\PolicySection\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\PolicySection\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\PolicySection\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\PolicySection\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\PolicySection\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\PolicySection.Paths[Data Conversion Output]"
+              endId="Package\PolicySection\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\PolicySection\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\PolicySection.Paths[Excel Source Output]"
+              endId="Package\PolicySection\Data Conversion.Inputs[Data Conversion Input]"
+              name="Excel Source Output"
+              startId="Package\PolicySection\Excel Source.Outputs[Excel Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{1F7844BE-A28C-4B6B-9EB6-8EC45F4B8D61}"
+      DTS:From="Package\delete from PolicySection"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\PolicySection" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="170,42"
+          Id="Package\delete from PolicySection"
+          TopLeft="117.5,9.5" />
+        <NodeLayout
+          Size="145,42"
+          Id="Package\PolicySection"
+          TopLeft="137.5,105.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="206.25,51.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,54"
+              Start="0,0"
+              End="0,46.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\PolicySection">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="144,42"
+          Id="Package\PolicySection\Excel Source"
+          TopLeft="5.5,5.5" />
+        <NodeLayout
+          Size="161,42"
+          Id="Package\PolicySection\Data Conversion"
+          TopLeft="113.5,129.5" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\PolicySection\OLE DB Destination"
+          TopLeft="80.5,299.5" />
+        <EdgeLayout
+          Id="Package\PolicySection.Paths[Excel Source Output]"
+          TopLeft="77.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="116.5,82"
+              Start="0,0"
+              End="116.5,74.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,37"
+                    Point2="0,41"
+                    Point3="4,41" />
+                  <mssgle:LineSegment
+                    End="112.5,41" />
+                  <mssgle:CubicBezierSegment
+                    Point1="112.5,41"
+                    Point2="116.5,41"
+                    Point3="116.5,45" />
+                  <mssgle:LineSegment
+                    End="116.5,74.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\PolicySection.Paths[Data Conversion Output]"
+          TopLeft="194,171.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-25,128"
+              Start="0,0"
+              End="-25,120.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,60" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,60"
+                    Point2="0,64"
+                    Point3="-4,64" />
+                  <mssgle:LineSegment
+                    End="-21,64" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-21,64"
+                    Point2="-25,64"
+                    Point3="-25,68" />
+                  <mssgle:LineSegment
+                    End="-25,120.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\PolicySection\Excel Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\PolicySection\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

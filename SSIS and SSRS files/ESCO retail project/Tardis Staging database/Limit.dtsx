@@ -1,0 +1,1403 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/4/2022 11:32:05 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="YITBARK"
+  DTS:CreatorName="YITBARK\HP"
+  DTS:DTSID="{980538BF-C332-476B-9D38-59D655F81CA8}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.521.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Limit"
+  DTS:PackageType="5"
+  DTS:VersionBuild="14"
+  DTS:VersionGUID="{3A7F3989-8290-4100-9756-22763057B190}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{4D355AED-FEB4-4DF8-910F-D334968E0B14}"
+      DTS:ObjectName="Excel Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\HP\OneDrive - montgomerycollege.edu\Documents\SQL server traning\SQL Project\Vijay project\Tardis_DWH\STAGING\COVERAGE,DEDUCTION,PREMIUM,LIMIT.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[yitbark\tariku.TARDIS]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{C68150F4-F16C-49BC-8443-0ECBDA3B1D51}"
+      DTS:ObjectName="yitbark\tariku.TARDIS">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=yitbark\tariku;Initial Catalog=TARDIS;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[yitbark\tariku.TardisStage]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{7FBD8472-20BF-46AA-8A3D-07BD5C043D4B}"
+      DTS:ObjectName="yitbark\tariku.TardisStage">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=yitbark\tariku;Initial Catalog=TardisStage;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\delete from limit"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{0FF0DCBC-79BE-44A0-AA72-55DF4DA3AC3E}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="delete from limit"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022 CTP2.0; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{7FBD8472-20BF-46AA-8A3D-07BD5C043D4B}"
+          SQLTask:SqlStatementSource="delete from limit" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Limit"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{8833E758-692E-47CE-9B1A-31D071AFAE36}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Limit"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Limit\Data Conversion 1"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion 1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Limit\Data Conversion 1.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Limit\Data Conversion 1.Inputs[Data Conversion Input].Columns[CoverageKey]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CoverageKey"
+                      lineageId="Package\Limit\Excel Source.Outputs[Excel Source Output].Columns[CoverageKey]" />
+                    <inputColumn
+                      refId="Package\Limit\Data Conversion 1.Inputs[Data Conversion Input].Columns[SourceIdentifier]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="SourceIdentifier"
+                      lineageId="Package\Limit\Excel Source.Outputs[Excel Source Output].Columns[SourceIdentifier]" />
+                    <inputColumn
+                      refId="Package\Limit\Data Conversion 1.Inputs[Data Conversion Input].Columns[TransactionCode]"
+                      cachedDataType="r8"
+                      cachedName="TransactionCode"
+                      lineageId="Package\Limit\Excel Source.Outputs[Excel Source Output].Columns[TransactionCode]" />
+                    <inputColumn
+                      refId="Package\Limit\Data Conversion 1.Inputs[Data Conversion Input].Columns[CurrCode]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CurrCode"
+                      lineageId="Package\Limit\Excel Source.Outputs[Excel Source Output].Columns[CurrCode]" />
+                    <inputColumn
+                      refId="Package\Limit\Data Conversion 1.Inputs[Data Conversion Input].Columns[Date]"
+                      cachedDataType="date"
+                      cachedName="Date"
+                      lineageId="Package\Limit\Excel Source.Outputs[Excel Source Output].Columns[Date]" />
+                    <inputColumn
+                      refId="Package\Limit\Data Conversion 1.Inputs[Data Conversion Input].Columns[FXRate]"
+                      cachedDataType="r8"
+                      cachedName="FXRate"
+                      lineageId="Package\Limit\Excel Source.Outputs[Excel Source Output].Columns[FXRate]" />
+                    <inputColumn
+                      refId="Package\Limit\Data Conversion 1.Inputs[Data Conversion Input].Columns[LimitAmount]"
+                      cachedDataType="r8"
+                      cachedName="LimitAmount"
+                      lineageId="Package\Limit\Excel Source.Outputs[Excel Source Output].Columns[LimitAmount]" />
+                    <inputColumn
+                      refId="Package\Limit\Data Conversion 1.Inputs[Data Conversion Input].Columns[SettelmentCurrency]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="SettelmentCurrency"
+                      lineageId="Package\Limit\Excel Source.Outputs[Excel Source Output].Columns[SettelmentCurrency]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Limit\Data Conversion 1.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Limit\Data Conversion 1.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Limit\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of CoverageKey]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="17"
+                      lineageId="Package\Limit\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of CoverageKey]"
+                      name="Copy of CoverageKey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Limit\Excel Source.Outputs[Excel Source Output].Columns[CoverageKey]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Limit\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of SourceIdentifier]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="150"
+                      lineageId="Package\Limit\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of SourceIdentifier]"
+                      name="Copy of SourceIdentifier"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Limit\Excel Source.Outputs[Excel Source Output].Columns[SourceIdentifier]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Limit\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of TransactionCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="20"
+                      lineageId="Package\Limit\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of TransactionCode]"
+                      name="Copy of TransactionCode"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Limit\Excel Source.Outputs[Excel Source Output].Columns[TransactionCode]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Limit\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of CurrCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="3"
+                      lineageId="Package\Limit\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of CurrCode]"
+                      name="Copy of CurrCode"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Limit\Excel Source.Outputs[Excel Source Output].Columns[CurrCode]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Limit\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of Date]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Limit\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of Date]"
+                      name="Copy of Date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Limit\Excel Source.Outputs[Excel Source Output].Columns[Date]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Limit\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of FXRate]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Limit\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of FXRate]"
+                      name="Copy of FXRate"
+                      precision="18"
+                      scale="8"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Limit\Excel Source.Outputs[Excel Source Output].Columns[FXRate]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Limit\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of LimitAmount]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Limit\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of LimitAmount]"
+                      name="Copy of LimitAmount"
+                      precision="19"
+                      scale="2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Limit\Excel Source.Outputs[Excel Source Output].Columns[LimitAmount]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Limit\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of SettelmentCurrency]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="3"
+                      lineageId="Package\Limit\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of SettelmentCurrency]"
+                      name="Copy of SettelmentCurrency"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Limit\Excel Source.Outputs[Excel Source Output].Columns[SettelmentCurrency]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Limit\Data Conversion 1.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Limit\Data Conversion 1.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Limit\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Limit\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Limit\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Limit\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Limit\Excel Source"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="Excel Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">Limit$</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Limit\Excel Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Limit\Excel Source.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Limit\Excel Source.Outputs[Excel Source Output].Columns[CoverageKey]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Limit\Excel Source.Outputs[Excel Source Output].ExternalColumns[CoverageKey]"
+                      length="255"
+                      lineageId="Package\Limit\Excel Source.Outputs[Excel Source Output].Columns[CoverageKey]"
+                      name="CoverageKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Limit\Excel Source.Outputs[Excel Source Output].Columns[SourceIdentifier]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Limit\Excel Source.Outputs[Excel Source Output].ExternalColumns[SourceIdentifier]"
+                      length="255"
+                      lineageId="Package\Limit\Excel Source.Outputs[Excel Source Output].Columns[SourceIdentifier]"
+                      name="SourceIdentifier"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Limit\Excel Source.Outputs[Excel Source Output].Columns[TransactionCode]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Limit\Excel Source.Outputs[Excel Source Output].ExternalColumns[TransactionCode]"
+                      lineageId="Package\Limit\Excel Source.Outputs[Excel Source Output].Columns[TransactionCode]"
+                      name="TransactionCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Limit\Excel Source.Outputs[Excel Source Output].Columns[CurrCode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Limit\Excel Source.Outputs[Excel Source Output].ExternalColumns[CurrCode]"
+                      length="255"
+                      lineageId="Package\Limit\Excel Source.Outputs[Excel Source Output].Columns[CurrCode]"
+                      name="CurrCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Limit\Excel Source.Outputs[Excel Source Output].Columns[Date]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Limit\Excel Source.Outputs[Excel Source Output].ExternalColumns[Date]"
+                      lineageId="Package\Limit\Excel Source.Outputs[Excel Source Output].Columns[Date]"
+                      name="Date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Limit\Excel Source.Outputs[Excel Source Output].Columns[FXRate]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Limit\Excel Source.Outputs[Excel Source Output].ExternalColumns[FXRate]"
+                      lineageId="Package\Limit\Excel Source.Outputs[Excel Source Output].Columns[FXRate]"
+                      name="FXRate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Limit\Excel Source.Outputs[Excel Source Output].Columns[LimitAmount]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Limit\Excel Source.Outputs[Excel Source Output].ExternalColumns[LimitAmount]"
+                      lineageId="Package\Limit\Excel Source.Outputs[Excel Source Output].Columns[LimitAmount]"
+                      name="LimitAmount"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Limit\Excel Source.Outputs[Excel Source Output].Columns[SettelmentCurrency]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Limit\Excel Source.Outputs[Excel Source Output].ExternalColumns[SettelmentCurrency]"
+                      length="255"
+                      lineageId="Package\Limit\Excel Source.Outputs[Excel Source Output].Columns[SettelmentCurrency]"
+                      name="SettelmentCurrency"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Limit\Excel Source.Outputs[Excel Source Output].ExternalColumns[CoverageKey]"
+                      dataType="wstr"
+                      length="255"
+                      name="CoverageKey" />
+                    <externalMetadataColumn
+                      refId="Package\Limit\Excel Source.Outputs[Excel Source Output].ExternalColumns[SourceIdentifier]"
+                      dataType="wstr"
+                      length="255"
+                      name="SourceIdentifier" />
+                    <externalMetadataColumn
+                      refId="Package\Limit\Excel Source.Outputs[Excel Source Output].ExternalColumns[TransactionCode]"
+                      dataType="r8"
+                      name="TransactionCode" />
+                    <externalMetadataColumn
+                      refId="Package\Limit\Excel Source.Outputs[Excel Source Output].ExternalColumns[CurrCode]"
+                      dataType="wstr"
+                      length="255"
+                      name="CurrCode" />
+                    <externalMetadataColumn
+                      refId="Package\Limit\Excel Source.Outputs[Excel Source Output].ExternalColumns[Date]"
+                      dataType="date"
+                      name="Date" />
+                    <externalMetadataColumn
+                      refId="Package\Limit\Excel Source.Outputs[Excel Source Output].ExternalColumns[FXRate]"
+                      dataType="r8"
+                      name="FXRate" />
+                    <externalMetadataColumn
+                      refId="Package\Limit\Excel Source.Outputs[Excel Source Output].ExternalColumns[LimitAmount]"
+                      dataType="r8"
+                      name="LimitAmount" />
+                    <externalMetadataColumn
+                      refId="Package\Limit\Excel Source.Outputs[Excel Source Output].ExternalColumns[SettelmentCurrency]"
+                      dataType="wstr"
+                      length="255"
+                      name="SettelmentCurrency" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Limit\Excel Source.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Limit\Excel Source.Outputs[Excel Source Error Output].Columns[CoverageKey]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Limit\Excel Source.Outputs[Excel Source Error Output].Columns[CoverageKey]"
+                      name="CoverageKey" />
+                    <outputColumn
+                      refId="Package\Limit\Excel Source.Outputs[Excel Source Error Output].Columns[SourceIdentifier]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Limit\Excel Source.Outputs[Excel Source Error Output].Columns[SourceIdentifier]"
+                      name="SourceIdentifier" />
+                    <outputColumn
+                      refId="Package\Limit\Excel Source.Outputs[Excel Source Error Output].Columns[TransactionCode]"
+                      dataType="r8"
+                      lineageId="Package\Limit\Excel Source.Outputs[Excel Source Error Output].Columns[TransactionCode]"
+                      name="TransactionCode" />
+                    <outputColumn
+                      refId="Package\Limit\Excel Source.Outputs[Excel Source Error Output].Columns[CurrCode]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Limit\Excel Source.Outputs[Excel Source Error Output].Columns[CurrCode]"
+                      name="CurrCode" />
+                    <outputColumn
+                      refId="Package\Limit\Excel Source.Outputs[Excel Source Error Output].Columns[Date]"
+                      dataType="date"
+                      lineageId="Package\Limit\Excel Source.Outputs[Excel Source Error Output].Columns[Date]"
+                      name="Date" />
+                    <outputColumn
+                      refId="Package\Limit\Excel Source.Outputs[Excel Source Error Output].Columns[FXRate]"
+                      dataType="r8"
+                      lineageId="Package\Limit\Excel Source.Outputs[Excel Source Error Output].Columns[FXRate]"
+                      name="FXRate" />
+                    <outputColumn
+                      refId="Package\Limit\Excel Source.Outputs[Excel Source Error Output].Columns[LimitAmount]"
+                      dataType="r8"
+                      lineageId="Package\Limit\Excel Source.Outputs[Excel Source Error Output].Columns[LimitAmount]"
+                      name="LimitAmount" />
+                    <outputColumn
+                      refId="Package\Limit\Excel Source.Outputs[Excel Source Error Output].Columns[SettelmentCurrency]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Limit\Excel Source.Outputs[Excel Source Error Output].Columns[SettelmentCurrency]"
+                      name="SettelmentCurrency" />
+                    <outputColumn
+                      refId="Package\Limit\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Limit\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Limit\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Limit\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Limit\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Limit]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Limit\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[yitbark\tariku.TardisStage]"
+                  connectionManagerRefId="Package.ConnectionManagers[yitbark\tariku.TardisStage]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Limit\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Limit\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of CoverageKey]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="17"
+                      cachedName="Copy of CoverageKey"
+                      externalMetadataColumnId="Package\Limit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CoverageKey]"
+                      lineageId="Package\Limit\Union All.Outputs[Union All Output 1].Columns[Copy of CoverageKey]" />
+                    <inputColumn
+                      refId="Package\Limit\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of SourceIdentifier]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="150"
+                      cachedName="Copy of SourceIdentifier"
+                      externalMetadataColumnId="Package\Limit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SourceIdentifier]"
+                      lineageId="Package\Limit\Union All.Outputs[Union All Output 1].Columns[Copy of SourceIdentifier]" />
+                    <inputColumn
+                      refId="Package\Limit\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of TransactionCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Copy of TransactionCode"
+                      externalMetadataColumnId="Package\Limit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TransactionTypeCode]"
+                      lineageId="Package\Limit\Union All.Outputs[Union All Output 1].Columns[Copy of TransactionCode]" />
+                    <inputColumn
+                      refId="Package\Limit\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of CurrCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="Copy of CurrCode"
+                      externalMetadataColumnId="Package\Limit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CurrCode]"
+                      lineageId="Package\Limit\Union All.Outputs[Union All Output 1].Columns[Copy of CurrCode]" />
+                    <inputColumn
+                      refId="Package\Limit\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of Date]"
+                      cachedDataType="date"
+                      cachedName="Copy of Date"
+                      externalMetadataColumnId="Package\Limit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Date]"
+                      lineageId="Package\Limit\Union All.Outputs[Union All Output 1].Columns[Copy of Date]" />
+                    <inputColumn
+                      refId="Package\Limit\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of FXRate]"
+                      cachedDataType="numeric"
+                      cachedName="Copy of FXRate"
+                      cachedPrecision="18"
+                      cachedScale="8"
+                      externalMetadataColumnId="Package\Limit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FXRate]"
+                      lineageId="Package\Limit\Union All.Outputs[Union All Output 1].Columns[Copy of FXRate]" />
+                    <inputColumn
+                      refId="Package\Limit\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of LimitAmount]"
+                      cachedDataType="numeric"
+                      cachedName="Copy of LimitAmount"
+                      cachedPrecision="19"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Limit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LimitAmount]"
+                      lineageId="Package\Limit\Union All.Outputs[Union All Output 1].Columns[Copy of LimitAmount]" />
+                    <inputColumn
+                      refId="Package\Limit\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of SettelmentCurrency]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="Copy of SettelmentCurrency"
+                      externalMetadataColumnId="Package\Limit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SettlementCurrencyCode]"
+                      lineageId="Package\Limit\Union All.Outputs[Union All Output 1].Columns[Copy of SettelmentCurrency]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Limit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CoverageKey]"
+                      codePage="1252"
+                      dataType="str"
+                      length="17"
+                      name="CoverageKey" />
+                    <externalMetadataColumn
+                      refId="Package\Limit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SourceIdentifier]"
+                      codePage="1252"
+                      dataType="str"
+                      length="150"
+                      name="SourceIdentifier" />
+                    <externalMetadataColumn
+                      refId="Package\Limit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TransactionTypeCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="TransactionTypeCode" />
+                    <externalMetadataColumn
+                      refId="Package\Limit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CurrCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="CurrCode" />
+                    <externalMetadataColumn
+                      refId="Package\Limit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Date]"
+                      dataType="dbDate"
+                      name="Date" />
+                    <externalMetadataColumn
+                      refId="Package\Limit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FXRate]"
+                      dataType="numeric"
+                      name="FXRate"
+                      precision="18"
+                      scale="8" />
+                    <externalMetadataColumn
+                      refId="Package\Limit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LimitAmount]"
+                      dataType="numeric"
+                      name="LimitAmount"
+                      precision="19"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Limit\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SettlementCurrencyCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="SettlementCurrencyCode" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Limit\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Limit\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Limit\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Limit\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Limit\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Limit\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Limit\Union All"
+              componentClassID="Microsoft.UnionAll"
+              contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+              name="Union All"
+              version="1">
+              <inputs>
+                <input
+                  refId="Package\Limit\Union All.Inputs[Union All Input 4]"
+                  dangling="true"
+                  hasSideEffects="true"
+                  name="Union All Input 4">
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Limit\Union All.Inputs[Union All Input 1]"
+                  name="Union All Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Limit\Union All.Inputs[Union All Input 1].Columns[CoverageKey]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CoverageKey"
+                      lineageId="Package\Limit\Excel Source.Outputs[Excel Source Output].Columns[CoverageKey]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Limit\Union All.Outputs[Union All Output 1].Columns[CoverageKey]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Limit\Union All.Inputs[Union All Input 1].Columns[SourceIdentifier]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="SourceIdentifier"
+                      lineageId="Package\Limit\Excel Source.Outputs[Excel Source Output].Columns[SourceIdentifier]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Limit\Union All.Outputs[Union All Output 1].Columns[SourceIdentifier]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Limit\Union All.Inputs[Union All Input 1].Columns[TransactionCode]"
+                      cachedDataType="r8"
+                      cachedName="TransactionCode"
+                      lineageId="Package\Limit\Excel Source.Outputs[Excel Source Output].Columns[TransactionCode]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Limit\Union All.Outputs[Union All Output 1].Columns[TransactionCode]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Limit\Union All.Inputs[Union All Input 1].Columns[CurrCode]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CurrCode"
+                      lineageId="Package\Limit\Excel Source.Outputs[Excel Source Output].Columns[CurrCode]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Limit\Union All.Outputs[Union All Output 1].Columns[CurrCode]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Limit\Union All.Inputs[Union All Input 1].Columns[Date]"
+                      cachedDataType="date"
+                      cachedName="Date"
+                      lineageId="Package\Limit\Excel Source.Outputs[Excel Source Output].Columns[Date]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Limit\Union All.Outputs[Union All Output 1].Columns[Date]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Limit\Union All.Inputs[Union All Input 1].Columns[FXRate]"
+                      cachedDataType="r8"
+                      cachedName="FXRate"
+                      lineageId="Package\Limit\Excel Source.Outputs[Excel Source Output].Columns[FXRate]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Limit\Union All.Outputs[Union All Output 1].Columns[FXRate]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Limit\Union All.Inputs[Union All Input 1].Columns[LimitAmount]"
+                      cachedDataType="r8"
+                      cachedName="LimitAmount"
+                      lineageId="Package\Limit\Excel Source.Outputs[Excel Source Output].Columns[LimitAmount]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Limit\Union All.Outputs[Union All Output 1].Columns[LimitAmount]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Limit\Union All.Inputs[Union All Input 1].Columns[SettelmentCurrency]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="SettelmentCurrency"
+                      lineageId="Package\Limit\Excel Source.Outputs[Excel Source Output].Columns[SettelmentCurrency]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Limit\Union All.Outputs[Union All Output 1].Columns[SettelmentCurrency]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Limit\Union All.Inputs[Union All Input 1].Columns[Copy of CoverageKey]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="17"
+                      cachedName="Copy of CoverageKey"
+                      lineageId="Package\Limit\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of CoverageKey]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Limit\Union All.Outputs[Union All Output 1].Columns[Copy of CoverageKey]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Limit\Union All.Inputs[Union All Input 1].Columns[Copy of SourceIdentifier]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="150"
+                      cachedName="Copy of SourceIdentifier"
+                      lineageId="Package\Limit\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of SourceIdentifier]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Limit\Union All.Outputs[Union All Output 1].Columns[Copy of SourceIdentifier]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Limit\Union All.Inputs[Union All Input 1].Columns[Copy of TransactionCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Copy of TransactionCode"
+                      lineageId="Package\Limit\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of TransactionCode]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Limit\Union All.Outputs[Union All Output 1].Columns[Copy of TransactionCode]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Limit\Union All.Inputs[Union All Input 1].Columns[Copy of CurrCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="Copy of CurrCode"
+                      lineageId="Package\Limit\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of CurrCode]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Limit\Union All.Outputs[Union All Output 1].Columns[Copy of CurrCode]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Limit\Union All.Inputs[Union All Input 1].Columns[Copy of Date]"
+                      cachedDataType="date"
+                      cachedName="Copy of Date"
+                      lineageId="Package\Limit\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of Date]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Limit\Union All.Outputs[Union All Output 1].Columns[Copy of Date]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Limit\Union All.Inputs[Union All Input 1].Columns[Copy of FXRate]"
+                      cachedDataType="numeric"
+                      cachedName="Copy of FXRate"
+                      cachedPrecision="18"
+                      cachedScale="8"
+                      lineageId="Package\Limit\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of FXRate]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Limit\Union All.Outputs[Union All Output 1].Columns[Copy of FXRate]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Limit\Union All.Inputs[Union All Input 1].Columns[Copy of LimitAmount]"
+                      cachedDataType="numeric"
+                      cachedName="Copy of LimitAmount"
+                      cachedPrecision="19"
+                      cachedScale="2"
+                      lineageId="Package\Limit\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of LimitAmount]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Limit\Union All.Outputs[Union All Output 1].Columns[Copy of LimitAmount]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Limit\Union All.Inputs[Union All Input 1].Columns[Copy of SettelmentCurrency]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="Copy of SettelmentCurrency"
+                      lineageId="Package\Limit\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of SettelmentCurrency]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Limit\Union All.Outputs[Union All Output 1].Columns[Copy of SettelmentCurrency]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Limit\Union All.Outputs[Union All Output 1]"
+                  name="Union All Output 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Limit\Union All.Outputs[Union All Output 1].Columns[CoverageKey]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Limit\Union All.Outputs[Union All Output 1].Columns[CoverageKey]"
+                      name="CoverageKey" />
+                    <outputColumn
+                      refId="Package\Limit\Union All.Outputs[Union All Output 1].Columns[SourceIdentifier]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Limit\Union All.Outputs[Union All Output 1].Columns[SourceIdentifier]"
+                      name="SourceIdentifier" />
+                    <outputColumn
+                      refId="Package\Limit\Union All.Outputs[Union All Output 1].Columns[TransactionCode]"
+                      dataType="r8"
+                      lineageId="Package\Limit\Union All.Outputs[Union All Output 1].Columns[TransactionCode]"
+                      name="TransactionCode" />
+                    <outputColumn
+                      refId="Package\Limit\Union All.Outputs[Union All Output 1].Columns[CurrCode]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Limit\Union All.Outputs[Union All Output 1].Columns[CurrCode]"
+                      name="CurrCode" />
+                    <outputColumn
+                      refId="Package\Limit\Union All.Outputs[Union All Output 1].Columns[Date]"
+                      dataType="date"
+                      lineageId="Package\Limit\Union All.Outputs[Union All Output 1].Columns[Date]"
+                      name="Date" />
+                    <outputColumn
+                      refId="Package\Limit\Union All.Outputs[Union All Output 1].Columns[FXRate]"
+                      dataType="r8"
+                      lineageId="Package\Limit\Union All.Outputs[Union All Output 1].Columns[FXRate]"
+                      name="FXRate" />
+                    <outputColumn
+                      refId="Package\Limit\Union All.Outputs[Union All Output 1].Columns[LimitAmount]"
+                      dataType="r8"
+                      lineageId="Package\Limit\Union All.Outputs[Union All Output 1].Columns[LimitAmount]"
+                      name="LimitAmount" />
+                    <outputColumn
+                      refId="Package\Limit\Union All.Outputs[Union All Output 1].Columns[SettelmentCurrency]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Limit\Union All.Outputs[Union All Output 1].Columns[SettelmentCurrency]"
+                      name="SettelmentCurrency" />
+                    <outputColumn
+                      refId="Package\Limit\Union All.Outputs[Union All Output 1].Columns[Copy of CoverageKey]"
+                      codePage="1252"
+                      dataType="str"
+                      length="17"
+                      lineageId="Package\Limit\Union All.Outputs[Union All Output 1].Columns[Copy of CoverageKey]"
+                      name="Copy of CoverageKey" />
+                    <outputColumn
+                      refId="Package\Limit\Union All.Outputs[Union All Output 1].Columns[Copy of SourceIdentifier]"
+                      codePage="1252"
+                      dataType="str"
+                      length="150"
+                      lineageId="Package\Limit\Union All.Outputs[Union All Output 1].Columns[Copy of SourceIdentifier]"
+                      name="Copy of SourceIdentifier" />
+                    <outputColumn
+                      refId="Package\Limit\Union All.Outputs[Union All Output 1].Columns[Copy of TransactionCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Limit\Union All.Outputs[Union All Output 1].Columns[Copy of TransactionCode]"
+                      name="Copy of TransactionCode" />
+                    <outputColumn
+                      refId="Package\Limit\Union All.Outputs[Union All Output 1].Columns[Copy of CurrCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\Limit\Union All.Outputs[Union All Output 1].Columns[Copy of CurrCode]"
+                      name="Copy of CurrCode" />
+                    <outputColumn
+                      refId="Package\Limit\Union All.Outputs[Union All Output 1].Columns[Copy of Date]"
+                      dataType="date"
+                      lineageId="Package\Limit\Union All.Outputs[Union All Output 1].Columns[Copy of Date]"
+                      name="Copy of Date" />
+                    <outputColumn
+                      refId="Package\Limit\Union All.Outputs[Union All Output 1].Columns[Copy of FXRate]"
+                      dataType="numeric"
+                      lineageId="Package\Limit\Union All.Outputs[Union All Output 1].Columns[Copy of FXRate]"
+                      name="Copy of FXRate"
+                      precision="18"
+                      scale="8" />
+                    <outputColumn
+                      refId="Package\Limit\Union All.Outputs[Union All Output 1].Columns[Copy of LimitAmount]"
+                      dataType="numeric"
+                      lineageId="Package\Limit\Union All.Outputs[Union All Output 1].Columns[Copy of LimitAmount]"
+                      name="Copy of LimitAmount"
+                      precision="19"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\Limit\Union All.Outputs[Union All Output 1].Columns[Copy of SettelmentCurrency]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\Limit\Union All.Outputs[Union All Output 1].Columns[Copy of SettelmentCurrency]"
+                      name="Copy of SettelmentCurrency" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Limit.Paths[Data Conversion Output]"
+              endId="Package\Limit\Union All.Inputs[Union All Input 1]"
+              name="Data Conversion Output"
+              startId="Package\Limit\Data Conversion 1.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Limit.Paths[Excel Source Output]"
+              endId="Package\Limit\Data Conversion 1.Inputs[Data Conversion Input]"
+              name="Excel Source Output"
+              startId="Package\Limit\Excel Source.Outputs[Excel Source Output]" />
+            <path
+              refId="Package\Limit.Paths[Union All Output 1]"
+              endId="Package\Limit\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Union All Output 1"
+              startId="Package\Limit\Union All.Outputs[Union All Output 1]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{A045C514-2910-404A-8823-87964376E8F8}"
+      DTS:From="Package\delete from limit"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Limit" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="157,42"
+          Id="Package\delete from limit"
+          TopLeft="5.5,5.5" />
+        <NodeLayout
+          Size="102,42"
+          Id="Package\Limit"
+          TopLeft="23.5,131.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="84,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-9.5,84"
+              Start="0,0"
+              End="-9.5,76.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,38"
+                    Point2="0,42"
+                    Point3="-4,42" />
+                  <mssgle:LineSegment
+                    End="-5.5,42" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-5.5,42"
+                    Point2="-9.5,42"
+                    Point3="-9.5,46" />
+                  <mssgle:LineSegment
+                    End="-9.5,76.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Limit">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="123,42"
+          Id="Package\Limit\Union All"
+          TopLeft="315.5,173.5" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Limit\OLE DB Destination"
+          TopLeft="205.5,275.5" />
+        <NodeLayout
+          Size="144,42"
+          Id="Package\Limit\Excel Source"
+          TopLeft="194.5,13.5" />
+        <NodeLayout
+          Size="170,42"
+          Id="Package\Limit\Data Conversion 1"
+          TopLeft="149.5,95.5" />
+        <EdgeLayout
+          Id="Package\Limit.Paths[Union All Output 1]"
+          TopLeft="377,215.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-83,60"
+              Start="0,0"
+              End="-83,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="-4,30" />
+                  <mssgle:LineSegment
+                    End="-79,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-79,30"
+                    Point2="-83,30"
+                    Point3="-83,34" />
+                  <mssgle:LineSegment
+                    End="-83,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Limit.Paths[Excel Source Output]"
+          TopLeft="266.5,55.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-32,40"
+              Start="0,0"
+              End="-32,32.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16"
+                    Point2="0,20"
+                    Point3="-4,20" />
+                  <mssgle:LineSegment
+                    End="-28,20" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-28,20"
+                    Point2="-32,20"
+                    Point3="-32,24" />
+                  <mssgle:LineSegment
+                    End="-32,32.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Limit.Paths[Data Conversion Output]"
+          TopLeft="234.5,137.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="123.333333333333,36"
+              Start="0,0"
+              End="123.333333333333,28.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.322632423756" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.322632423756"
+                    Point2="0,21.322632423756"
+                    Point3="4,21.322632423756" />
+                  <mssgle:LineSegment
+                    End="119.333333333333,21.322632423756" />
+                  <mssgle:CubicBezierSegment
+                    Point1="119.333333333333,21.322632423756"
+                    Point2="123.333333333333,21.322632423756"
+                    Point3="123.333333333333,25.322632423756" />
+                  <mssgle:LineSegment
+                    End="123.333333333333,28.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Limit\Excel Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Limit\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,1160 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/5/2022 2:50:34 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="YITBARK"
+  DTS:CreatorName="YITBARK\HP"
+  DTS:DTSID="{B22156B3-2D36-4C3C-B8D1-EF7985D58F1A}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.521.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Premiumm"
+  DTS:PackageType="5"
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{05DCFCEF-7E76-4C7D-98DA-220EEB76901A}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{4A9052EC-169E-41AC-9124-72AEA5B887FA}"
+      DTS:ObjectName="Excel Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\HP\OneDrive - montgomerycollege.edu\Documents\SQL server traning\SQL Project\Vijay project\Tardis_DWH\STAGING\COVERAGE,DEDUCTION,PREMIUM,LIMIT.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[yitbark\tariku.TardisStage]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{0940A4CE-686E-489D-A131-AE620B6568EB}"
+      DTS:ObjectName="yitbark\tariku.TardisStage">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=yitbark\tariku;Initial Catalog=TardisStage;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Delete from Premium"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{138A24A4-C3CE-48E3-AA84-51E761F86383}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Delete from Premium"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022 CTP2.0; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{0940A4CE-686E-489D-A131-AE620B6568EB}"
+          SQLTask:SqlStatementSource="Delete from Premium" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Loading to Premium"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{81E1C34D-AFDD-486D-BE9F-5A9C2872B0B2}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Loading to Premium"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Loading to Premium\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Loading to Premium\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Loading to Premium\Data Conversion.Inputs[Data Conversion Input].Columns[CoverageKey]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CoverageKey"
+                      lineageId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Output].Columns[CoverageKey]" />
+                    <inputColumn
+                      refId="Package\Loading to Premium\Data Conversion.Inputs[Data Conversion Input].Columns[SourceIdentifier]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="SourceIdentifier"
+                      lineageId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Output].Columns[SourceIdentifier]" />
+                    <inputColumn
+                      refId="Package\Loading to Premium\Data Conversion.Inputs[Data Conversion Input].Columns[TransactionCode]"
+                      cachedDataType="r8"
+                      cachedName="TransactionCode"
+                      lineageId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Output].Columns[TransactionCode]" />
+                    <inputColumn
+                      refId="Package\Loading to Premium\Data Conversion.Inputs[Data Conversion Input].Columns[RevenueType]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="RevenueType"
+                      lineageId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Output].Columns[RevenueType]" />
+                    <inputColumn
+                      refId="Package\Loading to Premium\Data Conversion.Inputs[Data Conversion Input].Columns[CurrCode]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CurrCode"
+                      lineageId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Output].Columns[CurrCode]" />
+                    <inputColumn
+                      refId="Package\Loading to Premium\Data Conversion.Inputs[Data Conversion Input].Columns[Date]"
+                      cachedDataType="date"
+                      cachedName="Date"
+                      lineageId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Output].Columns[Date]" />
+                    <inputColumn
+                      refId="Package\Loading to Premium\Data Conversion.Inputs[Data Conversion Input].Columns[BasePremiumAmount]"
+                      cachedDataType="r8"
+                      cachedName="BasePremiumAmount"
+                      lineageId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Output].Columns[BasePremiumAmount]" />
+                    <inputColumn
+                      refId="Package\Loading to Premium\Data Conversion.Inputs[Data Conversion Input].Columns[SignedPremiumAmount]"
+                      cachedDataType="r8"
+                      cachedName="SignedPremiumAmount"
+                      lineageId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Output].Columns[SignedPremiumAmount]" />
+                    <inputColumn
+                      refId="Package\Loading to Premium\Data Conversion.Inputs[Data Conversion Input].Columns[PredictedPremiumAmount]"
+                      cachedDataType="r8"
+                      cachedName="PredictedPremiumAmount"
+                      lineageId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Output].Columns[PredictedPremiumAmount]" />
+                    <inputColumn
+                      refId="Package\Loading to Premium\Data Conversion.Inputs[Data Conversion Input].Columns[WrittenPremiumAmount]"
+                      cachedDataType="r8"
+                      cachedName="WrittenPremiumAmount"
+                      lineageId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Output].Columns[WrittenPremiumAmount]" />
+                    <inputColumn
+                      refId="Package\Loading to Premium\Data Conversion.Inputs[Data Conversion Input].Columns[SettelmentCurrency]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="SettelmentCurrency"
+                      lineageId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Output].Columns[SettelmentCurrency]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Loading to Premium\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Loading to Premium\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Loading to Premium\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of CoverageKey]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="17"
+                      lineageId="Package\Loading to Premium\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of CoverageKey]"
+                      name="Copy of CoverageKey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Loading to Premium\Excel Source.Outputs[Excel Source Output].Columns[CoverageKey]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Loading to Premium\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SourceIdentifier]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="150"
+                      lineageId="Package\Loading to Premium\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SourceIdentifier]"
+                      name="Copy of SourceIdentifier"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Loading to Premium\Excel Source.Outputs[Excel Source Output].Columns[SourceIdentifier]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Loading to Premium\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of TransactionCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="20"
+                      lineageId="Package\Loading to Premium\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of TransactionCode]"
+                      name="Copy of TransactionCode"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Loading to Premium\Excel Source.Outputs[Excel Source Output].Columns[TransactionCode]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Loading to Premium\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of RevenueType]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="3"
+                      lineageId="Package\Loading to Premium\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of RevenueType]"
+                      name="Copy of RevenueType"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Loading to Premium\Excel Source.Outputs[Excel Source Output].Columns[RevenueType]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Loading to Premium\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of CurrCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="3"
+                      lineageId="Package\Loading to Premium\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of CurrCode]"
+                      name="Copy of CurrCode"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Loading to Premium\Excel Source.Outputs[Excel Source Output].Columns[CurrCode]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Loading to Premium\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Date]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Loading to Premium\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Date]"
+                      name="Copy of Date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Loading to Premium\Excel Source.Outputs[Excel Source Output].Columns[Date]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Loading to Premium\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of BasePremiumAmount]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Loading to Premium\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of BasePremiumAmount]"
+                      name="Copy of BasePremiumAmount"
+                      precision="19"
+                      scale="2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Loading to Premium\Excel Source.Outputs[Excel Source Output].Columns[BasePremiumAmount]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Loading to Premium\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SignedPremiumAmount]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Loading to Premium\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SignedPremiumAmount]"
+                      name="Copy of SignedPremiumAmount"
+                      precision="19"
+                      scale="2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Loading to Premium\Excel Source.Outputs[Excel Source Output].Columns[SignedPremiumAmount]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Loading to Premium\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of PredictedPremiumAmount]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Loading to Premium\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of PredictedPremiumAmount]"
+                      name="Copy of PredictedPremiumAmount"
+                      precision="19"
+                      scale="2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Loading to Premium\Excel Source.Outputs[Excel Source Output].Columns[PredictedPremiumAmount]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Loading to Premium\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of WrittenPremiumAmount]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Loading to Premium\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of WrittenPremiumAmount]"
+                      name="Copy of WrittenPremiumAmount"
+                      precision="19"
+                      scale="2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Loading to Premium\Excel Source.Outputs[Excel Source Output].Columns[WrittenPremiumAmount]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Loading to Premium\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SettelmentCurrency]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="3"
+                      lineageId="Package\Loading to Premium\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SettelmentCurrency]"
+                      name="Copy of SettelmentCurrency"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Loading to Premium\Excel Source.Outputs[Excel Source Output].Columns[SettelmentCurrency]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Loading to Premium\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Loading to Premium\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Loading to Premium\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Loading to Premium\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Loading to Premium\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Loading to Premium\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Loading to Premium\Excel Source"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="Excel Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">Premium$</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Loading to Premium\Excel Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Output].Columns[CoverageKey]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Output].ExternalColumns[CoverageKey]"
+                      length="255"
+                      lineageId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Output].Columns[CoverageKey]"
+                      name="CoverageKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Output].Columns[SourceIdentifier]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Output].ExternalColumns[SourceIdentifier]"
+                      length="255"
+                      lineageId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Output].Columns[SourceIdentifier]"
+                      name="SourceIdentifier"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Output].Columns[TransactionCode]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Output].ExternalColumns[TransactionCode]"
+                      lineageId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Output].Columns[TransactionCode]"
+                      name="TransactionCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Output].Columns[RevenueType]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Output].ExternalColumns[RevenueType]"
+                      length="255"
+                      lineageId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Output].Columns[RevenueType]"
+                      name="RevenueType"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Output].Columns[CurrCode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Output].ExternalColumns[CurrCode]"
+                      length="255"
+                      lineageId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Output].Columns[CurrCode]"
+                      name="CurrCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Output].Columns[Date]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Output].ExternalColumns[Date]"
+                      lineageId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Output].Columns[Date]"
+                      name="Date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Output].Columns[BasePremiumAmount]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Output].ExternalColumns[BasePremiumAmount]"
+                      lineageId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Output].Columns[BasePremiumAmount]"
+                      name="BasePremiumAmount"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Output].Columns[SignedPremiumAmount]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Output].ExternalColumns[SignedPremiumAmount]"
+                      lineageId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Output].Columns[SignedPremiumAmount]"
+                      name="SignedPremiumAmount"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Output].Columns[PredictedPremiumAmount]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Output].ExternalColumns[PredictedPremiumAmount]"
+                      lineageId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Output].Columns[PredictedPremiumAmount]"
+                      name="PredictedPremiumAmount"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Output].Columns[WrittenPremiumAmount]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Output].ExternalColumns[WrittenPremiumAmount]"
+                      lineageId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Output].Columns[WrittenPremiumAmount]"
+                      name="WrittenPremiumAmount"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Output].Columns[SettelmentCurrency]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Output].ExternalColumns[SettelmentCurrency]"
+                      length="255"
+                      lineageId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Output].Columns[SettelmentCurrency]"
+                      name="SettelmentCurrency"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Output].ExternalColumns[CoverageKey]"
+                      dataType="wstr"
+                      length="255"
+                      name="CoverageKey" />
+                    <externalMetadataColumn
+                      refId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Output].ExternalColumns[SourceIdentifier]"
+                      dataType="wstr"
+                      length="255"
+                      name="SourceIdentifier" />
+                    <externalMetadataColumn
+                      refId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Output].ExternalColumns[TransactionCode]"
+                      dataType="r8"
+                      name="TransactionCode" />
+                    <externalMetadataColumn
+                      refId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Output].ExternalColumns[RevenueType]"
+                      dataType="wstr"
+                      length="255"
+                      name="RevenueType" />
+                    <externalMetadataColumn
+                      refId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Output].ExternalColumns[CurrCode]"
+                      dataType="wstr"
+                      length="255"
+                      name="CurrCode" />
+                    <externalMetadataColumn
+                      refId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Output].ExternalColumns[Date]"
+                      dataType="date"
+                      name="Date" />
+                    <externalMetadataColumn
+                      refId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Output].ExternalColumns[BasePremiumAmount]"
+                      dataType="r8"
+                      name="BasePremiumAmount" />
+                    <externalMetadataColumn
+                      refId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Output].ExternalColumns[SignedPremiumAmount]"
+                      dataType="r8"
+                      name="SignedPremiumAmount" />
+                    <externalMetadataColumn
+                      refId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Output].ExternalColumns[PredictedPremiumAmount]"
+                      dataType="r8"
+                      name="PredictedPremiumAmount" />
+                    <externalMetadataColumn
+                      refId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Output].ExternalColumns[WrittenPremiumAmount]"
+                      dataType="r8"
+                      name="WrittenPremiumAmount" />
+                    <externalMetadataColumn
+                      refId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Output].ExternalColumns[SettelmentCurrency]"
+                      dataType="wstr"
+                      length="255"
+                      name="SettelmentCurrency" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Error Output].Columns[CoverageKey]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Error Output].Columns[CoverageKey]"
+                      name="CoverageKey" />
+                    <outputColumn
+                      refId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Error Output].Columns[SourceIdentifier]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Error Output].Columns[SourceIdentifier]"
+                      name="SourceIdentifier" />
+                    <outputColumn
+                      refId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Error Output].Columns[TransactionCode]"
+                      dataType="r8"
+                      lineageId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Error Output].Columns[TransactionCode]"
+                      name="TransactionCode" />
+                    <outputColumn
+                      refId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Error Output].Columns[RevenueType]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Error Output].Columns[RevenueType]"
+                      name="RevenueType" />
+                    <outputColumn
+                      refId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Error Output].Columns[CurrCode]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Error Output].Columns[CurrCode]"
+                      name="CurrCode" />
+                    <outputColumn
+                      refId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Error Output].Columns[Date]"
+                      dataType="date"
+                      lineageId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Error Output].Columns[Date]"
+                      name="Date" />
+                    <outputColumn
+                      refId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Error Output].Columns[BasePremiumAmount]"
+                      dataType="r8"
+                      lineageId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Error Output].Columns[BasePremiumAmount]"
+                      name="BasePremiumAmount" />
+                    <outputColumn
+                      refId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Error Output].Columns[SignedPremiumAmount]"
+                      dataType="r8"
+                      lineageId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Error Output].Columns[SignedPremiumAmount]"
+                      name="SignedPremiumAmount" />
+                    <outputColumn
+                      refId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Error Output].Columns[PredictedPremiumAmount]"
+                      dataType="r8"
+                      lineageId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Error Output].Columns[PredictedPremiumAmount]"
+                      name="PredictedPremiumAmount" />
+                    <outputColumn
+                      refId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Error Output].Columns[WrittenPremiumAmount]"
+                      dataType="r8"
+                      lineageId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Error Output].Columns[WrittenPremiumAmount]"
+                      name="WrittenPremiumAmount" />
+                    <outputColumn
+                      refId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Error Output].Columns[SettelmentCurrency]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Error Output].Columns[SettelmentCurrency]"
+                      name="SettelmentCurrency" />
+                    <outputColumn
+                      refId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Loading to Premium\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Premium]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Loading to Premium\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[yitbark\tariku.TardisStage]"
+                  connectionManagerRefId="Package.ConnectionManagers[yitbark\tariku.TardisStage]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Loading to Premium\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Loading to Premium\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Date]"
+                      cachedDataType="date"
+                      cachedName="Date"
+                      externalMetadataColumnId="Package\Loading to Premium\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Date]"
+                      lineageId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Output].Columns[Date]" />
+                    <inputColumn
+                      refId="Package\Loading to Premium\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of CoverageKey]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="17"
+                      cachedName="Copy of CoverageKey"
+                      externalMetadataColumnId="Package\Loading to Premium\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CoverageKey]"
+                      lineageId="Package\Loading to Premium\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of CoverageKey]" />
+                    <inputColumn
+                      refId="Package\Loading to Premium\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of SourceIdentifier]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="150"
+                      cachedName="Copy of SourceIdentifier"
+                      externalMetadataColumnId="Package\Loading to Premium\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SourceIdentifier]"
+                      lineageId="Package\Loading to Premium\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SourceIdentifier]" />
+                    <inputColumn
+                      refId="Package\Loading to Premium\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of TransactionCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Copy of TransactionCode"
+                      externalMetadataColumnId="Package\Loading to Premium\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TransactionTypeCode]"
+                      lineageId="Package\Loading to Premium\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of TransactionCode]" />
+                    <inputColumn
+                      refId="Package\Loading to Premium\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of RevenueType]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="Copy of RevenueType"
+                      externalMetadataColumnId="Package\Loading to Premium\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RevenueTypeCode]"
+                      lineageId="Package\Loading to Premium\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of RevenueType]" />
+                    <inputColumn
+                      refId="Package\Loading to Premium\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of CurrCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="Copy of CurrCode"
+                      externalMetadataColumnId="Package\Loading to Premium\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CurrCode]"
+                      lineageId="Package\Loading to Premium\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of CurrCode]" />
+                    <inputColumn
+                      refId="Package\Loading to Premium\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of BasePremiumAmount]"
+                      cachedDataType="numeric"
+                      cachedName="Copy of BasePremiumAmount"
+                      cachedPrecision="19"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Loading to Premium\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BasePremiumAmount]"
+                      lineageId="Package\Loading to Premium\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of BasePremiumAmount]" />
+                    <inputColumn
+                      refId="Package\Loading to Premium\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of SignedPremiumAmount]"
+                      cachedDataType="numeric"
+                      cachedName="Copy of SignedPremiumAmount"
+                      cachedPrecision="19"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Loading to Premium\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SignedPremiumAmount]"
+                      lineageId="Package\Loading to Premium\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SignedPremiumAmount]" />
+                    <inputColumn
+                      refId="Package\Loading to Premium\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of PredictedPremiumAmount]"
+                      cachedDataType="numeric"
+                      cachedName="Copy of PredictedPremiumAmount"
+                      cachedPrecision="19"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Loading to Premium\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PredictedPremiumAmount]"
+                      lineageId="Package\Loading to Premium\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of PredictedPremiumAmount]" />
+                    <inputColumn
+                      refId="Package\Loading to Premium\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of WrittenPremiumAmount]"
+                      cachedDataType="numeric"
+                      cachedName="Copy of WrittenPremiumAmount"
+                      cachedPrecision="19"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Loading to Premium\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[WrittenPremiumAmount]"
+                      lineageId="Package\Loading to Premium\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of WrittenPremiumAmount]" />
+                    <inputColumn
+                      refId="Package\Loading to Premium\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of SettelmentCurrency]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="Copy of SettelmentCurrency"
+                      externalMetadataColumnId="Package\Loading to Premium\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SettlementCurrencyCode]"
+                      lineageId="Package\Loading to Premium\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SettelmentCurrency]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Loading to Premium\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CoverageKey]"
+                      codePage="1252"
+                      dataType="str"
+                      length="17"
+                      name="CoverageKey" />
+                    <externalMetadataColumn
+                      refId="Package\Loading to Premium\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SourceIdentifier]"
+                      codePage="1252"
+                      dataType="str"
+                      length="150"
+                      name="SourceIdentifier" />
+                    <externalMetadataColumn
+                      refId="Package\Loading to Premium\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[TransactionTypeCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="TransactionTypeCode" />
+                    <externalMetadataColumn
+                      refId="Package\Loading to Premium\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RevenueTypeCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="RevenueTypeCode" />
+                    <externalMetadataColumn
+                      refId="Package\Loading to Premium\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CurrCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="CurrCode" />
+                    <externalMetadataColumn
+                      refId="Package\Loading to Premium\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Date]"
+                      dataType="dbDate"
+                      name="Date" />
+                    <externalMetadataColumn
+                      refId="Package\Loading to Premium\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BasePremiumAmount]"
+                      dataType="numeric"
+                      name="BasePremiumAmount"
+                      precision="19"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Loading to Premium\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SignedPremiumAmount]"
+                      dataType="numeric"
+                      name="SignedPremiumAmount"
+                      precision="19"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Loading to Premium\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PredictedPremiumAmount]"
+                      dataType="numeric"
+                      name="PredictedPremiumAmount"
+                      precision="19"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Loading to Premium\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[WrittenPremiumAmount]"
+                      dataType="numeric"
+                      name="WrittenPremiumAmount"
+                      precision="19"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Loading to Premium\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SettlementCurrencyCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="SettlementCurrencyCode" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Loading to Premium\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Loading to Premium\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Loading to Premium\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Loading to Premium\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Loading to Premium\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Loading to Premium\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Loading to Premium.Paths[Data Conversion Output]"
+              endId="Package\Loading to Premium\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\Loading to Premium\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Loading to Premium.Paths[Excel Source Output]"
+              endId="Package\Loading to Premium\Data Conversion.Inputs[Data Conversion Input]"
+              name="Excel Source Output"
+              startId="Package\Loading to Premium\Excel Source.Outputs[Excel Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{FB0626D0-4A34-4D33-9B69-BCC8D96CBC19}"
+      DTS:From="Package\Delete from Premium"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Loading to Premium" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="183,42"
+          Id="Package\Delete from Premium"
+          TopLeft="5.5,5.5" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Loading to Premium"
+          TopLeft="32.5,119.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="97,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="24,72"
+              Start="0,0"
+              End="24,64.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,32"
+                    Point2="0,36"
+                    Point3="4,36" />
+                  <mssgle:LineSegment
+                    End="20,36" />
+                  <mssgle:CubicBezierSegment
+                    Point1="20,36"
+                    Point2="24,36"
+                    Point3="24,40" />
+                  <mssgle:LineSegment
+                    End="24,64.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Loading to Premium">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="144,42"
+          Id="Package\Loading to Premium\Excel Source"
+          TopLeft="5.5,5.5" />
+        <NodeLayout
+          Size="161,42"
+          Id="Package\Loading to Premium\Data Conversion"
+          TopLeft="20.5,112.5" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Loading to Premium\OLE DB Destination"
+          TopLeft="19.5,227.5" />
+        <EdgeLayout
+          Id="Package\Loading to Premium.Paths[Excel Source Output]"
+          TopLeft="77.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="23.5,65"
+              Start="0,0"
+              End="23.5,57.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28.5"
+                    Point2="0,32.5"
+                    Point3="4,32.5" />
+                  <mssgle:LineSegment
+                    End="19.5,32.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="19.5,32.5"
+                    Point2="23.5,32.5"
+                    Point3="23.5,36.5" />
+                  <mssgle:LineSegment
+                    End="23.5,57.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loading to Premium.Paths[Data Conversion Output]"
+          TopLeft="104.5,154.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,73"
+              Start="0,0"
+              End="0,65.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,65.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Loading to Premium\Excel Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Loading to Premium\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
