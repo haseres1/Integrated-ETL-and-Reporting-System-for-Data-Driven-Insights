@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32510.428
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "EBC_Bank_Project_Report", "EBC_Bank_Project_Report\EBC_Bank_Project_Report.rptproj", "{97E14E4F-9F21-4B6A-8009-E8D0AE9533C9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{97E14E4F-9F21-4B6A-8009-E8D0AE9533C9}.Debug|Default.ActiveCfg = Debug
+		{97E14E4F-9F21-4B6A-8009-E8D0AE9533C9}.Debug|Default.Build.0 = Debug
+		{97E14E4F-9F21-4B6A-8009-E8D0AE9533C9}.Debug|Default.Deploy.0 = Debug
+		{97E14E4F-9F21-4B6A-8009-E8D0AE9533C9}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{97E14E4F-9F21-4B6A-8009-E8D0AE9533C9}.DebugLocal|Default.Build.0 = DebugLocal
+		{97E14E4F-9F21-4B6A-8009-E8D0AE9533C9}.Release|Default.ActiveCfg = Release
+		{97E14E4F-9F21-4B6A-8009-E8D0AE9533C9}.Release|Default.Build.0 = Release
+		{97E14E4F-9F21-4B6A-8009-E8D0AE9533C9}.Release|Default.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BE921906-8E9F-4CE9-802D-17203AC96292}
+	EndGlobalSection
+EndGlobal
