@@ -1,0 +1,1136 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/26/2022 6:38:05 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="YITBARK"
+  DTS:CreatorName="YITBARK\HP"
+  DTS:DTSID="{79693396-81E7-4606-B05F-BF896A3C64C5}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.180"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="FactInventory"
+  DTS:PackageType="5"
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{499C721D-3639-48AE-887E-AE70882E83BE}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[FactInventory Conn]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{89E74822-5E2C-4BF6-A776-72A1B06E2FE9}"
+      DTS:ObjectName="FactInventory Conn">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\HP\OneDrive - montgomerycollege.edu\Documents\SQL server traning\Esco-RetailProject\EscoInventory.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="InventoryKey"
+              DTS:DTSID="{61BF841B-45CC-4783-B898-B7F29ED913E3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="7"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DateKey"
+              DTS:DTSID="{8179E82F-039E-48CD-BB62-EFC1B378CF80}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="StoreKey"
+              DTS:DTSID="{C26DF746-B927-4F6C-B585-71096413154D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ProductKey"
+              DTS:DTSID="{CE21355B-A210-4E9E-BAE6-C6194BD4F92A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CurrencyKey"
+              DTS:DTSID="{5BDA2BAB-40CA-4D9A-A414-6423CFBD6AF9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="OnHandQuantity"
+              DTS:DTSID="{492BB6D8-5096-421A-A181-2A6DE31B325D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="OnOrderQuantity"
+              DTS:DTSID="{2B4D6C67-CFB7-4401-8C61-BB7B322389B8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SafetyStockQuantity"
+              DTS:DTSID="{91C0466E-B14A-42FD-ABBD-58A1E83AA763}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="6"
+              DTS:TextQualified="True"
+              DTS:ObjectName="UnitCost"
+              DTS:DTSID="{BBEEA5A7-7D93-4E7E-9B32-A60E370649CB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DaysInStock"
+              DTS:DTSID="{C946B1E2-D17F-4C73-9F0B-7A5538D9303F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MinDayInStock"
+              DTS:DTSID="{43E4355B-1BEB-4890-9FFA-BDE02966613C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MaxDayInStock"
+              DTS:DTSID="{2264F29F-8E9C-4B38-9D1D-31CFD1A8DB35}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Aging"
+              DTS:DTSID="{12A5997D-D8F7-4A45-A7D5-A121B6A87D31}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ETLLoadID"
+              DTS:DTSID="{9241B9A3-7FEB-4040-A834-E273089D907B}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[yitbark\tariku.ESCO]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{D7F93A3A-7102-4B8A-AE69-98E782A8DE5D}"
+      DTS:ObjectName="yitbark\tariku.ESCO">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=yitbark\tariku;Initial Catalog=ESCO;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\delete from FactInventory"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{4566EE7E-88B4-45E5-8119-FF48E8EB1B8C}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="delete from FactInventory"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D7F93A3A-7102-4B8A-AE69-98E782A8DE5D}"
+          SQLTask:SqlStatementSource="delete from FactInventory" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\FactInventory"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{BA7F7DFA-C27C-453C-A211-B434028B746A}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="FactInventory"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\FactInventory\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\FactInventory\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\FactInventory\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\FactInventory\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FactInventory\Derived Column.Outputs[Derived Column Output].Columns[LoadDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\FactInventory\Derived Column.Outputs[Derived Column Output].Columns[LoadDate]"
+                      name="LoadDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactInventory\Derived Column.Outputs[Derived Column Output].Columns[UpdateDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\FactInventory\Derived Column.Outputs[Derived Column Output].Columns[UpdateDate]"
+                      name="UpdateDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\FactInventory\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\FactInventory\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FactInventory\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\FactInventory\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\FactInventory\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\FactInventory\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\FactInventory\Flat File Source"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="Flat File Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">true</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\FactInventory\Flat File Source.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[FactInventory Conn]"
+                  connectionManagerRefId="Package.ConnectionManagers[FactInventory Conn]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\FactInventory\Flat File Source.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FactInventory\Flat File Source.Outputs[Flat File Source Output].Columns[DateKey]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactInventory\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[DateKey]"
+                      lineageId="Package\FactInventory\Flat File Source.Outputs[Flat File Source Output].Columns[DateKey]"
+                      name="DateKey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactInventory\Flat File Source.Outputs[Flat File Source Output].Columns[StoreKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactInventory\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[StoreKey]"
+                      lineageId="Package\FactInventory\Flat File Source.Outputs[Flat File Source Output].Columns[StoreKey]"
+                      name="StoreKey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactInventory\Flat File Source.Outputs[Flat File Source Output].Columns[ProductKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactInventory\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ProductKey]"
+                      lineageId="Package\FactInventory\Flat File Source.Outputs[Flat File Source Output].Columns[ProductKey]"
+                      name="ProductKey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactInventory\Flat File Source.Outputs[Flat File Source Output].Columns[CurrencyKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactInventory\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CurrencyKey]"
+                      lineageId="Package\FactInventory\Flat File Source.Outputs[Flat File Source Output].Columns[CurrencyKey]"
+                      name="CurrencyKey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactInventory\Flat File Source.Outputs[Flat File Source Output].Columns[UnitCost]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactInventory\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[UnitCost]"
+                      lineageId="Package\FactInventory\Flat File Source.Outputs[Flat File Source Output].Columns[UnitCost]"
+                      name="UnitCost"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactInventory\Flat File Source.Outputs[Flat File Source Output].Columns[ETLLoadID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactInventory\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ETLLoadID]"
+                      lineageId="Package\FactInventory\Flat File Source.Outputs[Flat File Source Output].Columns[ETLLoadID]"
+                      name="ETLLoadID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactInventory\Flat File Source.Outputs[Flat File Source Output].Columns[InventoryKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactInventory\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[InventoryKey]"
+                      lineageId="Package\FactInventory\Flat File Source.Outputs[Flat File Source Output].Columns[InventoryKey]"
+                      name="InventoryKey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactInventory\Flat File Source.Outputs[Flat File Source Output].Columns[OnHandQuantity]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactInventory\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[OnHandQuantity]"
+                      lineageId="Package\FactInventory\Flat File Source.Outputs[Flat File Source Output].Columns[OnHandQuantity]"
+                      name="OnHandQuantity"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactInventory\Flat File Source.Outputs[Flat File Source Output].Columns[OnOrderQuantity]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactInventory\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[OnOrderQuantity]"
+                      lineageId="Package\FactInventory\Flat File Source.Outputs[Flat File Source Output].Columns[OnOrderQuantity]"
+                      name="OnOrderQuantity"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactInventory\Flat File Source.Outputs[Flat File Source Output].Columns[SafetyStockQuantity]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactInventory\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[SafetyStockQuantity]"
+                      lineageId="Package\FactInventory\Flat File Source.Outputs[Flat File Source Output].Columns[SafetyStockQuantity]"
+                      name="SafetyStockQuantity"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactInventory\Flat File Source.Outputs[Flat File Source Output].Columns[DaysInStock]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactInventory\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[DaysInStock]"
+                      lineageId="Package\FactInventory\Flat File Source.Outputs[Flat File Source Output].Columns[DaysInStock]"
+                      name="DaysInStock"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactInventory\Flat File Source.Outputs[Flat File Source Output].Columns[MinDayInStock]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactInventory\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[MinDayInStock]"
+                      lineageId="Package\FactInventory\Flat File Source.Outputs[Flat File Source Output].Columns[MinDayInStock]"
+                      name="MinDayInStock"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactInventory\Flat File Source.Outputs[Flat File Source Output].Columns[MaxDayInStock]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactInventory\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[MaxDayInStock]"
+                      lineageId="Package\FactInventory\Flat File Source.Outputs[Flat File Source Output].Columns[MaxDayInStock]"
+                      name="MaxDayInStock"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\FactInventory\Flat File Source.Outputs[Flat File Source Output].Columns[Aging]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\FactInventory\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Aging]"
+                      lineageId="Package\FactInventory\Flat File Source.Outputs[Flat File Source Output].Columns[Aging]"
+                      name="Aging"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\FactInventory\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[DateKey]"
+                      dataType="date"
+                      name="DateKey" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventory\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[StoreKey]"
+                      dataType="i4"
+                      name="StoreKey" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventory\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ProductKey]"
+                      dataType="i4"
+                      name="ProductKey" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventory\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CurrencyKey]"
+                      dataType="i4"
+                      name="CurrencyKey" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventory\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[UnitCost]"
+                      dataType="cy"
+                      name="UnitCost" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventory\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ETLLoadID]"
+                      dataType="i4"
+                      name="ETLLoadID" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventory\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[InventoryKey]"
+                      dataType="i4"
+                      name="InventoryKey" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventory\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[OnHandQuantity]"
+                      dataType="i4"
+                      name="OnHandQuantity" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventory\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[OnOrderQuantity]"
+                      dataType="i4"
+                      name="OnOrderQuantity" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventory\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[SafetyStockQuantity]"
+                      dataType="i4"
+                      name="SafetyStockQuantity" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventory\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[DaysInStock]"
+                      dataType="i4"
+                      name="DaysInStock" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventory\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[MinDayInStock]"
+                      dataType="i4"
+                      name="MinDayInStock" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventory\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[MaxDayInStock]"
+                      dataType="i4"
+                      name="MaxDayInStock" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventory\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Aging]"
+                      dataType="i4"
+                      name="Aging" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\FactInventory\Flat File Source.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FactInventory\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\FactInventory\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\FactInventory\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\FactInventory\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\FactInventory\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\FactInventory\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\FactInventory\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[FactInventory]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\FactInventory\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[yitbark\tariku.ESCO]"
+                  connectionManagerRefId="Package.ConnectionManagers[yitbark\tariku.ESCO]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\FactInventory\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\FactInventory\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DateKey]"
+                      cachedDataType="date"
+                      cachedName="DateKey"
+                      externalMetadataColumnId="Package\FactInventory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateKey]"
+                      lineageId="Package\FactInventory\Flat File Source.Outputs[Flat File Source Output].Columns[DateKey]" />
+                    <inputColumn
+                      refId="Package\FactInventory\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[StoreKey]"
+                      cachedDataType="i4"
+                      cachedName="StoreKey"
+                      externalMetadataColumnId="Package\FactInventory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StoreKey]"
+                      lineageId="Package\FactInventory\Flat File Source.Outputs[Flat File Source Output].Columns[StoreKey]" />
+                    <inputColumn
+                      refId="Package\FactInventory\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ProductKey]"
+                      cachedDataType="i4"
+                      cachedName="ProductKey"
+                      externalMetadataColumnId="Package\FactInventory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductKey]"
+                      lineageId="Package\FactInventory\Flat File Source.Outputs[Flat File Source Output].Columns[ProductKey]" />
+                    <inputColumn
+                      refId="Package\FactInventory\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CurrencyKey]"
+                      cachedDataType="i4"
+                      cachedName="CurrencyKey"
+                      externalMetadataColumnId="Package\FactInventory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CurrencyKey]"
+                      lineageId="Package\FactInventory\Flat File Source.Outputs[Flat File Source Output].Columns[CurrencyKey]" />
+                    <inputColumn
+                      refId="Package\FactInventory\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[UnitCost]"
+                      cachedDataType="cy"
+                      cachedName="UnitCost"
+                      externalMetadataColumnId="Package\FactInventory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UnitCost]"
+                      lineageId="Package\FactInventory\Flat File Source.Outputs[Flat File Source Output].Columns[UnitCost]" />
+                    <inputColumn
+                      refId="Package\FactInventory\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ETLLoadID]"
+                      cachedDataType="i4"
+                      cachedName="ETLLoadID"
+                      externalMetadataColumnId="Package\FactInventory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ETLLoadID]"
+                      lineageId="Package\FactInventory\Flat File Source.Outputs[Flat File Source Output].Columns[ETLLoadID]" />
+                    <inputColumn
+                      refId="Package\FactInventory\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LoadDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="LoadDate"
+                      externalMetadataColumnId="Package\FactInventory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LoadDate]"
+                      lineageId="Package\FactInventory\Derived Column.Outputs[Derived Column Output].Columns[LoadDate]" />
+                    <inputColumn
+                      refId="Package\FactInventory\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[UpdateDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="UpdateDate"
+                      externalMetadataColumnId="Package\FactInventory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UpdateDate]"
+                      lineageId="Package\FactInventory\Derived Column.Outputs[Derived Column Output].Columns[UpdateDate]" />
+                    <inputColumn
+                      refId="Package\FactInventory\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[OnHandQuantity]"
+                      cachedDataType="i4"
+                      cachedName="OnHandQuantity"
+                      externalMetadataColumnId="Package\FactInventory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OnHandQuantity]"
+                      lineageId="Package\FactInventory\Flat File Source.Outputs[Flat File Source Output].Columns[OnHandQuantity]" />
+                    <inputColumn
+                      refId="Package\FactInventory\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[OnOrderQuantity]"
+                      cachedDataType="i4"
+                      cachedName="OnOrderQuantity"
+                      externalMetadataColumnId="Package\FactInventory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OnOrderQuantity]"
+                      lineageId="Package\FactInventory\Flat File Source.Outputs[Flat File Source Output].Columns[OnOrderQuantity]" />
+                    <inputColumn
+                      refId="Package\FactInventory\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SafetyStockQuantity]"
+                      cachedDataType="i4"
+                      cachedName="SafetyStockQuantity"
+                      externalMetadataColumnId="Package\FactInventory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SafetyStockQuantity]"
+                      lineageId="Package\FactInventory\Flat File Source.Outputs[Flat File Source Output].Columns[SafetyStockQuantity]" />
+                    <inputColumn
+                      refId="Package\FactInventory\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DaysInStock]"
+                      cachedDataType="i4"
+                      cachedName="DaysInStock"
+                      externalMetadataColumnId="Package\FactInventory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DaysInStock]"
+                      lineageId="Package\FactInventory\Flat File Source.Outputs[Flat File Source Output].Columns[DaysInStock]" />
+                    <inputColumn
+                      refId="Package\FactInventory\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[MinDayInStock]"
+                      cachedDataType="i4"
+                      cachedName="MinDayInStock"
+                      externalMetadataColumnId="Package\FactInventory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MinDayInStock]"
+                      lineageId="Package\FactInventory\Flat File Source.Outputs[Flat File Source Output].Columns[MinDayInStock]" />
+                    <inputColumn
+                      refId="Package\FactInventory\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[MaxDayInStock]"
+                      cachedDataType="i4"
+                      cachedName="MaxDayInStock"
+                      externalMetadataColumnId="Package\FactInventory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MaxDayInStock]"
+                      lineageId="Package\FactInventory\Flat File Source.Outputs[Flat File Source Output].Columns[MaxDayInStock]" />
+                    <inputColumn
+                      refId="Package\FactInventory\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Aging]"
+                      cachedDataType="i4"
+                      cachedName="Aging"
+                      externalMetadataColumnId="Package\FactInventory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Aging]"
+                      lineageId="Package\FactInventory\Flat File Source.Outputs[Flat File Source Output].Columns[Aging]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\FactInventory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateKey]"
+                      dataType="dbTimeStamp"
+                      name="DateKey" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StoreKey]"
+                      dataType="i4"
+                      name="StoreKey" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductKey]"
+                      dataType="i4"
+                      name="ProductKey" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CurrencyKey]"
+                      dataType="i4"
+                      name="CurrencyKey" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UnitCost]"
+                      dataType="cy"
+                      name="UnitCost" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ETLLoadID]"
+                      dataType="i4"
+                      name="ETLLoadID" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LoadDate]"
+                      dataType="dbTimeStamp"
+                      name="LoadDate" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UpdateDate]"
+                      dataType="dbTimeStamp"
+                      name="UpdateDate" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[InventoryKey]"
+                      dataType="i4"
+                      name="InventoryKey" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OnHandQuantity]"
+                      dataType="i4"
+                      name="OnHandQuantity" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OnOrderQuantity]"
+                      dataType="i4"
+                      name="OnOrderQuantity" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SafetyStockQuantity]"
+                      dataType="i4"
+                      name="SafetyStockQuantity" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DaysInStock]"
+                      dataType="i4"
+                      name="DaysInStock" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MinDayInStock]"
+                      dataType="i4"
+                      name="MinDayInStock" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MaxDayInStock]"
+                      dataType="i4"
+                      name="MaxDayInStock" />
+                    <externalMetadataColumn
+                      refId="Package\FactInventory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Aging]"
+                      dataType="i4"
+                      name="Aging" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\FactInventory\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\FactInventory\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\FactInventory\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\FactInventory\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\FactInventory\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\FactInventory\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\FactInventory.Paths[Derived Column Output]"
+              endId="Package\FactInventory\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\FactInventory\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\FactInventory.Paths[Flat File Source Output]"
+              endId="Package\FactInventory\Derived Column.Inputs[Derived Column Input]"
+              name="Flat File Source Output"
+              startId="Package\FactInventory\Flat File Source.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{261F8783-8D72-4516-9645-28519162FA7F}"
+      DTS:From="Package\delete from FactInventory"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\FactInventory" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="170,42"
+          Id="Package\delete from FactInventory"
+          TopLeft="205.5,125.5" />
+        <NodeLayout
+          Size="146,42"
+          Id="Package\FactInventory"
+          TopLeft="5.5,107.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="205.5,146.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-54,-18"
+              Start="0,0"
+              End="-46.5,-18">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-23,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-23,0"
+                    Point2="-27,0"
+                    Point3="-27,-4" />
+                  <mssgle:LineSegment
+                    End="-27,-14" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-27,-14"
+                    Point2="-27,-18"
+                    Point3="-31,-18" />
+                  <mssgle:LineSegment
+                    End="-46.5,-18" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\FactInventory">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="177,42"
+          Id="Package\FactInventory\OLE DB Destination"
+          TopLeft="73.5,171.5" />
+        <NodeLayout
+          Size="158,42"
+          Id="Package\FactInventory\Derived Column"
+          TopLeft="48.5,82.5" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\FactInventory\Flat File Source"
+          TopLeft="5.5,5.5" />
+        <EdgeLayout
+          Id="Package\FactInventory.Paths[Flat File Source Output]"
+          TopLeft="83.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="44,35"
+              Start="0,0"
+              End="44,27.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.5"
+                    Point2="0,17.5"
+                    Point3="4,17.5" />
+                  <mssgle:LineSegment
+                    End="40,17.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="40,17.5"
+                    Point2="44,17.5"
+                    Point3="44,21.5" />
+                  <mssgle:LineSegment
+                    End="44,27.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\FactInventory.Paths[Derived Column Output]"
+          TopLeft="127.5,124.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="34.5,47"
+              Start="0,0"
+              End="34.5,39.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.5"
+                    Point2="0,23.5"
+                    Point3="4,23.5" />
+                  <mssgle:LineSegment
+                    End="30.5,23.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="30.5,23.5"
+                    Point2="34.5,23.5"
+                    Point3="34.5,27.5" />
+                  <mssgle:LineSegment
+                    End="34.5,39.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\FactInventory\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

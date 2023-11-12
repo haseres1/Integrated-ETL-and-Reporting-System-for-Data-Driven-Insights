@@ -1,0 +1,1542 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/21/2022 10:29:32 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="YITBARK"
+  DTS:CreatorName="YITBARK\HP"
+  DTS:DTSID="{1F2E1295-07CC-49E0-B97E-03D6BB35FA01}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.180"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="DimProductSubCategory"
+  DTS:PackageType="5"
+  DTS:VersionBuild="38"
+  DTS:VersionGUID="{6257E132-DD3A-4AEF-AA56-D44CE6DCFCF1}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DimProduct]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{F8048540-DC67-4D30-95ED-9BE923AC8E22}"
+      DTS:ObjectName="DimProduct">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\HP\OneDrive - montgomerycollege.edu\Documents\SQL server traning\Esco-RetailProject\EscoProduct.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ProductKey"
+              DTS:DTSID="{83F063E6-5BB2-4D58-B3D9-36AB1613C223}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="500"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ProductName"
+              DTS:DTSID="{50124248-6E97-43C2-B3C1-7E702EBC7C0D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="400"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ProductDescription"
+              DTS:DTSID="{D7417A82-5313-47B3-AEFA-72B691852ED1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ProductSubcategoryKey"
+              DTS:DTSID="{43642D0B-033B-4315-A1BE-C02754F7882E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Manufacturer"
+              DTS:DTSID="{3C0347C9-6A07-4246-AD22-255F8F4622B6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="BrandName"
+              DTS:DTSID="{37ED79A0-7B9C-4811-A623-AF1CDFA9D4A8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ClassID"
+              DTS:DTSID="{7F97957C-EC4D-4AF0-96AD-A2399B094319}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="20"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ClassName"
+              DTS:DTSID="{37379F76-2000-4511-9AE3-68D73D096305}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="StyleID"
+              DTS:DTSID="{4D443DA6-C7A3-4C0C-AAD3-ED54AF4B65C7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ColorID"
+              DTS:DTSID="{D4A9B213-D836-4AF9-91BF-6862C56AA49D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="20"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ColorName"
+              DTS:DTSID="{7FDE754E-A00D-4112-A054-33E70ECCC542}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Size"
+              DTS:DTSID="{00804357-9635-402D-96A6-A2ECBF4991B4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SizeRange"
+              DTS:DTSID="{FE6C6D2F-C8D8-4671-A168-D5070D6C8923}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="20"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SizeUnitMeasureID"
+              DTS:DTSID="{D5A32BBA-6D21-4930-81BB-4EBBFE48C25B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:DataType="4"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Weight"
+              DTS:DTSID="{43B9FF43-4A2D-48CF-A4BC-BB3358134F92}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="20"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="WeightUnitMeasureID"
+              DTS:DTSID="{CEB6A4F6-9286-461A-A3D1-2929087C7F2F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="UnitOfMeasureID"
+              DTS:DTSID="{06E8C77D-CB30-4BAE-B456-5AEA53265D7A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="40"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="UnitOfMeasureName"
+              DTS:DTSID="{9589F46C-4273-4E33-95D8-75515EA26AB8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="10"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="StockTypeID"
+              DTS:DTSID="{92AF2872-1479-44CD-9CC8-F38314F4FE5B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="40"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="StockTypeName"
+              DTS:DTSID="{D4C21B5C-E16D-430A-BB78-0429FE25A81B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:DataType="6"
+              DTS:TextQualified="True"
+              DTS:ObjectName="UnitCost"
+              DTS:DTSID="{06501F76-0AAE-4DE2-9D18-23480E231490}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:DataType="6"
+              DTS:TextQualified="True"
+              DTS:ObjectName="UnitPrice"
+              DTS:DTSID="{5A387B94-718B-454D-849F-8A28A150D938}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:DataType="7"
+              DTS:TextQualified="True"
+              DTS:ObjectName="AvailableForSaleDate"
+              DTS:DTSID="{4E288EEC-C0FF-4B12-A2B0-DBDE8AA38A9F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:DataType="7"
+              DTS:TextQualified="True"
+              DTS:ObjectName="StopSaleDate"
+              DTS:DTSID="{0BAA46F8-E3CC-403D-8C9F-D7F484FB8033}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="7"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Status"
+              DTS:DTSID="{C3218468-C30A-4369-BC2B-3B5F448A3265}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="150"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ImageURL"
+              DTS:DTSID="{D091F331-5BA4-460A-B5F2-A9ACAABE933C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ETLLoadID"
+              DTS:DTSID="{C4D13DDB-1539-472C-A83B-2D884873B3E4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="150"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ProductURL"
+              DTS:DTSID="{34199053-681D-4913-B8B7-33C57BB556ED}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ProductLabel"
+              DTS:DTSID="{5F2B38F6-8AE7-4910-A0D4-2F9F504B58B6}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DimProductCategory]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{BE6B0421-82D8-4822-BAF8-E4D408E24D2C}"
+      DTS:ObjectName="DimProductCategory">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\HP\OneDrive - montgomerycollege.edu\Documents\SQL server traning\Esco-RetailProject\EscoProductCategory.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ProductCategoryKey"
+              DTS:DTSID="{2053BCEB-ABC7-4EAC-94C6-A88B0F1CA63A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ProductCategoryName"
+              DTS:DTSID="{ADE4A5F7-C21D-4B03-A5D6-29223B99A02B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ProductCategoryDescription"
+              DTS:DTSID="{9F3918EE-25EE-4619-BE90-0DCAA347B4BD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ETLLoadID"
+              DTS:DTSID="{507577C7-0C07-494E-811D-926CCE41CFF8}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DimProductSubcategory Conn]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{90DE90D5-7B2A-48D9-AC12-D7763D4C7F53}"
+      DTS:ObjectName="DimProductSubcategory Conn">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\HP\OneDrive - montgomerycollege.edu\Documents\SQL server traning\Esco-RetailProject\EscoProductSubCategory.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ProductSubcategoryKey"
+              DTS:DTSID="{734C2AC0-8277-4E91-8426-8F9B881A1EC6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ProductSubcategoryLabel"
+              DTS:DTSID="{4F530D78-F9C0-4FA6-BD06-6A00FB66FD7B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ProductSubcategoryName"
+              DTS:DTSID="{42CE7EE6-CFC7-4AA9-B1ED-9F6AEEAF0EBA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ProductSubcategoryDescription"
+              DTS:DTSID="{C3FCC745-201D-4D8D-8B16-A5F965EA9C09}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ProductCategoryKey"
+              DTS:DTSID="{38210E33-88C5-43BD-B425-BDEEA20F4C42}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ETLLoadID"
+              DTS:DTSID="{AEEDB87A-B222-47C2-A588-B11BE74F1E12}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[yitbark\tariku.ESCO]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{B8602D9E-F057-4BC3-B1AB-8B2041A25AD6}"
+      DTS:ObjectName="yitbark\tariku.ESCO">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=yitbark\tariku;Initial Catalog=ESCO;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B34EE9B7-FE7B-4583-9CC3-EA5F49521B4C}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="getdate()"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="LoadDate">
+      <DTS:VariableValue
+        DTS:DataType="7">5/27/2022 11:08:18 AM</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E460539C-9AB9-4F09-A6A1-A4BDD4A98AB5}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="getdate()"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="UpdateDate">
+      <DTS:VariableValue
+        DTS:DataType="7">5/27/2022 11:08:18 AM</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Delete from DimProductSubcategory"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{E44E1ACF-30B2-4819-A36F-B021D53E23F4}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Delete from DimProductSubcategory"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{B8602D9E-F057-4BC3-B1AB-8B2041A25AD6}"
+          SQLTask:SqlStatementSource="Delete from DimProductSubcategory" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DimProductSubcategory"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{70A66D12-66B8-48CB-A8DA-063DC1B0AB56}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DimProductSubcategory"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DimProductSubcategory\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DimProductSubcategory\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DimProductSubcategory\Data Conversion.Inputs[Data Conversion Input].Columns[ETLLoadID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ETLLoadID"
+                      lineageId="Package\DimProductSubcategory\Flat File Source.Outputs[Flat File Source Output].Columns[ETLLoadID]" />
+                    <inputColumn
+                      refId="Package\DimProductSubcategory\Data Conversion.Inputs[Data Conversion Input].Columns[LoadDate]"
+                      cachedDataType="date"
+                      cachedName="LoadDate"
+                      lineageId="Package\DimProductSubcategory\Derived Column.Outputs[Derived Column Output].Columns[LoadDate]" />
+                    <inputColumn
+                      refId="Package\DimProductSubcategory\Data Conversion.Inputs[Data Conversion Input].Columns[UpdateDate]"
+                      cachedDataType="date"
+                      cachedName="UpdateDate"
+                      lineageId="Package\DimProductSubcategory\Derived Column.Outputs[Derived Column Output].Columns[UpdateDate]" />
+                    <inputColumn
+                      refId="Package\DimProductSubcategory\Data Conversion.Inputs[Data Conversion Input].Columns[ProductSubcategoryKey]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ProductSubcategoryKey"
+                      lineageId="Package\DimProductSubcategory\Flat File Source.Outputs[Flat File Source Output].Columns[ProductSubcategoryKey]" />
+                    <inputColumn
+                      refId="Package\DimProductSubcategory\Data Conversion.Inputs[Data Conversion Input].Columns[ProductSubcategoryLabel]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ProductSubcategoryLabel"
+                      lineageId="Package\DimProductSubcategory\Flat File Source.Outputs[Flat File Source Output].Columns[ProductSubcategoryLabel]" />
+                    <inputColumn
+                      refId="Package\DimProductSubcategory\Data Conversion.Inputs[Data Conversion Input].Columns[ProductSubcategoryName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ProductSubcategoryName"
+                      lineageId="Package\DimProductSubcategory\Flat File Source.Outputs[Flat File Source Output].Columns[ProductSubcategoryName]" />
+                    <inputColumn
+                      refId="Package\DimProductSubcategory\Data Conversion.Inputs[Data Conversion Input].Columns[ProductSubcategoryDescription]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ProductSubcategoryDescription"
+                      lineageId="Package\DimProductSubcategory\Flat File Source.Outputs[Flat File Source Output].Columns[ProductSubcategoryDescription]" />
+                    <inputColumn
+                      refId="Package\DimProductSubcategory\Data Conversion.Inputs[Data Conversion Input].Columns[ProductCategoryKey]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ProductCategoryKey"
+                      lineageId="Package\DimProductSubcategory\Flat File Source.Outputs[Flat File Source Output].Columns[ProductCategoryKey]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DimProductSubcategory\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\DimProductSubcategory\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DimProductSubcategory\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ETLLoadID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DimProductSubcategory\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ETLLoadID]"
+                      name="Copy of ETLLoadID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DimProductSubcategory\Flat File Source.Outputs[Flat File Source Output].Columns[ETLLoadID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimProductSubcategory\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of LoadDate]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DimProductSubcategory\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of LoadDate]"
+                      name="Copy of LoadDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DimProductSubcategory\Derived Column.Outputs[Derived Column Output].Columns[LoadDate]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimProductSubcategory\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of UpdateDate]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DimProductSubcategory\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of UpdateDate]"
+                      name="Copy of UpdateDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DimProductSubcategory\Derived Column.Outputs[Derived Column Output].Columns[UpdateDate]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimProductSubcategory\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ProductSubcategoryKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DimProductSubcategory\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ProductSubcategoryKey]"
+                      name="Copy of ProductSubcategoryKey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DimProductSubcategory\Flat File Source.Outputs[Flat File Source Output].Columns[ProductSubcategoryKey]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimProductSubcategory\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ProductSubcategoryLabel]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\DimProductSubcategory\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ProductSubcategoryLabel]"
+                      name="Copy of ProductSubcategoryLabel"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DimProductSubcategory\Flat File Source.Outputs[Flat File Source Output].Columns[ProductSubcategoryLabel]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimProductSubcategory\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ProductSubcategoryName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\DimProductSubcategory\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ProductSubcategoryName]"
+                      name="Copy of ProductSubcategoryName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DimProductSubcategory\Flat File Source.Outputs[Flat File Source Output].Columns[ProductSubcategoryName]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimProductSubcategory\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ProductSubcategoryDescription]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\DimProductSubcategory\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ProductSubcategoryDescription]"
+                      name="Copy of ProductSubcategoryDescription"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DimProductSubcategory\Flat File Source.Outputs[Flat File Source Output].Columns[ProductSubcategoryDescription]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimProductSubcategory\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ProductCategoryKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DimProductSubcategory\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ProductCategoryKey]"
+                      name="Copy of ProductCategoryKey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DimProductSubcategory\Flat File Source.Outputs[Flat File Source Output].Columns[ProductCategoryKey]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DimProductSubcategory\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\DimProductSubcategory\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DimProductSubcategory\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DimProductSubcategory\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DimProductSubcategory\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DimProductSubcategory\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DimProductSubcategory\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DimProductSubcategory\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DimProductSubcategory\Derived Column.Inputs[Derived Column Input].Columns[ProductSubcategoryName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ProductSubcategoryName"
+                      lineageId="Package\DimProductSubcategory\Flat File Source.Outputs[Flat File Source Output].Columns[ProductSubcategoryName]" />
+                    <inputColumn
+                      refId="Package\DimProductSubcategory\Derived Column.Inputs[Derived Column Input].Columns[ProductSubcategoryDescription]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ProductSubcategoryDescription"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DimProductSubcategory\Flat File Source.Outputs[Flat File Source Output].Columns[ProductSubcategoryDescription]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[ISNULL](#{Package\DimProductSubcategory\Flat File Source.Outputs[Flat File Source Output].Columns[ProductSubcategoryDescription]}) ? #{Package\DimProductSubcategory\Flat File Source.Outputs[Flat File Source Output].Columns[ProductSubcategoryName]} : #{Package\DimProductSubcategory\Flat File Source.Outputs[Flat File Source Output].Columns[ProductSubcategoryDescription]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">ISNULL(ProductSubcategoryDescription) ? ProductSubcategoryName : ProductSubcategoryDescription</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DimProductSubcategory\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DimProductSubcategory\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DimProductSubcategory\Derived Column.Outputs[Derived Column Output].Columns[LoadDate]"
+                      dataType="date"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DimProductSubcategory\Derived Column.Outputs[Derived Column Output].Columns[LoadDate]"
+                      name="LoadDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">@[User::LoadDate]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[User::LoadDate]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimProductSubcategory\Derived Column.Outputs[Derived Column Output].Columns[UpdateDate]"
+                      dataType="date"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DimProductSubcategory\Derived Column.Outputs[Derived Column Output].Columns[UpdateDate]"
+                      name="UpdateDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">@[User::UpdateDate]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[User::UpdateDate]</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DimProductSubcategory\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DimProductSubcategory\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DimProductSubcategory\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DimProductSubcategory\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DimProductSubcategory\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DimProductSubcategory\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DimProductSubcategory\Flat File Source"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="Flat File Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">true</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DimProductSubcategory\Flat File Source.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DimProductSubcategory Conn]"
+                  connectionManagerRefId="Package.ConnectionManagers[DimProductSubcategory Conn]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DimProductSubcategory\Flat File Source.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DimProductSubcategory\Flat File Source.Outputs[Flat File Source Output].Columns[ETLLoadID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimProductSubcategory\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ETLLoadID]"
+                      length="50"
+                      lineageId="Package\DimProductSubcategory\Flat File Source.Outputs[Flat File Source Output].Columns[ETLLoadID]"
+                      name="ETLLoadID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimProductSubcategory\Flat File Source.Outputs[Flat File Source Output].Columns[ProductSubcategoryKey]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimProductSubcategory\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ProductSubcategoryKey]"
+                      length="50"
+                      lineageId="Package\DimProductSubcategory\Flat File Source.Outputs[Flat File Source Output].Columns[ProductSubcategoryKey]"
+                      name="ProductSubcategoryKey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimProductSubcategory\Flat File Source.Outputs[Flat File Source Output].Columns[ProductSubcategoryLabel]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimProductSubcategory\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ProductSubcategoryLabel]"
+                      length="50"
+                      lineageId="Package\DimProductSubcategory\Flat File Source.Outputs[Flat File Source Output].Columns[ProductSubcategoryLabel]"
+                      name="ProductSubcategoryLabel"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimProductSubcategory\Flat File Source.Outputs[Flat File Source Output].Columns[ProductSubcategoryName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimProductSubcategory\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ProductSubcategoryName]"
+                      length="50"
+                      lineageId="Package\DimProductSubcategory\Flat File Source.Outputs[Flat File Source Output].Columns[ProductSubcategoryName]"
+                      name="ProductSubcategoryName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimProductSubcategory\Flat File Source.Outputs[Flat File Source Output].Columns[ProductSubcategoryDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimProductSubcategory\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ProductSubcategoryDescription]"
+                      length="50"
+                      lineageId="Package\DimProductSubcategory\Flat File Source.Outputs[Flat File Source Output].Columns[ProductSubcategoryDescription]"
+                      name="ProductSubcategoryDescription"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimProductSubcategory\Flat File Source.Outputs[Flat File Source Output].Columns[ProductCategoryKey]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimProductSubcategory\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ProductCategoryKey]"
+                      length="50"
+                      lineageId="Package\DimProductSubcategory\Flat File Source.Outputs[Flat File Source Output].Columns[ProductCategoryKey]"
+                      name="ProductCategoryKey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DimProductSubcategory\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ETLLoadID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ETLLoadID" />
+                    <externalMetadataColumn
+                      refId="Package\DimProductSubcategory\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ProductSubcategoryKey]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ProductSubcategoryKey" />
+                    <externalMetadataColumn
+                      refId="Package\DimProductSubcategory\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ProductSubcategoryLabel]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ProductSubcategoryLabel" />
+                    <externalMetadataColumn
+                      refId="Package\DimProductSubcategory\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ProductSubcategoryName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ProductSubcategoryName" />
+                    <externalMetadataColumn
+                      refId="Package\DimProductSubcategory\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ProductSubcategoryDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ProductSubcategoryDescription" />
+                    <externalMetadataColumn
+                      refId="Package\DimProductSubcategory\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ProductCategoryKey]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ProductCategoryKey" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DimProductSubcategory\Flat File Source.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DimProductSubcategory\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\DimProductSubcategory\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\DimProductSubcategory\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DimProductSubcategory\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DimProductSubcategory\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DimProductSubcategory\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DimProductSubcategory\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DimProductSubcategory]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DimProductSubcategory\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[yitbark\tariku.ESCO]"
+                  connectionManagerRefId="Package.ConnectionManagers[yitbark\tariku.ESCO]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DimProductSubcategory\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DimProductSubcategory\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LoadDate]"
+                      cachedDataType="date"
+                      cachedName="LoadDate"
+                      externalMetadataColumnId="Package\DimProductSubcategory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LoadDate]"
+                      lineageId="Package\DimProductSubcategory\Derived Column.Outputs[Derived Column Output].Columns[LoadDate]" />
+                    <inputColumn
+                      refId="Package\DimProductSubcategory\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[UpdateDate]"
+                      cachedDataType="date"
+                      cachedName="UpdateDate"
+                      externalMetadataColumnId="Package\DimProductSubcategory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UpdateDate]"
+                      lineageId="Package\DimProductSubcategory\Derived Column.Outputs[Derived Column Output].Columns[UpdateDate]" />
+                    <inputColumn
+                      refId="Package\DimProductSubcategory\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of ETLLoadID]"
+                      cachedDataType="i4"
+                      cachedName="Copy of ETLLoadID"
+                      externalMetadataColumnId="Package\DimProductSubcategory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ETLLoadID]"
+                      lineageId="Package\DimProductSubcategory\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ETLLoadID]" />
+                    <inputColumn
+                      refId="Package\DimProductSubcategory\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of ProductSubcategoryKey]"
+                      cachedDataType="i4"
+                      cachedName="Copy of ProductSubcategoryKey"
+                      externalMetadataColumnId="Package\DimProductSubcategory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductSubcategoryKey]"
+                      lineageId="Package\DimProductSubcategory\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ProductSubcategoryKey]" />
+                    <inputColumn
+                      refId="Package\DimProductSubcategory\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of ProductSubcategoryLabel]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Copy of ProductSubcategoryLabel"
+                      externalMetadataColumnId="Package\DimProductSubcategory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductSubcategoryLabel]"
+                      lineageId="Package\DimProductSubcategory\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ProductSubcategoryLabel]" />
+                    <inputColumn
+                      refId="Package\DimProductSubcategory\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of ProductSubcategoryName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Copy of ProductSubcategoryName"
+                      externalMetadataColumnId="Package\DimProductSubcategory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductSubcategoryName]"
+                      lineageId="Package\DimProductSubcategory\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ProductSubcategoryName]" />
+                    <inputColumn
+                      refId="Package\DimProductSubcategory\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of ProductSubcategoryDescription]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Copy of ProductSubcategoryDescription"
+                      externalMetadataColumnId="Package\DimProductSubcategory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductSubcategoryDescription]"
+                      lineageId="Package\DimProductSubcategory\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ProductSubcategoryDescription]" />
+                    <inputColumn
+                      refId="Package\DimProductSubcategory\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of ProductCategoryKey]"
+                      cachedDataType="i4"
+                      cachedName="Copy of ProductCategoryKey"
+                      externalMetadataColumnId="Package\DimProductSubcategory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductCategoryKey]"
+                      lineageId="Package\DimProductSubcategory\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ProductCategoryKey]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DimProductSubcategory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ETLLoadID]"
+                      dataType="i4"
+                      name="ETLLoadID" />
+                    <externalMetadataColumn
+                      refId="Package\DimProductSubcategory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LoadDate]"
+                      dataType="dbTimeStamp"
+                      name="LoadDate" />
+                    <externalMetadataColumn
+                      refId="Package\DimProductSubcategory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UpdateDate]"
+                      dataType="dbTimeStamp"
+                      name="UpdateDate" />
+                    <externalMetadataColumn
+                      refId="Package\DimProductSubcategory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductSubcategoryKey]"
+                      dataType="i4"
+                      name="ProductSubcategoryKey" />
+                    <externalMetadataColumn
+                      refId="Package\DimProductSubcategory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductSubcategoryLabel]"
+                      dataType="wstr"
+                      length="100"
+                      name="ProductSubcategoryLabel" />
+                    <externalMetadataColumn
+                      refId="Package\DimProductSubcategory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductSubcategoryName]"
+                      dataType="wstr"
+                      length="50"
+                      name="ProductSubcategoryName" />
+                    <externalMetadataColumn
+                      refId="Package\DimProductSubcategory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductSubcategoryDescription]"
+                      dataType="wstr"
+                      length="100"
+                      name="ProductSubcategoryDescription" />
+                    <externalMetadataColumn
+                      refId="Package\DimProductSubcategory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductCategoryKey]"
+                      dataType="i4"
+                      name="ProductCategoryKey" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DimProductSubcategory\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DimProductSubcategory\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DimProductSubcategory\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DimProductSubcategory\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DimProductSubcategory\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DimProductSubcategory\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DimProductSubcategory.Paths[Data Conversion Output]"
+              endId="Package\DimProductSubcategory\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\DimProductSubcategory\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\DimProductSubcategory.Paths[Derived Column Output]"
+              endId="Package\DimProductSubcategory\Data Conversion.Inputs[Data Conversion Input]"
+              name="Derived Column Output"
+              startId="Package\DimProductSubcategory\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DimProductSubcategory.Paths[Flat File Source Output]"
+              endId="Package\DimProductSubcategory\Derived Column.Inputs[Derived Column Input]"
+              name="Flat File Source Output"
+              startId="Package\DimProductSubcategory\Flat File Source.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{B0FEB038-B802-4F1E-A5F0-C851D08EC77D}"
+      DTS:From="Package\Delete from DimProductSubcategory"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\DimProductSubcategory" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="192,42"
+          Id="Package\Delete from DimProductSubcategory"
+          TopLeft="243,45" />
+        <NodeLayout
+          Size="198,42"
+          Id="Package\DimProductSubcategory"
+          TopLeft="17,29" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="243,66">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-28,-16"
+              Start="0,0"
+              End="-20.5,-16">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-10,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-10,0"
+                    Point2="-14,0"
+                    Point3="-14,-4" />
+                  <mssgle:LineSegment
+                    End="-14,-12" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-14,-12"
+                    Point2="-14,-16"
+                    Point3="-18,-16" />
+                  <mssgle:LineSegment
+                    End="-20.5,-16" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DimProductSubcategory">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="158,42"
+          Id="Package\DimProductSubcategory\Derived Column"
+          TopLeft="110.5,102.5" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\DimProductSubcategory\OLE DB Destination"
+          TopLeft="125.5,297.5" />
+        <NodeLayout
+          Size="161,42"
+          Id="Package\DimProductSubcategory\Data Conversion"
+          TopLeft="98.5,207.5" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\DimProductSubcategory\Flat File Source"
+          TopLeft="123.5,4.5" />
+        <EdgeLayout
+          Id="Package\DimProductSubcategory.Paths[Flat File Source Output]"
+          TopLeft="201.5,46.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-12,56"
+              Start="0,0"
+              End="-12,48.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24"
+                    Point2="0,28"
+                    Point3="-4,28" />
+                  <mssgle:LineSegment
+                    End="-8,28" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-8,28"
+                    Point2="-12,28"
+                    Point3="-12,32" />
+                  <mssgle:LineSegment
+                    End="-12,48.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DimProductSubcategory.Paths[Derived Column Output]"
+          TopLeft="189.5,144.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-10.5,63"
+              Start="0,0"
+              End="-10.5,55.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.5"
+                    Point2="0,31.5"
+                    Point3="-4,31.5" />
+                  <mssgle:LineSegment
+                    End="-6.5,31.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-6.5,31.5"
+                    Point2="-10.5,31.5"
+                    Point3="-10.5,35.5" />
+                  <mssgle:LineSegment
+                    End="-10.5,55.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DimProductSubcategory.Paths[Data Conversion Output]"
+          TopLeft="179,249.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="35,48"
+              Start="0,0"
+              End="35,40.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20"
+                    Point2="0,24"
+                    Point3="4,24" />
+                  <mssgle:LineSegment
+                    End="31,24" />
+                  <mssgle:CubicBezierSegment
+                    Point1="31,24"
+                    Point2="35,24"
+                    Point3="35,28" />
+                  <mssgle:LineSegment
+                    End="35,40.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DimProductSubcategory\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

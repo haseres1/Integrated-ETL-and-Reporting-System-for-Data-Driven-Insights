@@ -1,0 +1,1930 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/21/2022 10:39:47 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="YITBARK"
+  DTS:CreatorName="YITBARK\HP"
+  DTS:DTSID="{47F891ED-367C-44EB-BEFC-790AC3F729EB}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.180"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="DimSalesTerritory"
+  DTS:PackageType="5"
+  DTS:VersionBuild="21"
+  DTS:VersionGUID="{6B0BF38A-266B-4BBC-99C1-E36C08BD28FF}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DimOutageConn]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{9468D513-6B3F-4C0F-9F67-9FC58076F967}"
+      DTS:ObjectName="DimOutageConn">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\HP\OneDrive - montgomerycollege.edu\Documents\SQL server traning\Esco-RetailProject\EscoOutage.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="OutageKey"
+              DTS:DTSID="{BC299B68-67BB-4FBF-8035-556259ADBDD5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="OutageLabel"
+              DTS:DTSID="{79624726-C727-493C-820E-1C1A9DD36E18}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="OutageName"
+              DTS:DTSID="{916E8DF6-E834-4488-9146-E278E4F3D2C9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="OutageDescription"
+              DTS:DTSID="{AD70C854-E673-479C-AE69-3DCC0EA4DCE7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="OutageType"
+              DTS:DTSID="{C6601BFC-3442-4A6F-B68D-A4BD2B5368F7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="OutageTypeDescription"
+              DTS:DTSID="{A3E8C121-8FA0-4242-99BA-EFB40294D1F3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="OutageSubType"
+              DTS:DTSID="{5181873B-3199-46D1-B41C-6BCE7CBE6FEA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="OutageSubTypeDescription"
+              DTS:DTSID="{9FCE3328-2C65-4CB5-9B70-9F7AC0050F53}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ETLLoadID"
+              DTS:DTSID="{DF5387B8-B7D2-4798-9F89-90A0A5D8C3B6}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DimProductSubcategory_Conn]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{6F2B316B-4DE6-435E-8F7C-980A4CDF9970}"
+      DTS:ObjectName="DimProductSubcategory_Conn">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\HP\OneDrive - montgomerycollege.edu\Documents\SQL server traning\Esco-RetailProject\EscoProductSubCategory.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ProductSubcategoryKey"
+              DTS:DTSID="{CE1BA523-475E-400B-8F6C-1EE520F7CD6C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ProductSubcategoryLabel"
+              DTS:DTSID="{0590C85D-7DC6-4335-8324-20FCC965220A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ProductSubcategoryName"
+              DTS:DTSID="{E64B0D5C-C7C8-4B91-8804-B12137A937C7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ProductSubcategoryDescription"
+              DTS:DTSID="{B1F1C7FE-71C8-4AE4-8972-3DEF1DB58F37}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ProductCategoryKey"
+              DTS:DTSID="{A63FB46F-04EB-495B-A6D1-738BD24951EF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ETLLoadID"
+              DTS:DTSID="{1F8D15B7-7154-44EB-8989-8C924B108BF7}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DimSalesTerritory Conn]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{E0B27B57-C00E-4684-A93F-77ECD36B7E62}"
+      DTS:ObjectName="DimSalesTerritory Conn">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\HP\OneDrive - montgomerycollege.edu\Documents\SQL server traning\Esco-RetailProject\EscoSalesTerritory.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SalesTerritoryKey"
+              DTS:DTSID="{0B46B5C3-9B95-43C1-A9CE-86EC7F851BE0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="GeographyKey"
+              DTS:DTSID="{B6304F7A-6E88-48B0-9DF7-D73CC2E677D8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SalesTerritoryLabel"
+              DTS:DTSID="{780E395C-EEF4-4BED-86B2-9AB3BB0AC9AC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SalesTerritoryName"
+              DTS:DTSID="{A9F184A6-13CB-4F82-AB46-757119C35316}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SalesTerritoryRegion"
+              DTS:DTSID="{C3112BC2-4331-4A63-BD42-FF592F9B61AB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SalesTerritoryCountry"
+              DTS:DTSID="{073B6C06-A894-476D-9E1F-6C192312F0C5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SalesTerritoryGroup"
+              DTS:DTSID="{AF3BBE37-7772-4679-B31C-B4216475980F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SalesTerritoryLevel"
+              DTS:DTSID="{6764B968-0800-4FA4-A5C9-8D4332B72E4C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SalesTerritoryManager"
+              DTS:DTSID="{977258BE-EF88-46CD-A05A-56FE0815AE5D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="StartDate"
+              DTS:DTSID="{CF7A11AB-7557-4879-A139-6693E1C475F9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EndDate"
+              DTS:DTSID="{C15F8A0A-C8B4-4C07-8C86-0674412EBB03}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Status"
+              DTS:DTSID="{B4C0C30F-01A3-4EE7-8E00-2A678F362793}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ETLLoadID"
+              DTS:DTSID="{CFADB863-E907-4D2C-B1AD-D13069332718}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DimScenario conn]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{52537240-A58B-4A27-968A-E3108D80DFE5}"
+      DTS:ObjectName="DimScenario conn">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\HP\OneDrive - montgomerycollege.edu\Documents\SQL server traning\Esco-RetailProject\EscoScenario.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ScenarioKey"
+              DTS:DTSID="{3312B278-6BE2-42C5-9CB2-1C023B44D02C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ScenarioName"
+              DTS:DTSID="{FEC7D795-3727-4EE3-AF20-BF21725887E2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ScenarioDescription"
+              DTS:DTSID="{B94B0533-1804-422E-B645-ABC9FBA429DD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ETLLoadID"
+              DTS:DTSID="{6C3CED03-17E0-4FAF-B7C0-9B2FD2D927A0}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[yitbark\tariku.ESCO]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{F433EA0C-FBAC-4A20-AFC4-5EAD13BEBB9E}"
+      DTS:ObjectName="yitbark\tariku.ESCO">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=yitbark\tariku;Initial Catalog=ESCO;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{289740E8-5C0B-438E-95B5-50D4C17D5709}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="LoadDate">
+      <DTS:VariableValue
+        DTS:DataType="7">5/26/2022 2:40:20 AM</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{5A699147-B602-467C-9F45-3D4AE0E72AB0}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="UpdateDate">
+      <DTS:VariableValue
+        DTS:DataType="7">5/26/2022 2:40:32 AM</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Delete from DimSalesTerritory"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{97EEDF5C-7F90-41DC-944F-322E5285C717}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Delete from DimSalesTerritory"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{F433EA0C-FBAC-4A20-AFC4-5EAD13BEBB9E}"
+          SQLTask:SqlStatementSource="Delete from DimSalesTerritory" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DimSalesTerritory"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{30A32019-3B9C-4F73-9DF2-064EA48E6620}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DimSalesTerritory"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DimSalesTerritory\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DimSalesTerritory\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DimSalesTerritory\Data Conversion.Inputs[Data Conversion Input].Columns[ETLLoadID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ETLLoadID"
+                      lineageId="Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Output].Columns[ETLLoadID]" />
+                    <inputColumn
+                      refId="Package\DimSalesTerritory\Data Conversion.Inputs[Data Conversion Input].Columns[SalesTerritoryKey]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="SalesTerritoryKey"
+                      lineageId="Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Output].Columns[SalesTerritoryKey]" />
+                    <inputColumn
+                      refId="Package\DimSalesTerritory\Data Conversion.Inputs[Data Conversion Input].Columns[GeographyKey]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="GeographyKey"
+                      lineageId="Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Output].Columns[GeographyKey]" />
+                    <inputColumn
+                      refId="Package\DimSalesTerritory\Data Conversion.Inputs[Data Conversion Input].Columns[SalesTerritoryLabel]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="SalesTerritoryLabel"
+                      lineageId="Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Output].Columns[SalesTerritoryLabel]" />
+                    <inputColumn
+                      refId="Package\DimSalesTerritory\Data Conversion.Inputs[Data Conversion Input].Columns[SalesTerritoryName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="SalesTerritoryName"
+                      lineageId="Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Output].Columns[SalesTerritoryName]" />
+                    <inputColumn
+                      refId="Package\DimSalesTerritory\Data Conversion.Inputs[Data Conversion Input].Columns[SalesTerritoryRegion]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="SalesTerritoryRegion"
+                      lineageId="Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Output].Columns[SalesTerritoryRegion]" />
+                    <inputColumn
+                      refId="Package\DimSalesTerritory\Data Conversion.Inputs[Data Conversion Input].Columns[SalesTerritoryCountry]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="SalesTerritoryCountry"
+                      lineageId="Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Output].Columns[SalesTerritoryCountry]" />
+                    <inputColumn
+                      refId="Package\DimSalesTerritory\Data Conversion.Inputs[Data Conversion Input].Columns[SalesTerritoryGroup]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="SalesTerritoryGroup"
+                      lineageId="Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Output].Columns[SalesTerritoryGroup]" />
+                    <inputColumn
+                      refId="Package\DimSalesTerritory\Data Conversion.Inputs[Data Conversion Input].Columns[SalesTerritoryLevel]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="SalesTerritoryLevel"
+                      lineageId="Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Output].Columns[SalesTerritoryLevel]" />
+                    <inputColumn
+                      refId="Package\DimSalesTerritory\Data Conversion.Inputs[Data Conversion Input].Columns[SalesTerritoryManager]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="SalesTerritoryManager"
+                      lineageId="Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Output].Columns[SalesTerritoryManager]" />
+                    <inputColumn
+                      refId="Package\DimSalesTerritory\Data Conversion.Inputs[Data Conversion Input].Columns[StartDate]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="StartDate"
+                      lineageId="Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Output].Columns[StartDate]" />
+                    <inputColumn
+                      refId="Package\DimSalesTerritory\Data Conversion.Inputs[Data Conversion Input].Columns[EndDate]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="EndDate"
+                      lineageId="Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Output].Columns[EndDate]" />
+                    <inputColumn
+                      refId="Package\DimSalesTerritory\Data Conversion.Inputs[Data Conversion Input].Columns[Status]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Status"
+                      lineageId="Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Output].Columns[Status]" />
+                    <inputColumn
+                      refId="Package\DimSalesTerritory\Data Conversion.Inputs[Data Conversion Input].Columns[LoadDate]"
+                      cachedDataType="date"
+                      cachedName="LoadDate"
+                      lineageId="Package\DimSalesTerritory\Derived Column.Outputs[Derived Column Output].Columns[LoadDate]" />
+                    <inputColumn
+                      refId="Package\DimSalesTerritory\Data Conversion.Inputs[Data Conversion Input].Columns[UpdateDate]"
+                      cachedDataType="date"
+                      cachedName="UpdateDate"
+                      lineageId="Package\DimSalesTerritory\Derived Column.Outputs[Derived Column Output].Columns[UpdateDate]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DimSalesTerritory\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\DimSalesTerritory\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DimSalesTerritory\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ETLLoadID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DimSalesTerritory\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ETLLoadID]"
+                      name="Copy of ETLLoadID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Output].Columns[ETLLoadID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimSalesTerritory\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SalesTerritoryKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DimSalesTerritory\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SalesTerritoryKey]"
+                      name="Copy of SalesTerritoryKey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Output].Columns[SalesTerritoryKey]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimSalesTerritory\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of GeographyKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DimSalesTerritory\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of GeographyKey]"
+                      name="Copy of GeographyKey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Output].Columns[GeographyKey]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimSalesTerritory\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SalesTerritoryLabel]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\DimSalesTerritory\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SalesTerritoryLabel]"
+                      name="Copy of SalesTerritoryLabel"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Output].Columns[SalesTerritoryLabel]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimSalesTerritory\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SalesTerritoryName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\DimSalesTerritory\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SalesTerritoryName]"
+                      name="Copy of SalesTerritoryName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Output].Columns[SalesTerritoryName]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimSalesTerritory\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SalesTerritoryRegion]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\DimSalesTerritory\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SalesTerritoryRegion]"
+                      name="Copy of SalesTerritoryRegion"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Output].Columns[SalesTerritoryRegion]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimSalesTerritory\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SalesTerritoryCountry]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\DimSalesTerritory\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SalesTerritoryCountry]"
+                      name="Copy of SalesTerritoryCountry"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Output].Columns[SalesTerritoryCountry]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimSalesTerritory\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SalesTerritoryGroup]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\DimSalesTerritory\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SalesTerritoryGroup]"
+                      name="Copy of SalesTerritoryGroup"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Output].Columns[SalesTerritoryGroup]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimSalesTerritory\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SalesTerritoryLevel]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\DimSalesTerritory\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SalesTerritoryLevel]"
+                      name="Copy of SalesTerritoryLevel"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Output].Columns[SalesTerritoryLevel]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimSalesTerritory\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SalesTerritoryManager]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DimSalesTerritory\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SalesTerritoryManager]"
+                      name="Copy of SalesTerritoryManager"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Output].Columns[SalesTerritoryManager]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimSalesTerritory\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of StartDate]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DimSalesTerritory\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of StartDate]"
+                      name="Copy of StartDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Output].Columns[StartDate]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimSalesTerritory\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of EndDate]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DimSalesTerritory\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of EndDate]"
+                      name="Copy of EndDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Output].Columns[EndDate]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimSalesTerritory\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Status]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\DimSalesTerritory\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Status]"
+                      name="Copy of Status"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Output].Columns[Status]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimSalesTerritory\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of LoadDate]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DimSalesTerritory\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of LoadDate]"
+                      name="Copy of LoadDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DimSalesTerritory\Derived Column.Outputs[Derived Column Output].Columns[LoadDate]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimSalesTerritory\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of UpdateDate]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DimSalesTerritory\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of UpdateDate]"
+                      name="Copy of UpdateDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DimSalesTerritory\Derived Column.Outputs[Derived Column Output].Columns[UpdateDate]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DimSalesTerritory\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\DimSalesTerritory\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DimSalesTerritory\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DimSalesTerritory\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DimSalesTerritory\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DimSalesTerritory\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DimSalesTerritory\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DimSalesTerritory\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DimSalesTerritory\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DimSalesTerritory\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DimSalesTerritory\Derived Column.Outputs[Derived Column Output].Columns[LoadDate]"
+                      dataType="date"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DimSalesTerritory\Derived Column.Outputs[Derived Column Output].Columns[LoadDate]"
+                      name="LoadDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">@[User::LoadDate]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[User::LoadDate]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimSalesTerritory\Derived Column.Outputs[Derived Column Output].Columns[UpdateDate]"
+                      dataType="date"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DimSalesTerritory\Derived Column.Outputs[Derived Column Output].Columns[UpdateDate]"
+                      name="UpdateDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">@[User::UpdateDate]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[User::UpdateDate]</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DimSalesTerritory\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DimSalesTerritory\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DimSalesTerritory\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DimSalesTerritory\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DimSalesTerritory\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DimSalesTerritory\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DimSalesTerritory\Flat File Source"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="Flat File Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">true</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DimSalesTerritory\Flat File Source.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DimSalesTerritory Conn]"
+                  connectionManagerRefId="Package.ConnectionManagers[DimSalesTerritory Conn]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Output].Columns[ETLLoadID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ETLLoadID]"
+                      length="50"
+                      lineageId="Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Output].Columns[ETLLoadID]"
+                      name="ETLLoadID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Output].Columns[SalesTerritoryKey]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[SalesTerritoryKey]"
+                      length="50"
+                      lineageId="Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Output].Columns[SalesTerritoryKey]"
+                      name="SalesTerritoryKey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Output].Columns[GeographyKey]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[GeographyKey]"
+                      length="50"
+                      lineageId="Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Output].Columns[GeographyKey]"
+                      name="GeographyKey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Output].Columns[SalesTerritoryLabel]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[SalesTerritoryLabel]"
+                      length="50"
+                      lineageId="Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Output].Columns[SalesTerritoryLabel]"
+                      name="SalesTerritoryLabel"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Output].Columns[SalesTerritoryName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[SalesTerritoryName]"
+                      length="50"
+                      lineageId="Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Output].Columns[SalesTerritoryName]"
+                      name="SalesTerritoryName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Output].Columns[SalesTerritoryRegion]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[SalesTerritoryRegion]"
+                      length="50"
+                      lineageId="Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Output].Columns[SalesTerritoryRegion]"
+                      name="SalesTerritoryRegion"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Output].Columns[SalesTerritoryCountry]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[SalesTerritoryCountry]"
+                      length="50"
+                      lineageId="Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Output].Columns[SalesTerritoryCountry]"
+                      name="SalesTerritoryCountry"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Output].Columns[SalesTerritoryGroup]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[SalesTerritoryGroup]"
+                      length="50"
+                      lineageId="Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Output].Columns[SalesTerritoryGroup]"
+                      name="SalesTerritoryGroup"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Output].Columns[SalesTerritoryLevel]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[SalesTerritoryLevel]"
+                      length="50"
+                      lineageId="Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Output].Columns[SalesTerritoryLevel]"
+                      name="SalesTerritoryLevel"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Output].Columns[SalesTerritoryManager]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[SalesTerritoryManager]"
+                      length="50"
+                      lineageId="Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Output].Columns[SalesTerritoryManager]"
+                      name="SalesTerritoryManager"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Output].Columns[StartDate]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[StartDate]"
+                      length="50"
+                      lineageId="Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Output].Columns[StartDate]"
+                      name="StartDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Output].Columns[EndDate]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[EndDate]"
+                      length="50"
+                      lineageId="Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Output].Columns[EndDate]"
+                      name="EndDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Output].Columns[Status]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Status]"
+                      length="50"
+                      lineageId="Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Output].Columns[Status]"
+                      name="Status"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ETLLoadID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ETLLoadID" />
+                    <externalMetadataColumn
+                      refId="Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[SalesTerritoryKey]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="SalesTerritoryKey" />
+                    <externalMetadataColumn
+                      refId="Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[GeographyKey]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="GeographyKey" />
+                    <externalMetadataColumn
+                      refId="Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[SalesTerritoryLabel]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="SalesTerritoryLabel" />
+                    <externalMetadataColumn
+                      refId="Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[SalesTerritoryName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="SalesTerritoryName" />
+                    <externalMetadataColumn
+                      refId="Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[SalesTerritoryRegion]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="SalesTerritoryRegion" />
+                    <externalMetadataColumn
+                      refId="Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[SalesTerritoryCountry]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="SalesTerritoryCountry" />
+                    <externalMetadataColumn
+                      refId="Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[SalesTerritoryGroup]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="SalesTerritoryGroup" />
+                    <externalMetadataColumn
+                      refId="Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[SalesTerritoryLevel]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="SalesTerritoryLevel" />
+                    <externalMetadataColumn
+                      refId="Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[SalesTerritoryManager]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="SalesTerritoryManager" />
+                    <externalMetadataColumn
+                      refId="Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[StartDate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="StartDate" />
+                    <externalMetadataColumn
+                      refId="Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[EndDate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="EndDate" />
+                    <externalMetadataColumn
+                      refId="Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Status]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Status" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DimSalesTerritory\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DimSalesTerritory]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DimSalesTerritory\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[yitbark\tariku.ESCO]"
+                  connectionManagerRefId="Package.ConnectionManagers[yitbark\tariku.ESCO]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DimSalesTerritory\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DimSalesTerritory\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LoadDate]"
+                      cachedDataType="date"
+                      cachedName="LoadDate"
+                      externalMetadataColumnId="Package\DimSalesTerritory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LoadDate]"
+                      lineageId="Package\DimSalesTerritory\Derived Column.Outputs[Derived Column Output].Columns[LoadDate]" />
+                    <inputColumn
+                      refId="Package\DimSalesTerritory\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[UpdateDate]"
+                      cachedDataType="date"
+                      cachedName="UpdateDate"
+                      externalMetadataColumnId="Package\DimSalesTerritory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UpdateDate]"
+                      lineageId="Package\DimSalesTerritory\Derived Column.Outputs[Derived Column Output].Columns[UpdateDate]" />
+                    <inputColumn
+                      refId="Package\DimSalesTerritory\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of ETLLoadID]"
+                      cachedDataType="i4"
+                      cachedName="Copy of ETLLoadID"
+                      externalMetadataColumnId="Package\DimSalesTerritory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ETLLoadID]"
+                      lineageId="Package\DimSalesTerritory\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ETLLoadID]" />
+                    <inputColumn
+                      refId="Package\DimSalesTerritory\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of SalesTerritoryKey]"
+                      cachedDataType="i4"
+                      cachedName="Copy of SalesTerritoryKey"
+                      externalMetadataColumnId="Package\DimSalesTerritory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesTerritoryKey]"
+                      lineageId="Package\DimSalesTerritory\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SalesTerritoryKey]" />
+                    <inputColumn
+                      refId="Package\DimSalesTerritory\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of GeographyKey]"
+                      cachedDataType="i4"
+                      cachedName="Copy of GeographyKey"
+                      externalMetadataColumnId="Package\DimSalesTerritory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GeographyKey]"
+                      lineageId="Package\DimSalesTerritory\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of GeographyKey]" />
+                    <inputColumn
+                      refId="Package\DimSalesTerritory\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of SalesTerritoryLabel]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Copy of SalesTerritoryLabel"
+                      externalMetadataColumnId="Package\DimSalesTerritory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesTerritoryLabel]"
+                      lineageId="Package\DimSalesTerritory\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SalesTerritoryLabel]" />
+                    <inputColumn
+                      refId="Package\DimSalesTerritory\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of SalesTerritoryName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Copy of SalesTerritoryName"
+                      externalMetadataColumnId="Package\DimSalesTerritory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesTerritoryName]"
+                      lineageId="Package\DimSalesTerritory\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SalesTerritoryName]" />
+                    <inputColumn
+                      refId="Package\DimSalesTerritory\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of SalesTerritoryRegion]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Copy of SalesTerritoryRegion"
+                      externalMetadataColumnId="Package\DimSalesTerritory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesTerritoryRegion]"
+                      lineageId="Package\DimSalesTerritory\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SalesTerritoryRegion]" />
+                    <inputColumn
+                      refId="Package\DimSalesTerritory\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of SalesTerritoryCountry]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Copy of SalesTerritoryCountry"
+                      externalMetadataColumnId="Package\DimSalesTerritory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesTerritoryCountry]"
+                      lineageId="Package\DimSalesTerritory\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SalesTerritoryCountry]" />
+                    <inputColumn
+                      refId="Package\DimSalesTerritory\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of SalesTerritoryGroup]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Copy of SalesTerritoryGroup"
+                      externalMetadataColumnId="Package\DimSalesTerritory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesTerritoryGroup]"
+                      lineageId="Package\DimSalesTerritory\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SalesTerritoryGroup]" />
+                    <inputColumn
+                      refId="Package\DimSalesTerritory\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of SalesTerritoryLevel]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="Copy of SalesTerritoryLevel"
+                      externalMetadataColumnId="Package\DimSalesTerritory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesTerritoryLevel]"
+                      lineageId="Package\DimSalesTerritory\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SalesTerritoryLevel]" />
+                    <inputColumn
+                      refId="Package\DimSalesTerritory\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of SalesTerritoryManager]"
+                      cachedDataType="i4"
+                      cachedName="Copy of SalesTerritoryManager"
+                      externalMetadataColumnId="Package\DimSalesTerritory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesTerritoryManager]"
+                      lineageId="Package\DimSalesTerritory\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SalesTerritoryManager]" />
+                    <inputColumn
+                      refId="Package\DimSalesTerritory\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of StartDate]"
+                      cachedDataType="date"
+                      cachedName="Copy of StartDate"
+                      externalMetadataColumnId="Package\DimSalesTerritory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StartDate]"
+                      lineageId="Package\DimSalesTerritory\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of StartDate]" />
+                    <inputColumn
+                      refId="Package\DimSalesTerritory\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of EndDate]"
+                      cachedDataType="date"
+                      cachedName="Copy of EndDate"
+                      externalMetadataColumnId="Package\DimSalesTerritory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EndDate]"
+                      lineageId="Package\DimSalesTerritory\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of EndDate]" />
+                    <inputColumn
+                      refId="Package\DimSalesTerritory\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of Status]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Copy of Status"
+                      externalMetadataColumnId="Package\DimSalesTerritory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Status]"
+                      lineageId="Package\DimSalesTerritory\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Status]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DimSalesTerritory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ETLLoadID]"
+                      dataType="i4"
+                      name="ETLLoadID" />
+                    <externalMetadataColumn
+                      refId="Package\DimSalesTerritory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LoadDate]"
+                      dataType="dbTimeStamp"
+                      name="LoadDate" />
+                    <externalMetadataColumn
+                      refId="Package\DimSalesTerritory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UpdateDate]"
+                      dataType="dbTimeStamp"
+                      name="UpdateDate" />
+                    <externalMetadataColumn
+                      refId="Package\DimSalesTerritory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesTerritoryKey]"
+                      dataType="i4"
+                      name="SalesTerritoryKey" />
+                    <externalMetadataColumn
+                      refId="Package\DimSalesTerritory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GeographyKey]"
+                      dataType="i4"
+                      name="GeographyKey" />
+                    <externalMetadataColumn
+                      refId="Package\DimSalesTerritory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesTerritoryLabel]"
+                      dataType="wstr"
+                      length="100"
+                      name="SalesTerritoryLabel" />
+                    <externalMetadataColumn
+                      refId="Package\DimSalesTerritory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesTerritoryName]"
+                      dataType="wstr"
+                      length="50"
+                      name="SalesTerritoryName" />
+                    <externalMetadataColumn
+                      refId="Package\DimSalesTerritory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesTerritoryRegion]"
+                      dataType="wstr"
+                      length="50"
+                      name="SalesTerritoryRegion" />
+                    <externalMetadataColumn
+                      refId="Package\DimSalesTerritory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesTerritoryCountry]"
+                      dataType="wstr"
+                      length="50"
+                      name="SalesTerritoryCountry" />
+                    <externalMetadataColumn
+                      refId="Package\DimSalesTerritory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesTerritoryGroup]"
+                      dataType="wstr"
+                      length="50"
+                      name="SalesTerritoryGroup" />
+                    <externalMetadataColumn
+                      refId="Package\DimSalesTerritory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesTerritoryLevel]"
+                      dataType="wstr"
+                      length="10"
+                      name="SalesTerritoryLevel" />
+                    <externalMetadataColumn
+                      refId="Package\DimSalesTerritory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesTerritoryManager]"
+                      dataType="i4"
+                      name="SalesTerritoryManager" />
+                    <externalMetadataColumn
+                      refId="Package\DimSalesTerritory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StartDate]"
+                      dataType="dbTimeStamp"
+                      name="StartDate" />
+                    <externalMetadataColumn
+                      refId="Package\DimSalesTerritory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EndDate]"
+                      dataType="dbTimeStamp"
+                      name="EndDate" />
+                    <externalMetadataColumn
+                      refId="Package\DimSalesTerritory\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Status]"
+                      dataType="wstr"
+                      length="50"
+                      name="Status" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DimSalesTerritory\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DimSalesTerritory\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DimSalesTerritory\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DimSalesTerritory\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DimSalesTerritory\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DimSalesTerritory\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DimSalesTerritory.Paths[Data Conversion Output]"
+              endId="Package\DimSalesTerritory\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\DimSalesTerritory\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\DimSalesTerritory.Paths[Derived Column Output]"
+              endId="Package\DimSalesTerritory\Data Conversion.Inputs[Data Conversion Input]"
+              name="Derived Column Output"
+              startId="Package\DimSalesTerritory\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DimSalesTerritory.Paths[Flat File Source Output]"
+              endId="Package\DimSalesTerritory\Derived Column.Inputs[Derived Column Input]"
+              name="Flat File Source Output"
+              startId="Package\DimSalesTerritory\Flat File Source.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1 1 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{3667F62C-B059-44D2-9BA5-888202D13A44}"
+      DTS:From="Package\Delete from DimSalesTerritory"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1 1 1"
+      DTS:To="Package\DimSalesTerritory" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="202,42"
+          Id="Package\Delete from DimSalesTerritory"
+          TopLeft="257,190" />
+        <NodeLayout
+          Size="167,42"
+          Id="Package\DimSalesTerritory"
+          TopLeft="25,203" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1 1 1]"
+          TopLeft="257,211">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-65,13"
+              Start="0,0"
+              End="-57.5,13">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-28.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-28.5,0"
+                    Point2="-32.5,0"
+                    Point3="-32.5,4" />
+                  <mssgle:LineSegment
+                    End="-32.5,9" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-32.5,9"
+                    Point2="-32.5,13"
+                    Point3="-36.5,13" />
+                  <mssgle:LineSegment
+                    End="-57.5,13" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DimSalesTerritory">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="177,42"
+          Id="Package\DimSalesTerritory\OLE DB Destination"
+          TopLeft="125.5,297.5" />
+        <NodeLayout
+          Size="158,42"
+          Id="Package\DimSalesTerritory\Derived Column"
+          TopLeft="101.5,98.5" />
+        <NodeLayout
+          Size="161,42"
+          Id="Package\DimSalesTerritory\Data Conversion"
+          TopLeft="120.5,198.5" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\DimSalesTerritory\Flat File Source"
+          TopLeft="123.5,4.5" />
+        <EdgeLayout
+          Id="Package\DimSalesTerritory.Paths[Derived Column Output]"
+          TopLeft="180.5,140.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="20.5,58"
+              Start="0,0"
+              End="20.5,50.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25"
+                    Point2="0,29"
+                    Point3="4,29" />
+                  <mssgle:LineSegment
+                    End="16.5,29" />
+                  <mssgle:CubicBezierSegment
+                    Point1="16.5,29"
+                    Point2="20.5,29"
+                    Point3="20.5,33" />
+                  <mssgle:LineSegment
+                    End="20.5,50.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DimSalesTerritory.Paths[Flat File Source Output]"
+          TopLeft="201.5,46.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-21,52"
+              Start="0,0"
+              End="-21,44.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22"
+                    Point2="0,26"
+                    Point3="-4,26" />
+                  <mssgle:LineSegment
+                    End="-17,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-17,26"
+                    Point2="-21,26"
+                    Point3="-21,30" />
+                  <mssgle:LineSegment
+                    End="-21,44.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DimSalesTerritory.Paths[Data Conversion Output]"
+          TopLeft="201,240.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="13,57"
+              Start="0,0"
+              End="13,49.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.5"
+                    Point2="0,28.5"
+                    Point3="4,28.5" />
+                  <mssgle:LineSegment
+                    End="9,28.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="9,28.5"
+                    Point2="13,28.5"
+                    Point3="13,32.5" />
+                  <mssgle:LineSegment
+                    End="13,49.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DimSalesTerritory\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

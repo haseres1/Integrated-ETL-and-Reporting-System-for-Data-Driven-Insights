@@ -1,0 +1,2814 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/20/2022 1:43:09 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="YITBARK"
+  DTS:CreatorName="YITBARK\HP"
+  DTS:DTSID="{765F6796-689E-4B3C-952D-8A2C9DE545BD}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.180"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="DimMachine"
+  DTS:PackageType="5"
+  DTS:VersionBuild="222"
+  DTS:VersionGUID="{2802AB6E-7EA8-4170-9F6B-8FA846F164D9}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DimAccount]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{D281359A-6A08-4CE8-9AC7-A4B33B00A7EA}"
+      DTS:ObjectName="DimAccount">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\HP\OneDrive - montgomerycollege.edu\Documents\SQL server traning\Esco-RetailProject\EscoAccount.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="AccountKey"
+              DTS:DTSID="{2279E88B-A883-47E4-8122-1122672400C7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ParentAccountKey"
+              DTS:DTSID="{AE041A09-89B4-458C-BAD5-9C3A8B05A5AE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="AccountLabel"
+              DTS:DTSID="{BD03580E-9376-4747-BD12-3D59546A1838}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="AccountName"
+              DTS:DTSID="{D5F79767-D1BA-464A-AC53-9C79A3EBAEF3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="AccountDescription"
+              DTS:DTSID="{995DB7AF-148C-4280-B168-6F6A9E144634}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="AccountType"
+              DTS:DTSID="{40FD7473-D82C-4C81-B240-72D2675FA89C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CustomMembers"
+              DTS:DTSID="{224972F9-63B8-40B9-94D0-14787F11B5FB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ValueType"
+              DTS:DTSID="{43582D2E-0EF8-4977-861B-A1555C63AE73}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CustomMemberOptions"
+              DTS:DTSID="{4C9B1A51-45EB-4D62-A052-ECD8867A0435}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ETLLoadID"
+              DTS:DTSID="{63B8422A-4642-449F-BC9D-E17DF0B8096E}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DimDate Conn]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{2414EA15-04C7-4071-A67B-30C388C4DD8E}"
+      DTS:ObjectName="DimDate Conn">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\HP\OneDrive - montgomerycollege.edu\Documents\SQL server traning\Esco-RetailProject\EscoDate.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Datekey"
+              DTS:DTSID="{0CD9A717-5C23-46E0-97C6-850124EB99A9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DateDescription"
+              DTS:DTSID="{1153A41C-24BD-4E89-97FA-22B3662E2B19}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CalendarYear"
+              DTS:DTSID="{5A5361BF-FBFD-4290-9B86-3EA37808BD3E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CalendarHalfYear"
+              DTS:DTSID="{CE3CCEFA-9B68-43C1-A30A-3388CFD1D2BE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CalendarQuarter"
+              DTS:DTSID="{B3DE9D58-C44F-4B34-B3D7-A24BF0F0E399}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CalendarMonth"
+              DTS:DTSID="{5C35101F-3D08-4081-BAC8-76BE08897489}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CalendarWeek"
+              DTS:DTSID="{7353C839-AC22-4259-85E0-F7372E5607EC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CalendarDayOfWeek"
+              DTS:DTSID="{924BFD22-D096-4506-8F1E-B2455A79CFA7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FiscalYear"
+              DTS:DTSID="{5D00885E-A30E-43D4-8E6E-FC7966B22EB1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FiscalHalfYear"
+              DTS:DTSID="{491024C2-BE90-4754-9637-AA24C633F3F9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FiscalQuarter"
+              DTS:DTSID="{482D5811-AC05-46E8-B83F-EEE1A65B471D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FiscalMonth"
+              DTS:DTSID="{89285346-E03C-4FA4-9A8D-5F0E9BC6BB20}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="IsHoliday"
+              DTS:DTSID="{27AB8DDB-FC49-4C3F-82CD-A40DA16F4E8D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="HolidayName"
+              DTS:DTSID="{0C8B4731-E940-4107-AA5E-C341A553D0B3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EuropeSeason"
+              DTS:DTSID="{CDC40FE9-C78E-4A8A-ADA8-B0BAD9828EA4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="NorthAmericaSeason"
+              DTS:DTSID="{E8C279C2-7497-47BD-AB7D-5ACDE568C5E7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="AsiaSeason"
+              DTS:DTSID="{C2E59D0D-EF3E-4EF6-8DBB-7CAD3ABED579}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DimMachine]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{A1AEE21F-1499-4D35-A27B-C4B36FD96E7C}"
+      DTS:ObjectName="DimMachine">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\HP\OneDrive - montgomerycollege.edu\Documents\SQL server traning\Esco-RetailProject\EscoMachine.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MachineKey"
+              DTS:DTSID="{DB514441-04C4-43EF-BAB6-C43CF3CA94B9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MachineLabel"
+              DTS:DTSID="{74E34E76-15D6-4464-9BA1-2F96E18DB14F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="StoreKey"
+              DTS:DTSID="{D3F5AE3C-BEFF-4FEC-B116-0D75E51A21EF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MachineType"
+              DTS:DTSID="{B34F6D9A-4DC8-402B-A93D-DB2FE4800397}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MachineName"
+              DTS:DTSID="{09DC46D9-187C-42AF-802A-5763839836E4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MachineDescription"
+              DTS:DTSID="{96977F6A-6AF5-43D2-839A-8E2F8F15235E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="VendorName"
+              DTS:DTSID="{E52A9C9E-BD38-425F-96D8-03311D7A75A0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MachineOS"
+              DTS:DTSID="{510D66CE-159E-4E30-B676-C26D36EF5596}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MachineSource"
+              DTS:DTSID="{7433EB46-6BA3-4CFA-9BDF-318C93D97BBA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MachineHardware"
+              DTS:DTSID="{F9228E1E-5F61-480C-8D4C-161AE2BA25F0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MachineSoftware"
+              DTS:DTSID="{D8C3EECB-E1BE-4F68-914C-D7EF9AE29B48}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Status"
+              DTS:DTSID="{745C8EA6-B6CF-43AB-911E-6080112C1A56}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ServiceStartDate"
+              DTS:DTSID="{394DA8D8-BA15-4581-9445-3FB3011B7F7A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DecommissionDate"
+              DTS:DTSID="{20AA10AE-473D-49E1-B3A0-24F608C3FA45}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LastModifiedDate"
+              DTS:DTSID="{0EA3D5CD-3970-4726-AAC8-B0FC4398F489}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ETLLoadID"
+              DTS:DTSID="{58822AF8-2621-479E-BBDA-DDD4515E7A54}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DimStore]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{CDC09A7A-F0BC-4643-ABE6-17184BA711AD}"
+      DTS:ObjectName="DimStore">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\HP\OneDrive - montgomerycollege.edu\Documents\SQL server traning\Esco-RetailProject\EscoStore.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="StoreKey"
+              DTS:DTSID="{AD917B04-9429-47A7-BD0D-25A1EBB3A98B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="GeographyKey"
+              DTS:DTSID="{AA6B64B2-7FA4-4E40-B909-04867B93DFF7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="StoreManager"
+              DTS:DTSID="{55BE6FA5-E2DB-4C3C-8C85-624F5CA77AC8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="StoreType"
+              DTS:DTSID="{E2D752A6-567E-4B8B-A3DB-B4A80EFE79D3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="StoreName"
+              DTS:DTSID="{E0DCA20A-45BD-43EF-91CF-143723B7C1A0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="StoreDescription"
+              DTS:DTSID="{ACF99068-712B-41D1-9B7B-9632C4D1262F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="OpenDate"
+              DTS:DTSID="{DF68BBDC-F5D6-4A26-8249-4E23A6147F3D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CloseDate"
+              DTS:DTSID="{2837E26F-98B8-499C-A623-038D14944AE8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EntityKey"
+              DTS:DTSID="{1308CE2C-72CD-4E18-89A1-0845FF5DD975}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ZipCode"
+              DTS:DTSID="{E9FD9D26-AA48-494A-A3B5-1A2B2C20F0FC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ZipCodeExtension"
+              DTS:DTSID="{A4B7791E-3B78-4EF7-85D1-4A9CB8068DA1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="StorePhone"
+              DTS:DTSID="{842F6F6F-A59D-424D-A0B7-0732B98C0421}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="StoreFax"
+              DTS:DTSID="{D9256F54-9469-4FA7-A7E8-EE90C3F858C3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CloseReason"
+              DTS:DTSID="{AEC6FA75-2C8D-44ED-869E-A14D613E3D76}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EmployeeCount"
+              DTS:DTSID="{135F6C58-63E9-470D-B1A2-FF0176649696}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SellingAreaSize"
+              DTS:DTSID="{24951081-6DB2-4F46-B29D-8C5E24FE4014}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LastRemodelDate"
+              DTS:DTSID="{0811697B-6774-42C2-9EDD-217A012D4D3C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ETLLoadID"
+              DTS:DTSID="{B0D06C7A-25E8-4672-B259-796A0309BBFB}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{BCF92EB8-6F7C-4B8F-8F65-EC6CB10E3912}"
+      DTS:ObjectName="Flat File Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\HP\OneDrive - montgomerycollege.edu\Desktop\New folder\DimAccountErrorOUTput.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="AccountKey"
+              DTS:DTSID="{BD6635E7-C30C-440F-A11F-670BD7662DBA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ParentAccountKey"
+              DTS:DTSID="{7AA7BF6F-10F9-4A1B-A4EE-0DE3BE6637B1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="AccountLabel"
+              DTS:DTSID="{86B7E186-B061-48A3-92AF-CFAA4A0552E2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="AccountName"
+              DTS:DTSID="{7F4EA55A-A344-44E5-9EE4-1EAF39FE2E08}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="AccountDescription"
+              DTS:DTSID="{706A1713-3586-4DF6-AAC7-722A91E58D01}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="AccountType"
+              DTS:DTSID="{1E6FAF9D-470D-4CE7-A9F7-C6C810ED2B2F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="300"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CustomMembers"
+              DTS:DTSID="{5FB898D3-BC1D-4755-9A99-A379D8D2DD7C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ValueType"
+              DTS:DTSID="{4246D0AE-4014-4E0C-9AC4-1F6512F2CD04}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="200"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CustomMemberOptions"
+              DTS:DTSID="{688FA7D7-0770-4A8C-A141-AD9CFB5FDFB3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ETLLoadID"
+              DTS:DTSID="{E3D58D62-D97D-4301-85D9-58A4FBFC29E9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="7"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LoadDate"
+              DTS:DTSID="{17BE7CE8-1B34-45C2-901B-A7EC75A7FD00}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="7"
+              DTS:TextQualified="True"
+              DTS:ObjectName="UpdateDate"
+              DTS:DTSID="{9CF96262-F82E-4EB6-A395-C691C6131726}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="4"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Operator"
+              DTS:DTSID="{78F2AB02-A811-4C7A-929A-1C1D6A8F29A0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ErrorCode"
+              DTS:DTSID="{2D321A84-0CB6-4B99-B0A7-6831A4280F24}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ErrorColumn"
+              DTS:DTSID="{ECD23768-3AF8-49A5-AB91-03432A6A6D8E}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager 1]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{86A21AF0-4DDA-460A-8F54-F8D60ABAE91B}"
+      DTS:ObjectName="Flat File Connection Manager 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\HP\OneDrive - montgomerycollege.edu\Documents\SQL server traning\Esco-RetailProject\EscoAccount.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="AccountKey"
+              DTS:DTSID="{CE2F002B-103C-4995-8846-31036D08BC34}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ParentAccountKey"
+              DTS:DTSID="{86DAB40B-6DEF-4968-88E6-4420C64010FE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="AccountLabel"
+              DTS:DTSID="{0FC66D0C-A6F7-4FB0-B611-AE82799B4A9D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="AccountName"
+              DTS:DTSID="{6A0BC87C-8102-4C42-98C7-2D8DFDB18FD1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="AccountDescription"
+              DTS:DTSID="{6335F247-9937-4484-9907-8001B3B69920}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="AccountType"
+              DTS:DTSID="{244CED32-4F8B-4F98-99AE-5281BC93DEE9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CustomMembers"
+              DTS:DTSID="{E858E09C-6030-4520-A791-04277DED6357}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ValueType"
+              DTS:DTSID="{1B4D9307-B9C4-4D0F-84A5-4E34ED2E05D9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CustomMemberOptions"
+              DTS:DTSID="{B5577AE7-646D-45BF-A66D-866E1EECEB6C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ETLLoadID"
+              DTS:DTSID="{0643CE60-663C-494A-B794-8E8851FE6D76}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[yitbark\tariku.EBC_Bank_Project]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{99C3E8DD-2969-4C02-81DE-72237C0E3BD5}"
+      DTS:ObjectName="yitbark\tariku.EBC_Bank_Project">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=yitbark\tariku;Initial Catalog=EBC_Bank_Project;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[yitbark\tariku.EBC_Bank_ProjectDW]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{D99482BF-F665-4515-AFE6-0B0E4DF765C1}"
+      DTS:ObjectName="yitbark\tariku.EBC_Bank_ProjectDW">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=yitbark\tariku;Initial Catalog=EBC_Bank_ProjectDW;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[yitbark\tariku.ESCO]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{1111565D-F643-4CCE-903D-3CE99D730CF2}"
+      DTS:ObjectName="yitbark\tariku.ESCO">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=yitbark\tariku;Initial Catalog=ESCO;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9DEA3955-FC25-431A-91A8-009011EC0E1A}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="Getdate()"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="LoadDate">
+      <DTS:VariableValue
+        DTS:DataType="7">5/26/2022 11:40:34 PM</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A193B93F-DBBA-48D8-BEB4-567E75040EA8}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="MachineType">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{63F172D2-67B3-4C7F-A865-CF2691FFD7FA}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="operator">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A0887DC3-8C7C-49E8-A9C4-5267C5312DD8}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="status">
+      <DTS:VariableValue
+        DTS:DataType="8">"NA"</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{34E019A3-2835-4925-9349-610FD617E81F}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="getdate()"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="UpdateDate">
+      <DTS:VariableValue
+        DTS:DataType="7">5/26/2022 11:40:34 PM</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Delete from DimMachine"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{268AB1E7-9E0B-4D8A-A5C1-B703B878313D}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Delete from DimMachine"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{1111565D-F643-4CCE-903D-3CE99D730CF2}"
+          SQLTask:SqlStatementSource="Delete from DimMachine" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DimMachine"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{5F50EB53-6FA2-4A85-B86F-2C5DBF81A6BC}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DimMachine"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DimMachine\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DimMachine\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DimMachine\Data Conversion.Inputs[Data Conversion Input].Columns[MachineKey]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="MachineKey"
+                      lineageId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].Columns[MachineKey]" />
+                    <inputColumn
+                      refId="Package\DimMachine\Data Conversion.Inputs[Data Conversion Input].Columns[MachineLabel]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="MachineLabel"
+                      lineageId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].Columns[MachineLabel]" />
+                    <inputColumn
+                      refId="Package\DimMachine\Data Conversion.Inputs[Data Conversion Input].Columns[StoreKey]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="StoreKey"
+                      lineageId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].Columns[StoreKey]" />
+                    <inputColumn
+                      refId="Package\DimMachine\Data Conversion.Inputs[Data Conversion Input].Columns[MachineType]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="MachineType"
+                      lineageId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].Columns[MachineType]" />
+                    <inputColumn
+                      refId="Package\DimMachine\Data Conversion.Inputs[Data Conversion Input].Columns[MachineName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="300"
+                      cachedName="MachineName"
+                      lineageId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].Columns[MachineName]" />
+                    <inputColumn
+                      refId="Package\DimMachine\Data Conversion.Inputs[Data Conversion Input].Columns[MachineDescription]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="MachineDescription"
+                      lineageId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].Columns[MachineDescription]" />
+                    <inputColumn
+                      refId="Package\DimMachine\Data Conversion.Inputs[Data Conversion Input].Columns[VendorName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="VendorName"
+                      lineageId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].Columns[VendorName]" />
+                    <inputColumn
+                      refId="Package\DimMachine\Data Conversion.Inputs[Data Conversion Input].Columns[MachineOS]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="MachineOS"
+                      lineageId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].Columns[MachineOS]" />
+                    <inputColumn
+                      refId="Package\DimMachine\Data Conversion.Inputs[Data Conversion Input].Columns[MachineSource]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="MachineSource"
+                      lineageId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].Columns[MachineSource]" />
+                    <inputColumn
+                      refId="Package\DimMachine\Data Conversion.Inputs[Data Conversion Input].Columns[MachineHardware]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="MachineHardware"
+                      lineageId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].Columns[MachineHardware]" />
+                    <inputColumn
+                      refId="Package\DimMachine\Data Conversion.Inputs[Data Conversion Input].Columns[MachineSoftware]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="MachineSoftware"
+                      lineageId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].Columns[MachineSoftware]" />
+                    <inputColumn
+                      refId="Package\DimMachine\Data Conversion.Inputs[Data Conversion Input].Columns[Status]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Status"
+                      lineageId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].Columns[Status]" />
+                    <inputColumn
+                      refId="Package\DimMachine\Data Conversion.Inputs[Data Conversion Input].Columns[ServiceStartDate]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ServiceStartDate"
+                      lineageId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].Columns[ServiceStartDate]" />
+                    <inputColumn
+                      refId="Package\DimMachine\Data Conversion.Inputs[Data Conversion Input].Columns[DecommissionDate]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="DecommissionDate"
+                      lineageId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].Columns[DecommissionDate]" />
+                    <inputColumn
+                      refId="Package\DimMachine\Data Conversion.Inputs[Data Conversion Input].Columns[LastModifiedDate]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="LastModifiedDate"
+                      lineageId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].Columns[LastModifiedDate]" />
+                    <inputColumn
+                      refId="Package\DimMachine\Data Conversion.Inputs[Data Conversion Input].Columns[ETLLoadID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ETLLoadID"
+                      lineageId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].Columns[ETLLoadID]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DimMachine\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\DimMachine\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DimMachine\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of MachineKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DimMachine\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of MachineKey]"
+                      name="Copy of MachineKey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].Columns[MachineKey]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimMachine\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of MachineLabel]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\DimMachine\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of MachineLabel]"
+                      name="Copy of MachineLabel"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].Columns[MachineLabel]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimMachine\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of StoreKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DimMachine\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of StoreKey]"
+                      name="Copy of StoreKey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].Columns[StoreKey]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimMachine\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of MachineType]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\DimMachine\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of MachineType]"
+                      name="Copy of MachineType"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].Columns[MachineType]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimMachine\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of MachineName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\DimMachine\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of MachineName]"
+                      name="Copy of MachineName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].Columns[MachineName]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimMachine\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of MachineDescription]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="200"
+                      lineageId="Package\DimMachine\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of MachineDescription]"
+                      name="Copy of MachineDescription"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].Columns[MachineDescription]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimMachine\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of VendorName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\DimMachine\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of VendorName]"
+                      name="Copy of VendorName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].Columns[VendorName]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimMachine\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of MachineOS]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\DimMachine\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of MachineOS]"
+                      name="Copy of MachineOS"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].Columns[MachineOS]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimMachine\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of MachineSource]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\DimMachine\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of MachineSource]"
+                      name="Copy of MachineSource"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].Columns[MachineSource]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimMachine\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of MachineHardware]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\DimMachine\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of MachineHardware]"
+                      name="Copy of MachineHardware"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].Columns[MachineHardware]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimMachine\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of MachineSoftware]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\DimMachine\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of MachineSoftware]"
+                      name="Copy of MachineSoftware"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].Columns[MachineSoftware]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimMachine\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Status]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\DimMachine\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Status]"
+                      name="Copy of Status"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].Columns[Status]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimMachine\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ServiceStartDate]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DimMachine\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ServiceStartDate]"
+                      name="Copy of ServiceStartDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].Columns[ServiceStartDate]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimMachine\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of DecommissionDate]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DimMachine\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of DecommissionDate]"
+                      name="Copy of DecommissionDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].Columns[DecommissionDate]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimMachine\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of LastModifiedDate]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DimMachine\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of LastModifiedDate]"
+                      name="Copy of LastModifiedDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].Columns[LastModifiedDate]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimMachine\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ETLLoadID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DimMachine\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ETLLoadID]"
+                      name="Copy of ETLLoadID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].Columns[ETLLoadID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DimMachine\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\DimMachine\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DimMachine\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DimMachine\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DimMachine\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DimMachine\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DimMachine\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DimMachine\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DimMachine\Derived Column.Inputs[Derived Column Input].Columns[MachineLabel]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="MachineLabel"
+                      lineageId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].Columns[MachineLabel]" />
+                    <inputColumn
+                      refId="Package\DimMachine\Derived Column.Inputs[Derived Column Input].Columns[MachineType]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="MachineType"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].Columns[MachineType]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[ISNULL]((#{Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].Columns[MachineType]})) || #{Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].Columns[MachineType]} == "" ? [SUBSTRING](#{Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].Columns[MachineLabel]},1,5) : #{Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].Columns[MachineType]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">ISNULL((MachineType)) || MachineType == "" ? SUBSTRING(MachineLabel,1,5) : MachineType</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DimMachine\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DimMachine\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DimMachine\Derived Column.Outputs[Derived Column Output].Columns[LoadDate]"
+                      dataType="date"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DimMachine\Derived Column.Outputs[Derived Column Output].Columns[LoadDate]"
+                      name="LoadDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">@[User::LoadDate]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[User::LoadDate]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimMachine\Derived Column.Outputs[Derived Column Output].Columns[UpdateDate]"
+                      dataType="date"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DimMachine\Derived Column.Outputs[Derived Column Output].Columns[UpdateDate]"
+                      name="UpdateDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">@[User::UpdateDate]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[User::UpdateDate]</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DimMachine\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DimMachine\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DimMachine\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DimMachine\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DimMachine\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DimMachine\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DimMachine\Flat File Source"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="Flat File Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">true</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DimMachine\Flat File Source.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DimMachine]"
+                  connectionManagerRefId="Package.ConnectionManagers[DimMachine]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].Columns[MachineKey]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[MachineKey]"
+                      length="50"
+                      lineageId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].Columns[MachineKey]"
+                      name="MachineKey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].Columns[MachineLabel]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[MachineLabel]"
+                      length="50"
+                      lineageId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].Columns[MachineLabel]"
+                      name="MachineLabel"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].Columns[StoreKey]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[StoreKey]"
+                      length="50"
+                      lineageId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].Columns[StoreKey]"
+                      name="StoreKey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].Columns[MachineType]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[MachineType]"
+                      length="50"
+                      lineageId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].Columns[MachineType]"
+                      name="MachineType"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].Columns[MachineName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[MachineName]"
+                      length="300"
+                      lineageId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].Columns[MachineName]"
+                      name="MachineName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].Columns[MachineDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[MachineDescription]"
+                      length="200"
+                      lineageId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].Columns[MachineDescription]"
+                      name="MachineDescription"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].Columns[VendorName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[VendorName]"
+                      length="50"
+                      lineageId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].Columns[VendorName]"
+                      name="VendorName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].Columns[MachineOS]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[MachineOS]"
+                      length="50"
+                      lineageId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].Columns[MachineOS]"
+                      name="MachineOS"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].Columns[MachineSource]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[MachineSource]"
+                      length="50"
+                      lineageId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].Columns[MachineSource]"
+                      name="MachineSource"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].Columns[MachineHardware]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[MachineHardware]"
+                      length="200"
+                      lineageId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].Columns[MachineHardware]"
+                      name="MachineHardware"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].Columns[MachineSoftware]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[MachineSoftware]"
+                      length="50"
+                      lineageId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].Columns[MachineSoftware]"
+                      name="MachineSoftware"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].Columns[Status]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Status]"
+                      length="50"
+                      lineageId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].Columns[Status]"
+                      name="Status"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].Columns[ServiceStartDate]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ServiceStartDate]"
+                      length="50"
+                      lineageId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].Columns[ServiceStartDate]"
+                      name="ServiceStartDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].Columns[DecommissionDate]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[DecommissionDate]"
+                      length="50"
+                      lineageId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].Columns[DecommissionDate]"
+                      name="DecommissionDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].Columns[LastModifiedDate]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[LastModifiedDate]"
+                      length="50"
+                      lineageId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].Columns[LastModifiedDate]"
+                      name="LastModifiedDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].Columns[ETLLoadID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ETLLoadID]"
+                      length="50"
+                      lineageId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].Columns[ETLLoadID]"
+                      name="ETLLoadID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[MachineKey]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="MachineKey" />
+                    <externalMetadataColumn
+                      refId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[MachineLabel]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="MachineLabel" />
+                    <externalMetadataColumn
+                      refId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[StoreKey]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="StoreKey" />
+                    <externalMetadataColumn
+                      refId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[MachineType]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="MachineType" />
+                    <externalMetadataColumn
+                      refId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[MachineName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="MachineName" />
+                    <externalMetadataColumn
+                      refId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[MachineDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="MachineDescription" />
+                    <externalMetadataColumn
+                      refId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[VendorName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="VendorName" />
+                    <externalMetadataColumn
+                      refId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[MachineOS]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="MachineOS" />
+                    <externalMetadataColumn
+                      refId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[MachineSource]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="MachineSource" />
+                    <externalMetadataColumn
+                      refId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[MachineHardware]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="MachineHardware" />
+                    <externalMetadataColumn
+                      refId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[MachineSoftware]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="MachineSoftware" />
+                    <externalMetadataColumn
+                      refId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Status]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Status" />
+                    <externalMetadataColumn
+                      refId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ServiceStartDate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ServiceStartDate" />
+                    <externalMetadataColumn
+                      refId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[DecommissionDate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="DecommissionDate" />
+                    <externalMetadataColumn
+                      refId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[LastModifiedDate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="LastModifiedDate" />
+                    <externalMetadataColumn
+                      refId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ETLLoadID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ETLLoadID" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DimMachine\Insert into DimMachine"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Insert into DimMachine"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DimMachine]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DimMachine\Insert into DimMachine.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[yitbark\tariku.ESCO]"
+                  connectionManagerRefId="Package.ConnectionManagers[yitbark\tariku.ESCO]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DimMachine\Insert into DimMachine.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DimMachine\Insert into DimMachine.Inputs[OLE DB Destination Input].Columns[LoadDate]"
+                      cachedDataType="date"
+                      cachedName="LoadDate"
+                      externalMetadataColumnId="Package\DimMachine\Insert into DimMachine.Inputs[OLE DB Destination Input].ExternalColumns[LoadDate]"
+                      lineageId="Package\DimMachine\Derived Column.Outputs[Derived Column Output].Columns[LoadDate]" />
+                    <inputColumn
+                      refId="Package\DimMachine\Insert into DimMachine.Inputs[OLE DB Destination Input].Columns[UpdateDate]"
+                      cachedDataType="date"
+                      cachedName="UpdateDate"
+                      externalMetadataColumnId="Package\DimMachine\Insert into DimMachine.Inputs[OLE DB Destination Input].ExternalColumns[UpdateDate]"
+                      lineageId="Package\DimMachine\Derived Column.Outputs[Derived Column Output].Columns[UpdateDate]" />
+                    <inputColumn
+                      refId="Package\DimMachine\Insert into DimMachine.Inputs[OLE DB Destination Input].Columns[Copy of MachineKey]"
+                      cachedDataType="i4"
+                      cachedName="Copy of MachineKey"
+                      externalMetadataColumnId="Package\DimMachine\Insert into DimMachine.Inputs[OLE DB Destination Input].ExternalColumns[MachineKey]"
+                      lineageId="Package\DimMachine\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of MachineKey]" />
+                    <inputColumn
+                      refId="Package\DimMachine\Insert into DimMachine.Inputs[OLE DB Destination Input].Columns[Copy of MachineLabel]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Copy of MachineLabel"
+                      externalMetadataColumnId="Package\DimMachine\Insert into DimMachine.Inputs[OLE DB Destination Input].ExternalColumns[MachineLabel]"
+                      lineageId="Package\DimMachine\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of MachineLabel]" />
+                    <inputColumn
+                      refId="Package\DimMachine\Insert into DimMachine.Inputs[OLE DB Destination Input].Columns[Copy of StoreKey]"
+                      cachedDataType="i4"
+                      cachedName="Copy of StoreKey"
+                      externalMetadataColumnId="Package\DimMachine\Insert into DimMachine.Inputs[OLE DB Destination Input].ExternalColumns[StoreKey]"
+                      lineageId="Package\DimMachine\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of StoreKey]" />
+                    <inputColumn
+                      refId="Package\DimMachine\Insert into DimMachine.Inputs[OLE DB Destination Input].Columns[Copy of MachineType]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Copy of MachineType"
+                      externalMetadataColumnId="Package\DimMachine\Insert into DimMachine.Inputs[OLE DB Destination Input].ExternalColumns[MachineType]"
+                      lineageId="Package\DimMachine\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of MachineType]" />
+                    <inputColumn
+                      refId="Package\DimMachine\Insert into DimMachine.Inputs[OLE DB Destination Input].Columns[Copy of MachineName]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Copy of MachineName"
+                      externalMetadataColumnId="Package\DimMachine\Insert into DimMachine.Inputs[OLE DB Destination Input].ExternalColumns[MachineName]"
+                      lineageId="Package\DimMachine\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of MachineName]" />
+                    <inputColumn
+                      refId="Package\DimMachine\Insert into DimMachine.Inputs[OLE DB Destination Input].Columns[Copy of MachineDescription]"
+                      cachedDataType="wstr"
+                      cachedLength="200"
+                      cachedName="Copy of MachineDescription"
+                      externalMetadataColumnId="Package\DimMachine\Insert into DimMachine.Inputs[OLE DB Destination Input].ExternalColumns[MachineDescription]"
+                      lineageId="Package\DimMachine\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of MachineDescription]" />
+                    <inputColumn
+                      refId="Package\DimMachine\Insert into DimMachine.Inputs[OLE DB Destination Input].Columns[Copy of VendorName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Copy of VendorName"
+                      externalMetadataColumnId="Package\DimMachine\Insert into DimMachine.Inputs[OLE DB Destination Input].ExternalColumns[VendorName]"
+                      lineageId="Package\DimMachine\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of VendorName]" />
+                    <inputColumn
+                      refId="Package\DimMachine\Insert into DimMachine.Inputs[OLE DB Destination Input].Columns[Copy of MachineOS]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Copy of MachineOS"
+                      externalMetadataColumnId="Package\DimMachine\Insert into DimMachine.Inputs[OLE DB Destination Input].ExternalColumns[MachineOS]"
+                      lineageId="Package\DimMachine\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of MachineOS]" />
+                    <inputColumn
+                      refId="Package\DimMachine\Insert into DimMachine.Inputs[OLE DB Destination Input].Columns[Copy of MachineSource]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Copy of MachineSource"
+                      externalMetadataColumnId="Package\DimMachine\Insert into DimMachine.Inputs[OLE DB Destination Input].ExternalColumns[MachineSource]"
+                      lineageId="Package\DimMachine\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of MachineSource]" />
+                    <inputColumn
+                      refId="Package\DimMachine\Insert into DimMachine.Inputs[OLE DB Destination Input].Columns[Copy of MachineHardware]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Copy of MachineHardware"
+                      externalMetadataColumnId="Package\DimMachine\Insert into DimMachine.Inputs[OLE DB Destination Input].ExternalColumns[MachineHardware]"
+                      lineageId="Package\DimMachine\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of MachineHardware]" />
+                    <inputColumn
+                      refId="Package\DimMachine\Insert into DimMachine.Inputs[OLE DB Destination Input].Columns[Copy of MachineSoftware]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Copy of MachineSoftware"
+                      externalMetadataColumnId="Package\DimMachine\Insert into DimMachine.Inputs[OLE DB Destination Input].ExternalColumns[MachineSoftware]"
+                      lineageId="Package\DimMachine\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of MachineSoftware]" />
+                    <inputColumn
+                      refId="Package\DimMachine\Insert into DimMachine.Inputs[OLE DB Destination Input].Columns[Copy of Status]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Copy of Status"
+                      externalMetadataColumnId="Package\DimMachine\Insert into DimMachine.Inputs[OLE DB Destination Input].ExternalColumns[Status]"
+                      lineageId="Package\DimMachine\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Status]" />
+                    <inputColumn
+                      refId="Package\DimMachine\Insert into DimMachine.Inputs[OLE DB Destination Input].Columns[Copy of ServiceStartDate]"
+                      cachedDataType="date"
+                      cachedName="Copy of ServiceStartDate"
+                      externalMetadataColumnId="Package\DimMachine\Insert into DimMachine.Inputs[OLE DB Destination Input].ExternalColumns[ServiceStartDate]"
+                      lineageId="Package\DimMachine\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ServiceStartDate]" />
+                    <inputColumn
+                      refId="Package\DimMachine\Insert into DimMachine.Inputs[OLE DB Destination Input].Columns[Copy of DecommissionDate]"
+                      cachedDataType="date"
+                      cachedName="Copy of DecommissionDate"
+                      externalMetadataColumnId="Package\DimMachine\Insert into DimMachine.Inputs[OLE DB Destination Input].ExternalColumns[DecommissionDate]"
+                      lineageId="Package\DimMachine\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of DecommissionDate]" />
+                    <inputColumn
+                      refId="Package\DimMachine\Insert into DimMachine.Inputs[OLE DB Destination Input].Columns[Copy of LastModifiedDate]"
+                      cachedDataType="date"
+                      cachedName="Copy of LastModifiedDate"
+                      externalMetadataColumnId="Package\DimMachine\Insert into DimMachine.Inputs[OLE DB Destination Input].ExternalColumns[LastModifiedDate]"
+                      lineageId="Package\DimMachine\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of LastModifiedDate]" />
+                    <inputColumn
+                      refId="Package\DimMachine\Insert into DimMachine.Inputs[OLE DB Destination Input].Columns[Copy of ETLLoadID]"
+                      cachedDataType="i4"
+                      cachedName="Copy of ETLLoadID"
+                      externalMetadataColumnId="Package\DimMachine\Insert into DimMachine.Inputs[OLE DB Destination Input].ExternalColumns[ETLLoadID]"
+                      lineageId="Package\DimMachine\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ETLLoadID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DimMachine\Insert into DimMachine.Inputs[OLE DB Destination Input].ExternalColumns[MachineKey]"
+                      dataType="i4"
+                      name="MachineKey" />
+                    <externalMetadataColumn
+                      refId="Package\DimMachine\Insert into DimMachine.Inputs[OLE DB Destination Input].ExternalColumns[MachineLabel]"
+                      dataType="wstr"
+                      length="100"
+                      name="MachineLabel" />
+                    <externalMetadataColumn
+                      refId="Package\DimMachine\Insert into DimMachine.Inputs[OLE DB Destination Input].ExternalColumns[StoreKey]"
+                      dataType="i4"
+                      name="StoreKey" />
+                    <externalMetadataColumn
+                      refId="Package\DimMachine\Insert into DimMachine.Inputs[OLE DB Destination Input].ExternalColumns[MachineType]"
+                      dataType="wstr"
+                      length="50"
+                      name="MachineType" />
+                    <externalMetadataColumn
+                      refId="Package\DimMachine\Insert into DimMachine.Inputs[OLE DB Destination Input].ExternalColumns[MachineName]"
+                      dataType="wstr"
+                      length="100"
+                      name="MachineName" />
+                    <externalMetadataColumn
+                      refId="Package\DimMachine\Insert into DimMachine.Inputs[OLE DB Destination Input].ExternalColumns[MachineDescription]"
+                      dataType="wstr"
+                      length="200"
+                      name="MachineDescription" />
+                    <externalMetadataColumn
+                      refId="Package\DimMachine\Insert into DimMachine.Inputs[OLE DB Destination Input].ExternalColumns[VendorName]"
+                      dataType="wstr"
+                      length="50"
+                      name="VendorName" />
+                    <externalMetadataColumn
+                      refId="Package\DimMachine\Insert into DimMachine.Inputs[OLE DB Destination Input].ExternalColumns[MachineOS]"
+                      dataType="wstr"
+                      length="50"
+                      name="MachineOS" />
+                    <externalMetadataColumn
+                      refId="Package\DimMachine\Insert into DimMachine.Inputs[OLE DB Destination Input].ExternalColumns[MachineSource]"
+                      dataType="wstr"
+                      length="100"
+                      name="MachineSource" />
+                    <externalMetadataColumn
+                      refId="Package\DimMachine\Insert into DimMachine.Inputs[OLE DB Destination Input].ExternalColumns[MachineHardware]"
+                      dataType="wstr"
+                      length="100"
+                      name="MachineHardware" />
+                    <externalMetadataColumn
+                      refId="Package\DimMachine\Insert into DimMachine.Inputs[OLE DB Destination Input].ExternalColumns[MachineSoftware]"
+                      dataType="wstr"
+                      length="100"
+                      name="MachineSoftware" />
+                    <externalMetadataColumn
+                      refId="Package\DimMachine\Insert into DimMachine.Inputs[OLE DB Destination Input].ExternalColumns[Status]"
+                      dataType="wstr"
+                      length="50"
+                      name="Status" />
+                    <externalMetadataColumn
+                      refId="Package\DimMachine\Insert into DimMachine.Inputs[OLE DB Destination Input].ExternalColumns[ServiceStartDate]"
+                      dataType="dbTimeStamp"
+                      name="ServiceStartDate" />
+                    <externalMetadataColumn
+                      refId="Package\DimMachine\Insert into DimMachine.Inputs[OLE DB Destination Input].ExternalColumns[DecommissionDate]"
+                      dataType="dbTimeStamp"
+                      name="DecommissionDate" />
+                    <externalMetadataColumn
+                      refId="Package\DimMachine\Insert into DimMachine.Inputs[OLE DB Destination Input].ExternalColumns[LastModifiedDate]"
+                      dataType="dbTimeStamp"
+                      name="LastModifiedDate" />
+                    <externalMetadataColumn
+                      refId="Package\DimMachine\Insert into DimMachine.Inputs[OLE DB Destination Input].ExternalColumns[ETLLoadID]"
+                      dataType="i4"
+                      name="ETLLoadID" />
+                    <externalMetadataColumn
+                      refId="Package\DimMachine\Insert into DimMachine.Inputs[OLE DB Destination Input].ExternalColumns[LoadDate]"
+                      dataType="dbTimeStamp"
+                      name="LoadDate" />
+                    <externalMetadataColumn
+                      refId="Package\DimMachine\Insert into DimMachine.Inputs[OLE DB Destination Input].ExternalColumns[UpdateDate]"
+                      dataType="dbTimeStamp"
+                      name="UpdateDate" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DimMachine\Insert into DimMachine.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DimMachine\Insert into DimMachine.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DimMachine\Insert into DimMachine.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DimMachine\Insert into DimMachine.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DimMachine\Insert into DimMachine.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DimMachine\Insert into DimMachine.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DimMachine.Paths[Data Conversion Output]"
+              endId="Package\DimMachine\Insert into DimMachine.Inputs[OLE DB Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\DimMachine\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\DimMachine.Paths[Derived Column Output]"
+              endId="Package\DimMachine\Data Conversion.Inputs[Data Conversion Input]"
+              name="Derived Column Output"
+              startId="Package\DimMachine\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DimMachine.Paths[Flat File Source Output]"
+              endId="Package\DimMachine\Derived Column.Inputs[Derived Column Input]"
+              name="Flat File Source Output"
+              startId="Package\DimMachine\Flat File Source.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{14E0224A-D162-41C2-9564-EADD8085B9DF}"
+      DTS:From="Package\Delete from DimMachine"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\DimMachine" />
+  </DTS:PrecedenceConstraints>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnError]"
+      DTS:CreationName="OnError"
+      DTS:DTSID="{D92F7C11-0C75-4BDD-9D59-43F30D74FBA4}"
+      DTS:EventID="0"
+      DTS:EventName="OnError"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="The propagate property of the event"
+          DTS:DTSID="{876ABFEA-9135-4EA1-B6D0-3B583FF055E8}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\Execute SQL Task"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{CA607A55-0FAC-48FB-A5FE-6C0B73BDE2DD}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Execute SQL Task"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{1111565D-F643-4CCE-903D-3CE99D730CF2}"
+              SQLTask:SqlStatementSource="insert into ErrorLog ( @[System::ErrorCode] , @[System::ErrorDescription] ,ErrorPackage)&#xA;values(?,?,?)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="System::ErrorCode"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="System::ErrorDescription"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="3"
+                SQLTask:DtsVariableName="System::PackageName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\Execute SQL Task 1"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{BED3A2A6-FA79-440A-BB1B-C1DE156DF0FB}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Execute SQL Task 1"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{1111565D-F643-4CCE-903D-3CE99D730CF2}"
+              SQLTask:SqlStatementSource="truncate table errorlog" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package.EventHandlers[OnError].PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{05EC3123-3DB2-44B1-AF3F-540B240B2ED0}"
+          DTS:From="Package.EventHandlers[OnError]\Execute SQL Task 1"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package.EventHandlers[OnError]\Execute SQL Task" />
+      </DTS:PrecedenceConstraints>
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="194,42"
+          Id="Package\Delete from DimMachine"
+          TopLeft="187,173" />
+        <NodeLayout
+          Size="140,42"
+          Id="Package\DimMachine"
+          TopLeft="8.5,164.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="187,194">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-38.5,-8.5"
+              Start="0,0"
+              End="-31,-8.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-15.25,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-15.25,0"
+                    Point2="-19.25,0"
+                    Point3="-19.25,-4" />
+                  <mssgle:LineSegment
+                    End="-19.25,-4.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-19.25,-4.5"
+                    Point2="-19.25,-8.5"
+                    Point3="-23.25,-8.5" />
+                  <mssgle:LineSegment
+                    End="-31,-8.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="170,42"
+          Id="Package.EventHandlers[OnError]\Execute SQL Task"
+          TopLeft="60,80.5" />
+        <NodeLayout
+          Size="179,42"
+          Id="Package.EventHandlers[OnError]\Execute SQL Task 1"
+          TopLeft="279.5,59" />
+        <EdgeLayout
+          Id="Package.EventHandlers[OnError].PrecedenceConstraints[Constraint]"
+          TopLeft="279.5,80">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-49.5,21.5"
+              Start="0,0"
+              End="-42,21.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-20.75,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-20.75,0"
+                    Point2="-24.75,0"
+                    Point3="-24.75,4" />
+                  <mssgle:LineSegment
+                    End="-24.75,17.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-24.75,17.5"
+                    Point2="-24.75,21.5"
+                    Point3="-28.75,21.5" />
+                  <mssgle:LineSegment
+                    End="-42,21.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <TaskHost
+    design-time-name="Package\DimMachine">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="177,42"
+          Id="Package\DimMachine\Insert into DimMachine"
+          TopLeft="50,290" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\DimMachine\Flat File Source"
+          TopLeft="78,23" />
+        <NodeLayout
+          Size="158,42"
+          Id="Package\DimMachine\Derived Column"
+          TopLeft="65,110" />
+        <NodeLayout
+          Size="161,42"
+          Id="Package\DimMachine\Data Conversion"
+          TopLeft="64,195" />
+        <EdgeLayout
+          Id="Package\DimMachine.Paths[Flat File Source Output]"
+          TopLeft="156,65">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-12,45"
+              Start="0,0"
+              End="-12,37.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.5"
+                    Point2="0,22.5"
+                    Point3="-4,22.5" />
+                  <mssgle:LineSegment
+                    End="-8,22.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-8,22.5"
+                    Point2="-12,22.5"
+                    Point3="-12,26.5" />
+                  <mssgle:LineSegment
+                    End="-12,37.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DimMachine.Paths[Derived Column Output]"
+          TopLeft="144.25,152">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,43"
+              Start="0,0"
+              End="0,35.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DimMachine.Paths[Data Conversion Output]"
+          TopLeft="141.5,237">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,53"
+              Start="0,0"
+              End="0,45.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,45.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DimMachine\Insert into DimMachine">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

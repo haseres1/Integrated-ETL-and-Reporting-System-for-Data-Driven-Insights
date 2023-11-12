@@ -1,0 +1,2906 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/21/2022 10:31:00 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="YITBARK"
+  DTS:CreatorName="YITBARK\HP"
+  DTS:DTSID="{3124EA5B-E67D-4ACE-B019-F4184FAE4060}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.180"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="DimEmployee"
+  DTS:PackageType="5"
+  DTS:VersionBuild="111"
+  DTS:VersionGUID="{4D818B80-B2DC-456C-8BF0-57A0191B0365}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DimEmployee Conn]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{70113F4F-A119-4E6C-8638-7055B2C854D6}"
+      DTS:ObjectName="DimEmployee Conn">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\HP\OneDrive - montgomerycollege.edu\Documents\SQL server traning\Esco-RetailProject\EscoEmployee.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EmployeeKey"
+              DTS:DTSID="{59D4E940-06B5-4EEC-9103-6148DC595753}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ParentEmployeeKey"
+              DTS:DTSID="{FA510C04-8564-4A36-9400-44C11C25D0AD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FirstName"
+              DTS:DTSID="{9167F6E4-6604-4FDA-B4BD-076ACDCD2BEC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LastName"
+              DTS:DTSID="{751E2B8C-02DB-4BDA-A46A-32DD11954932}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MiddleName"
+              DTS:DTSID="{6FBE71A2-53B7-4B52-BDC8-AC41A4048925}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Title"
+              DTS:DTSID="{F62706A9-56F3-444A-9A23-F8BCB84523C1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="HireDate"
+              DTS:DTSID="{C13B7E2D-8A5F-442C-82FA-A6BA9306E6A8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="BirthDate"
+              DTS:DTSID="{078561E8-2D5E-4E9F-95C0-05BE3105F5B8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EmailAddress"
+              DTS:DTSID="{432BAD45-08AF-4A13-9AF3-007F9AE82E5F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Phone"
+              DTS:DTSID="{14BA042C-6D1D-410E-83E2-5BDFE1A4E2EB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MaritalStatus"
+              DTS:DTSID="{8E04F2C7-2631-470F-AD21-F22764CC6A3A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EmergencyContactName"
+              DTS:DTSID="{59818527-FFC6-4B9B-BB55-C52D62ECB2AC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EmergencyContactPhone"
+              DTS:DTSID="{60ED75AD-8AB5-48B6-83C3-DDBD0C2F0928}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SalariedFlag"
+              DTS:DTSID="{75DA6EB6-BFEF-452B-89D9-F85BC295F534}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Gender"
+              DTS:DTSID="{E03E83BF-46FC-4BEE-9D4F-FE6350302D69}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PayFrequency"
+              DTS:DTSID="{AAEF6C2B-BDEC-4A3F-92AA-74ECD41D88A8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="BaseRate"
+              DTS:DTSID="{F3F0FB46-0CD3-434B-82AB-D49D0ECF1338}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="VacationHours"
+              DTS:DTSID="{E4335A59-A706-46C5-9A60-2004532DEA0E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CurrentFlag"
+              DTS:DTSID="{28E655D9-3300-4C9F-A42A-1FB484ADA06B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SalesPersonFlag"
+              DTS:DTSID="{378019C8-D332-43F0-A495-EF54759FDBBF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DepartmentName"
+              DTS:DTSID="{80E28D2A-B1D4-4282-A65F-B0DB684283B6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="StartDate"
+              DTS:DTSID="{82DF7B28-4E97-490A-A2AA-AF4689500E2E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EndDate"
+              DTS:DTSID="{8DFF236C-4E03-4080-B458-2FD75388BD9E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Status"
+              DTS:DTSID="{2125BBF8-C522-415A-9D31-ED4BD481F94D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ETLLoadID"
+              DTS:DTSID="{54ABF1D8-E85F-4ECD-9142-359796BFC298}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[yitbark\tariku.ESCO]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{DF923C1A-7857-4E31-AABF-BB0AF8DC4925}"
+      DTS:ObjectName="yitbark\tariku.ESCO">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[$Project::YitbarkTarikuESCO_ConnectionString]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=yitbark\tariku;Initial Catalog=ESCO;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{5F3E37DA-3576-4713-869D-D40C567E0ADA}"
+      DTS:ObjectName="ConnDynamic">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">Data Source=yitbark\tariku;Initial Catalog=[shop here project];Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{17EBA370-7DEC-4B85-968C-8FACA4501D47}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="LoadDate">
+      <DTS:VariableValue
+        DTS:DataType="7">5/22/2022 9:02:44 PM</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{BC184089-97BB-4012-B1B8-1E10DC12B835}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="UpdateDate">
+      <DTS:VariableValue
+        DTS:DataType="7">5/22/2022 9:02:58 PM</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{4EC8A63D-E0F3-417C-A090-F03B796831DB}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Variable">
+      <DTS:VariableValue
+        DTS:DataType="8">(MaritalStatus == "Married" ? "M" : (MaritalStatus == "M" ? "M" : (MaritalStatus == "Single" ? "S" : (MaritalStatus == "S" ? "S" : ""))))</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\delete from DimEmployee"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{3EBAEA65-4B50-4AC8-8F6D-24CF59F07203}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="delete from DimEmployee"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{DF923C1A-7857-4E31-AABF-BB0AF8DC4925}"
+          SQLTask:SqlStatementSource="delete from DimEmployee" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DimEmployee"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{96251C1F-77E0-4579-9903-61706E8301D0}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DimEmployee"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DimEmployee\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DimEmployee\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DimEmployee\Data Conversion.Inputs[Data Conversion Input].Columns[ParentEmployeeKey]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ParentEmployeeKey"
+                      lineageId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[ParentEmployeeKey]" />
+                    <inputColumn
+                      refId="Package\DimEmployee\Data Conversion.Inputs[Data Conversion Input].Columns[FirstName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="FirstName"
+                      lineageId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[FirstName]" />
+                    <inputColumn
+                      refId="Package\DimEmployee\Data Conversion.Inputs[Data Conversion Input].Columns[LastName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="LastName"
+                      lineageId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[LastName]" />
+                    <inputColumn
+                      refId="Package\DimEmployee\Data Conversion.Inputs[Data Conversion Input].Columns[MiddleName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="MiddleName"
+                      lineageId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[MiddleName]" />
+                    <inputColumn
+                      refId="Package\DimEmployee\Data Conversion.Inputs[Data Conversion Input].Columns[Title]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Title"
+                      lineageId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[Title]" />
+                    <inputColumn
+                      refId="Package\DimEmployee\Data Conversion.Inputs[Data Conversion Input].Columns[HireDate]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="HireDate"
+                      lineageId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[HireDate]" />
+                    <inputColumn
+                      refId="Package\DimEmployee\Data Conversion.Inputs[Data Conversion Input].Columns[BirthDate]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="BirthDate"
+                      lineageId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[BirthDate]" />
+                    <inputColumn
+                      refId="Package\DimEmployee\Data Conversion.Inputs[Data Conversion Input].Columns[EmailAddress]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="EmailAddress"
+                      lineageId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[EmailAddress]" />
+                    <inputColumn
+                      refId="Package\DimEmployee\Data Conversion.Inputs[Data Conversion Input].Columns[Phone]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Phone"
+                      lineageId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[Phone]" />
+                    <inputColumn
+                      refId="Package\DimEmployee\Data Conversion.Inputs[Data Conversion Input].Columns[MaritalStatus]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="MaritalStatus"
+                      lineageId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[MaritalStatus]" />
+                    <inputColumn
+                      refId="Package\DimEmployee\Data Conversion.Inputs[Data Conversion Input].Columns[EmergencyContactName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="EmergencyContactName"
+                      lineageId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[EmergencyContactName]" />
+                    <inputColumn
+                      refId="Package\DimEmployee\Data Conversion.Inputs[Data Conversion Input].Columns[EmergencyContactPhone]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="EmergencyContactPhone"
+                      lineageId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[EmergencyContactPhone]" />
+                    <inputColumn
+                      refId="Package\DimEmployee\Data Conversion.Inputs[Data Conversion Input].Columns[SalariedFlag]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="SalariedFlag"
+                      lineageId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[SalariedFlag]" />
+                    <inputColumn
+                      refId="Package\DimEmployee\Data Conversion.Inputs[Data Conversion Input].Columns[Gender]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Gender"
+                      lineageId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[Gender]" />
+                    <inputColumn
+                      refId="Package\DimEmployee\Data Conversion.Inputs[Data Conversion Input].Columns[PayFrequency]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="PayFrequency"
+                      lineageId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[PayFrequency]" />
+                    <inputColumn
+                      refId="Package\DimEmployee\Data Conversion.Inputs[Data Conversion Input].Columns[BaseRate]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="BaseRate"
+                      lineageId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[BaseRate]" />
+                    <inputColumn
+                      refId="Package\DimEmployee\Data Conversion.Inputs[Data Conversion Input].Columns[VacationHours]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="VacationHours"
+                      lineageId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[VacationHours]" />
+                    <inputColumn
+                      refId="Package\DimEmployee\Data Conversion.Inputs[Data Conversion Input].Columns[CurrentFlag]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="CurrentFlag"
+                      lineageId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[CurrentFlag]" />
+                    <inputColumn
+                      refId="Package\DimEmployee\Data Conversion.Inputs[Data Conversion Input].Columns[SalesPersonFlag]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="SalesPersonFlag"
+                      lineageId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[SalesPersonFlag]" />
+                    <inputColumn
+                      refId="Package\DimEmployee\Data Conversion.Inputs[Data Conversion Input].Columns[DepartmentName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="DepartmentName"
+                      lineageId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[DepartmentName]" />
+                    <inputColumn
+                      refId="Package\DimEmployee\Data Conversion.Inputs[Data Conversion Input].Columns[StartDate]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="StartDate"
+                      lineageId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[StartDate]" />
+                    <inputColumn
+                      refId="Package\DimEmployee\Data Conversion.Inputs[Data Conversion Input].Columns[EndDate]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="EndDate"
+                      lineageId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[EndDate]" />
+                    <inputColumn
+                      refId="Package\DimEmployee\Data Conversion.Inputs[Data Conversion Input].Columns[Status]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Status"
+                      lineageId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[Status]" />
+                    <inputColumn
+                      refId="Package\DimEmployee\Data Conversion.Inputs[Data Conversion Input].Columns[ETLLoadID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ETLLoadID"
+                      lineageId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[ETLLoadID]" />
+                    <inputColumn
+                      refId="Package\DimEmployee\Data Conversion.Inputs[Data Conversion Input].Columns[EmployeeKey]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="EmployeeKey"
+                      lineageId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[EmployeeKey]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DimEmployee\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\DimEmployee\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DimEmployee\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ParentEmployeeKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DimEmployee\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ParentEmployeeKey]"
+                      name="Copy of ParentEmployeeKey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[ParentEmployeeKey]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimEmployee\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of FirstName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\DimEmployee\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of FirstName]"
+                      name="Copy of FirstName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[FirstName]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimEmployee\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of LastName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\DimEmployee\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of LastName]"
+                      name="Copy of LastName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[LastName]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimEmployee\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of MiddleName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\DimEmployee\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of MiddleName]"
+                      name="Copy of MiddleName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[MiddleName]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimEmployee\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Title]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\DimEmployee\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Title]"
+                      name="Copy of Title"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[Title]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimEmployee\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of HireDate]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DimEmployee\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of HireDate]"
+                      name="Copy of HireDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[HireDate]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimEmployee\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of BirthDate]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DimEmployee\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of BirthDate]"
+                      name="Copy of BirthDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[BirthDate]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimEmployee\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of EmailAddress]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\DimEmployee\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of EmailAddress]"
+                      name="Copy of EmailAddress"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[EmailAddress]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimEmployee\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Phone]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="25"
+                      lineageId="Package\DimEmployee\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Phone]"
+                      name="Copy of Phone"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[Phone]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimEmployee\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of MaritalStatus]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="1"
+                      lineageId="Package\DimEmployee\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of MaritalStatus]"
+                      name="Copy of MaritalStatus"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[MaritalStatus]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimEmployee\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of EmergencyContactName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\DimEmployee\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of EmergencyContactName]"
+                      name="Copy of EmergencyContactName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[EmergencyContactName]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimEmployee\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of EmergencyContactPhone]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="25"
+                      lineageId="Package\DimEmployee\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of EmergencyContactPhone]"
+                      name="Copy of EmergencyContactPhone"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[EmergencyContactPhone]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimEmployee\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SalariedFlag]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DimEmployee\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SalariedFlag]"
+                      name="Copy of SalariedFlag"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[SalariedFlag]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimEmployee\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Gender]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="1"
+                      lineageId="Package\DimEmployee\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Gender]"
+                      name="Copy of Gender"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[Gender]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimEmployee\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of PayFrequency]"
+                      dataType="ui1"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DimEmployee\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of PayFrequency]"
+                      name="Copy of PayFrequency"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[PayFrequency]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimEmployee\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of BaseRate]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DimEmployee\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of BaseRate]"
+                      name="Copy of BaseRate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[BaseRate]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimEmployee\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of VacationHours]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DimEmployee\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of VacationHours]"
+                      name="Copy of VacationHours"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[VacationHours]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimEmployee\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of CurrentFlag]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DimEmployee\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of CurrentFlag]"
+                      name="Copy of CurrentFlag"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[CurrentFlag]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimEmployee\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SalesPersonFlag]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DimEmployee\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SalesPersonFlag]"
+                      name="Copy of SalesPersonFlag"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[SalesPersonFlag]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimEmployee\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of DepartmentName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\DimEmployee\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of DepartmentName]"
+                      name="Copy of DepartmentName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[DepartmentName]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimEmployee\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of StartDate]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DimEmployee\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of StartDate]"
+                      name="Copy of StartDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[StartDate]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimEmployee\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of EndDate]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DimEmployee\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of EndDate]"
+                      name="Copy of EndDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[EndDate]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimEmployee\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Status]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\DimEmployee\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Status]"
+                      name="Copy of Status"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[Status]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimEmployee\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ETLLoadID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DimEmployee\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ETLLoadID]"
+                      name="Copy of ETLLoadID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[ETLLoadID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimEmployee\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of EmployeeKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DimEmployee\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of EmployeeKey]"
+                      name="Copy of EmployeeKey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[EmployeeKey]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DimEmployee\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\DimEmployee\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DimEmployee\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DimEmployee\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DimEmployee\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DimEmployee\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DimEmployee\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DimEmployee\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DimEmployee\Derived Column.Inputs[Derived Column Input].Columns[MaritalStatus]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="MaritalStatus"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[MaritalStatus]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_WSTR,1)(#{Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[MaritalStatus]} == "Married" || #{Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[MaritalStatus]} == "M" ? "M" : #{Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[MaritalStatus]} == "Single" ? "S" : "S")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_WSTR,1)(MaritalStatus == "Married" || MaritalStatus == "M" ? "M" : MaritalStatus == "Single" ? "S" : "S")</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DimEmployee\Derived Column.Inputs[Derived Column Input].Columns[Gender]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Gender"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[Gender]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[SUBSTRING](#{Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[Gender]},1,1)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">SUBSTRING(Gender,1,1)</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DimEmployee\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DimEmployee\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DimEmployee\Derived Column.Outputs[Derived Column Output].Columns[LoadDate]"
+                      dataType="date"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DimEmployee\Derived Column.Outputs[Derived Column Output].Columns[LoadDate]"
+                      name="LoadDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">@[User::LoadDate]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[User::LoadDate]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimEmployee\Derived Column.Outputs[Derived Column Output].Columns[UpdateDate]"
+                      dataType="date"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DimEmployee\Derived Column.Outputs[Derived Column Output].Columns[UpdateDate]"
+                      name="UpdateDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">@[User::UpdateDate]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[User::UpdateDate]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimEmployee\Derived Column.Outputs[Derived Column Output].Columns[Derived Column 2]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="1"
+                      lineageId="Package\DimEmployee\Derived Column.Outputs[Derived Column Output].Columns[Derived Column 2]"
+                      name="Derived Column 2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_WSTR,1)(#{Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[Gender]} == "Male" || #{Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[Gender]} == "M" ? "M" : #{Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[Gender]} == "Female" ? "F" : "F")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_WSTR,1)(Gender == "Male" || Gender == "M" ? "M" : Gender == "Female" ? "F" : "F")</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DimEmployee\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DimEmployee\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DimEmployee\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DimEmployee\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DimEmployee\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DimEmployee\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DimEmployee\Flat File Source"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="Flat File Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">true</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DimEmployee\Flat File Source.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DimEmployee Conn]"
+                  connectionManagerRefId="Package.ConnectionManagers[DimEmployee Conn]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[EmployeeKey]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[EmployeeKey]"
+                      length="50"
+                      lineageId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[EmployeeKey]"
+                      name="EmployeeKey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[ParentEmployeeKey]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ParentEmployeeKey]"
+                      length="50"
+                      lineageId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[ParentEmployeeKey]"
+                      name="ParentEmployeeKey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[FirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[FirstName]"
+                      length="50"
+                      lineageId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[FirstName]"
+                      name="FirstName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[LastName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[LastName]"
+                      length="50"
+                      lineageId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[LastName]"
+                      name="LastName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[MiddleName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[MiddleName]"
+                      length="50"
+                      lineageId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[MiddleName]"
+                      name="MiddleName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[Title]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Title]"
+                      length="50"
+                      lineageId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[Title]"
+                      name="Title"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[HireDate]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[HireDate]"
+                      length="50"
+                      lineageId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[HireDate]"
+                      name="HireDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[BirthDate]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[BirthDate]"
+                      length="50"
+                      lineageId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[BirthDate]"
+                      name="BirthDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[EmailAddress]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[EmailAddress]"
+                      length="50"
+                      lineageId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[EmailAddress]"
+                      name="EmailAddress"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[Phone]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Phone]"
+                      length="50"
+                      lineageId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[Phone]"
+                      name="Phone"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[MaritalStatus]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[MaritalStatus]"
+                      length="50"
+                      lineageId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[MaritalStatus]"
+                      name="MaritalStatus"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[EmergencyContactName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[EmergencyContactName]"
+                      length="50"
+                      lineageId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[EmergencyContactName]"
+                      name="EmergencyContactName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[EmergencyContactPhone]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[EmergencyContactPhone]"
+                      length="50"
+                      lineageId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[EmergencyContactPhone]"
+                      name="EmergencyContactPhone"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[SalariedFlag]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[SalariedFlag]"
+                      length="50"
+                      lineageId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[SalariedFlag]"
+                      name="SalariedFlag"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[Gender]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Gender]"
+                      length="50"
+                      lineageId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[Gender]"
+                      name="Gender"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[PayFrequency]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[PayFrequency]"
+                      length="50"
+                      lineageId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[PayFrequency]"
+                      name="PayFrequency"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[BaseRate]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[BaseRate]"
+                      length="50"
+                      lineageId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[BaseRate]"
+                      name="BaseRate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[VacationHours]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[VacationHours]"
+                      length="50"
+                      lineageId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[VacationHours]"
+                      name="VacationHours"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[CurrentFlag]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CurrentFlag]"
+                      length="50"
+                      lineageId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[CurrentFlag]"
+                      name="CurrentFlag"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[SalesPersonFlag]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[SalesPersonFlag]"
+                      length="50"
+                      lineageId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[SalesPersonFlag]"
+                      name="SalesPersonFlag"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[DepartmentName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[DepartmentName]"
+                      length="50"
+                      lineageId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[DepartmentName]"
+                      name="DepartmentName"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[StartDate]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[StartDate]"
+                      length="50"
+                      lineageId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[StartDate]"
+                      name="StartDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[EndDate]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[EndDate]"
+                      length="50"
+                      lineageId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[EndDate]"
+                      name="EndDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[Status]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Status]"
+                      length="50"
+                      lineageId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[Status]"
+                      name="Status"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[ETLLoadID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ETLLoadID]"
+                      length="50"
+                      lineageId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[ETLLoadID]"
+                      name="ETLLoadID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[EmployeeKey]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="EmployeeKey" />
+                    <externalMetadataColumn
+                      refId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ParentEmployeeKey]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ParentEmployeeKey" />
+                    <externalMetadataColumn
+                      refId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[FirstName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="FirstName" />
+                    <externalMetadataColumn
+                      refId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[LastName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="LastName" />
+                    <externalMetadataColumn
+                      refId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[MiddleName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="MiddleName" />
+                    <externalMetadataColumn
+                      refId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Title]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Title" />
+                    <externalMetadataColumn
+                      refId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[HireDate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="HireDate" />
+                    <externalMetadataColumn
+                      refId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[BirthDate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="BirthDate" />
+                    <externalMetadataColumn
+                      refId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[EmailAddress]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="EmailAddress" />
+                    <externalMetadataColumn
+                      refId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Phone]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Phone" />
+                    <externalMetadataColumn
+                      refId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[MaritalStatus]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="MaritalStatus" />
+                    <externalMetadataColumn
+                      refId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[EmergencyContactName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="EmergencyContactName" />
+                    <externalMetadataColumn
+                      refId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[EmergencyContactPhone]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="EmergencyContactPhone" />
+                    <externalMetadataColumn
+                      refId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[SalariedFlag]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="SalariedFlag" />
+                    <externalMetadataColumn
+                      refId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Gender]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Gender" />
+                    <externalMetadataColumn
+                      refId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[PayFrequency]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="PayFrequency" />
+                    <externalMetadataColumn
+                      refId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[BaseRate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="BaseRate" />
+                    <externalMetadataColumn
+                      refId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[VacationHours]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="VacationHours" />
+                    <externalMetadataColumn
+                      refId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CurrentFlag]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CurrentFlag" />
+                    <externalMetadataColumn
+                      refId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[SalesPersonFlag]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="SalesPersonFlag" />
+                    <externalMetadataColumn
+                      refId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[DepartmentName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="DepartmentName" />
+                    <externalMetadataColumn
+                      refId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[StartDate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="StartDate" />
+                    <externalMetadataColumn
+                      refId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[EndDate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="EndDate" />
+                    <externalMetadataColumn
+                      refId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Status]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Status" />
+                    <externalMetadataColumn
+                      refId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ETLLoadID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ETLLoadID" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DimEmployee\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DimEmployee]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DimEmployee\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[yitbark\tariku.ESCO]"
+                  connectionManagerRefId="Package.ConnectionManagers[yitbark\tariku.ESCO]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LoadDate]"
+                      cachedDataType="date"
+                      cachedName="LoadDate"
+                      externalMetadataColumnId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LoadDate]"
+                      lineageId="Package\DimEmployee\Derived Column.Outputs[Derived Column Output].Columns[LoadDate]" />
+                    <inputColumn
+                      refId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[UpdateDate]"
+                      cachedDataType="date"
+                      cachedName="UpdateDate"
+                      externalMetadataColumnId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UpdateDate]"
+                      lineageId="Package\DimEmployee\Derived Column.Outputs[Derived Column Output].Columns[UpdateDate]" />
+                    <inputColumn
+                      refId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of EmployeeKey]"
+                      cachedDataType="i4"
+                      cachedName="Copy of EmployeeKey"
+                      externalMetadataColumnId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EmployeeKey]"
+                      lineageId="Package\DimEmployee\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of EmployeeKey]" />
+                    <inputColumn
+                      refId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of ParentEmployeeKey]"
+                      cachedDataType="i4"
+                      cachedName="Copy of ParentEmployeeKey"
+                      externalMetadataColumnId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ParentEmployeeKey]"
+                      lineageId="Package\DimEmployee\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ParentEmployeeKey]" />
+                    <inputColumn
+                      refId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of FirstName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Copy of FirstName"
+                      externalMetadataColumnId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
+                      lineageId="Package\DimEmployee\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of FirstName]" />
+                    <inputColumn
+                      refId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of LastName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Copy of LastName"
+                      externalMetadataColumnId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastName]"
+                      lineageId="Package\DimEmployee\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of LastName]" />
+                    <inputColumn
+                      refId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of MiddleName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Copy of MiddleName"
+                      externalMetadataColumnId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MiddleName]"
+                      lineageId="Package\DimEmployee\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of MiddleName]" />
+                    <inputColumn
+                      refId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of Title]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Copy of Title"
+                      externalMetadataColumnId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Title]"
+                      lineageId="Package\DimEmployee\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Title]" />
+                    <inputColumn
+                      refId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of HireDate]"
+                      cachedDataType="dbDate"
+                      cachedName="Copy of HireDate"
+                      externalMetadataColumnId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[HireDate]"
+                      lineageId="Package\DimEmployee\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of HireDate]" />
+                    <inputColumn
+                      refId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of BirthDate]"
+                      cachedDataType="dbDate"
+                      cachedName="Copy of BirthDate"
+                      externalMetadataColumnId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BirthDate]"
+                      lineageId="Package\DimEmployee\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of BirthDate]" />
+                    <inputColumn
+                      refId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of EmailAddress]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Copy of EmailAddress"
+                      externalMetadataColumnId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EmailAddress]"
+                      lineageId="Package\DimEmployee\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of EmailAddress]" />
+                    <inputColumn
+                      refId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of Phone]"
+                      cachedDataType="wstr"
+                      cachedLength="25"
+                      cachedName="Copy of Phone"
+                      externalMetadataColumnId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Phone]"
+                      lineageId="Package\DimEmployee\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Phone]" />
+                    <inputColumn
+                      refId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of MaritalStatus]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="Copy of MaritalStatus"
+                      externalMetadataColumnId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MaritalStatus]"
+                      lineageId="Package\DimEmployee\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of MaritalStatus]" />
+                    <inputColumn
+                      refId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of EmergencyContactName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Copy of EmergencyContactName"
+                      externalMetadataColumnId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EmergencyContactName]"
+                      lineageId="Package\DimEmployee\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of EmergencyContactName]" />
+                    <inputColumn
+                      refId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of EmergencyContactPhone]"
+                      cachedDataType="wstr"
+                      cachedLength="25"
+                      cachedName="Copy of EmergencyContactPhone"
+                      externalMetadataColumnId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EmergencyContactPhone]"
+                      lineageId="Package\DimEmployee\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of EmergencyContactPhone]" />
+                    <inputColumn
+                      refId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of SalariedFlag]"
+                      cachedDataType="bool"
+                      cachedName="Copy of SalariedFlag"
+                      externalMetadataColumnId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalariedFlag]"
+                      lineageId="Package\DimEmployee\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SalariedFlag]" />
+                    <inputColumn
+                      refId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of Gender]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="Copy of Gender"
+                      externalMetadataColumnId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Gender]"
+                      lineageId="Package\DimEmployee\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Gender]" />
+                    <inputColumn
+                      refId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of PayFrequency]"
+                      cachedDataType="ui1"
+                      cachedName="Copy of PayFrequency"
+                      externalMetadataColumnId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PayFrequency]"
+                      lineageId="Package\DimEmployee\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of PayFrequency]" />
+                    <inputColumn
+                      refId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of BaseRate]"
+                      cachedDataType="cy"
+                      cachedName="Copy of BaseRate"
+                      externalMetadataColumnId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BaseRate]"
+                      lineageId="Package\DimEmployee\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of BaseRate]" />
+                    <inputColumn
+                      refId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of VacationHours]"
+                      cachedDataType="i2"
+                      cachedName="Copy of VacationHours"
+                      externalMetadataColumnId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[VacationHours]"
+                      lineageId="Package\DimEmployee\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of VacationHours]" />
+                    <inputColumn
+                      refId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of CurrentFlag]"
+                      cachedDataType="bool"
+                      cachedName="Copy of CurrentFlag"
+                      externalMetadataColumnId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CurrentFlag]"
+                      lineageId="Package\DimEmployee\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of CurrentFlag]" />
+                    <inputColumn
+                      refId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of SalesPersonFlag]"
+                      cachedDataType="bool"
+                      cachedName="Copy of SalesPersonFlag"
+                      externalMetadataColumnId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesPersonFlag]"
+                      lineageId="Package\DimEmployee\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SalesPersonFlag]" />
+                    <inputColumn
+                      refId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of DepartmentName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Copy of DepartmentName"
+                      externalMetadataColumnId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DepartmentName]"
+                      lineageId="Package\DimEmployee\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of DepartmentName]" />
+                    <inputColumn
+                      refId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of StartDate]"
+                      cachedDataType="dbDate"
+                      cachedName="Copy of StartDate"
+                      externalMetadataColumnId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StartDate]"
+                      lineageId="Package\DimEmployee\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of StartDate]" />
+                    <inputColumn
+                      refId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of EndDate]"
+                      cachedDataType="dbDate"
+                      cachedName="Copy of EndDate"
+                      externalMetadataColumnId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EndDate]"
+                      lineageId="Package\DimEmployee\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of EndDate]" />
+                    <inputColumn
+                      refId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of Status]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Copy of Status"
+                      externalMetadataColumnId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Status]"
+                      lineageId="Package\DimEmployee\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Status]" />
+                    <inputColumn
+                      refId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of ETLLoadID]"
+                      cachedDataType="i4"
+                      cachedName="Copy of ETLLoadID"
+                      externalMetadataColumnId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ETLLoadID]"
+                      lineageId="Package\DimEmployee\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ETLLoadID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EmployeeKey]"
+                      dataType="i4"
+                      name="EmployeeKey" />
+                    <externalMetadataColumn
+                      refId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ParentEmployeeKey]"
+                      dataType="i4"
+                      name="ParentEmployeeKey" />
+                    <externalMetadataColumn
+                      refId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
+                      dataType="wstr"
+                      length="50"
+                      name="FirstName" />
+                    <externalMetadataColumn
+                      refId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastName]"
+                      dataType="wstr"
+                      length="50"
+                      name="LastName" />
+                    <externalMetadataColumn
+                      refId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MiddleName]"
+                      dataType="wstr"
+                      length="50"
+                      name="MiddleName" />
+                    <externalMetadataColumn
+                      refId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Title]"
+                      dataType="wstr"
+                      length="50"
+                      name="Title" />
+                    <externalMetadataColumn
+                      refId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[HireDate]"
+                      dataType="dbDate"
+                      name="HireDate" />
+                    <externalMetadataColumn
+                      refId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BirthDate]"
+                      dataType="dbDate"
+                      name="BirthDate" />
+                    <externalMetadataColumn
+                      refId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EmailAddress]"
+                      dataType="wstr"
+                      length="50"
+                      name="EmailAddress" />
+                    <externalMetadataColumn
+                      refId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Phone]"
+                      dataType="wstr"
+                      length="25"
+                      name="Phone" />
+                    <externalMetadataColumn
+                      refId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MaritalStatus]"
+                      dataType="wstr"
+                      length="1"
+                      name="MaritalStatus" />
+                    <externalMetadataColumn
+                      refId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EmergencyContactName]"
+                      dataType="wstr"
+                      length="50"
+                      name="EmergencyContactName" />
+                    <externalMetadataColumn
+                      refId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EmergencyContactPhone]"
+                      dataType="wstr"
+                      length="25"
+                      name="EmergencyContactPhone" />
+                    <externalMetadataColumn
+                      refId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalariedFlag]"
+                      dataType="bool"
+                      name="SalariedFlag" />
+                    <externalMetadataColumn
+                      refId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Gender]"
+                      dataType="wstr"
+                      length="1"
+                      name="Gender" />
+                    <externalMetadataColumn
+                      refId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PayFrequency]"
+                      dataType="ui1"
+                      name="PayFrequency" />
+                    <externalMetadataColumn
+                      refId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[BaseRate]"
+                      dataType="cy"
+                      name="BaseRate" />
+                    <externalMetadataColumn
+                      refId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[VacationHours]"
+                      dataType="i2"
+                      name="VacationHours" />
+                    <externalMetadataColumn
+                      refId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CurrentFlag]"
+                      dataType="bool"
+                      name="CurrentFlag" />
+                    <externalMetadataColumn
+                      refId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SalesPersonFlag]"
+                      dataType="bool"
+                      name="SalesPersonFlag" />
+                    <externalMetadataColumn
+                      refId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DepartmentName]"
+                      dataType="wstr"
+                      length="50"
+                      name="DepartmentName" />
+                    <externalMetadataColumn
+                      refId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StartDate]"
+                      dataType="dbDate"
+                      name="StartDate" />
+                    <externalMetadataColumn
+                      refId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EndDate]"
+                      dataType="dbDate"
+                      name="EndDate" />
+                    <externalMetadataColumn
+                      refId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Status]"
+                      dataType="wstr"
+                      length="50"
+                      name="Status" />
+                    <externalMetadataColumn
+                      refId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ETLLoadID]"
+                      dataType="i4"
+                      name="ETLLoadID" />
+                    <externalMetadataColumn
+                      refId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LoadDate]"
+                      dataType="dbTimeStamp"
+                      name="LoadDate" />
+                    <externalMetadataColumn
+                      refId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UpdateDate]"
+                      dataType="dbTimeStamp"
+                      name="UpdateDate" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DimEmployee\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DimEmployee\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DimEmployee\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DimEmployee\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DimEmployee\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DimEmployee\TRIMand RTRIM"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="TRIMand RTRIM"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DimEmployee\TRIMand RTRIM.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DimEmployee\TRIMand RTRIM.Inputs[Derived Column Input].Columns[MaritalStatus]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="MaritalStatus"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[MaritalStatus]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[RTRIM]([LTRIM](#{Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[MaritalStatus]}))</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">RTRIM(LTRIM(MaritalStatus))</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DimEmployee\TRIMand RTRIM.Inputs[Derived Column Input].Columns[Gender]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Gender"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[Gender]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[RTRIM]([LTRIM](#{Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output].Columns[Gender]}))</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">RTRIM(LTRIM(Gender))</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DimEmployee\TRIMand RTRIM.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DimEmployee\TRIMand RTRIM.Inputs[Derived Column Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DimEmployee\TRIMand RTRIM.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DimEmployee\TRIMand RTRIM.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DimEmployee\TRIMand RTRIM.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DimEmployee\TRIMand RTRIM.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DimEmployee\TRIMand RTRIM.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DimEmployee\TRIMand RTRIM.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DimEmployee.Paths[Data Conversion Output]"
+              endId="Package\DimEmployee\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\DimEmployee\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\DimEmployee.Paths[Derived Column Output]"
+              endId="Package\DimEmployee\Data Conversion.Inputs[Data Conversion Input]"
+              name="Derived Column Output"
+              startId="Package\DimEmployee\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DimEmployee.Paths[Derived Column Output1]"
+              endId="Package\DimEmployee\Derived Column.Inputs[Derived Column Input]"
+              name="Derived Column Output"
+              startId="Package\DimEmployee\TRIMand RTRIM.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DimEmployee.Paths[Flat File Source Output]"
+              endId="Package\DimEmployee\TRIMand RTRIM.Inputs[Derived Column Input]"
+              name="Flat File Source Output"
+              startId="Package\DimEmployee\Flat File Source.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{A769D5B3-3DCF-48DC-BDE3-0CA02640FCD8}"
+      DTS:From="Package\delete from DimEmployee"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\DimEmployee" />
+  </DTS:PrecedenceConstraints>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnError]"
+      DTS:CreationName="OnError"
+      DTS:DTSID="{803F7698-A652-4D74-9B15-B90BB3DCB0E5}"
+      DTS:EventID="1086324736"
+      DTS:EventName="OnError"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="The propagate property of the event"
+          DTS:DTSID="{CE334CED-E767-414D-B55A-3AE8E4D3F120}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\Execute SQL Task"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{3AD9B00B-36B9-444D-8801-AC3A29372560}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Execute SQL Task"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{DF923C1A-7857-4E31-AABF-BB0AF8DC4925}"
+              SQLTask:SqlStatementSource="insert into ErrorLog (ErrorCode,ErrorMessage,ErrorPackage)&#xA;values(?,?,?)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="System::ErrorCode"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="System::ErrorDescription"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="System::PackageName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="129"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\Execute SQL Task 1"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{A126C195-ED63-448A-834B-CE3C78ACDCAE}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Execute SQL Task 1"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{DF923C1A-7857-4E31-AABF-BB0AF8DC4925}"
+              SQLTask:SqlStatementSource="truncate table errorlog" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package.EventHandlers[OnError].PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{B5D4AC3C-E34E-4320-8324-4B85DB6F82F7}"
+          DTS:From="Package.EventHandlers[OnError]\Execute SQL Task 1"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package.EventHandlers[OnError]\Execute SQL Task" />
+      </DTS:PrecedenceConstraints>
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="191,52"
+          Id="Package\delete from DimEmployee"
+          TopLeft="300.5,12.5" />
+        <NodeLayout
+          Size="148,42"
+          Id="Package\DimEmployee"
+          TopLeft="72,16" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="300.5,37.75">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-80.5,0"
+              Start="0,0"
+              End="-73,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-73,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="170,42"
+          Id="Package.EventHandlers[OnError]\Execute SQL Task"
+          TopLeft="60,80.5" />
+        <NodeLayout
+          Size="179,42"
+          Id="Package.EventHandlers[OnError]\Execute SQL Task 1"
+          TopLeft="279.5,60" />
+        <EdgeLayout
+          Id="Package.EventHandlers[OnError].PrecedenceConstraints[Constraint]"
+          TopLeft="279.5,81">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-49.5,20.5"
+              Start="0,0"
+              End="-42,20.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-20.75,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-20.75,0"
+                    Point2="-24.75,0"
+                    Point3="-24.75,4" />
+                  <mssgle:LineSegment
+                    End="-24.75,16.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-24.75,16.5"
+                    Point2="-24.75,20.5"
+                    Point3="-28.75,20.5" />
+                  <mssgle:LineSegment
+                    End="-42,20.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <TaskHost
+    design-time-name="Package\DimEmployee">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="156,42"
+          Id="Package\DimEmployee\Flat File Source"
+          TopLeft="95.5,1.5" />
+        <NodeLayout
+          Size="158,42"
+          Id="Package\DimEmployee\Derived Column"
+          TopLeft="106.5,127.5" />
+        <NodeLayout
+          Size="162,42"
+          Id="Package\DimEmployee\TRIMand RTRIM"
+          TopLeft="102,70" />
+        <NodeLayout
+          Size="161,42"
+          Id="Package\DimEmployee\Data Conversion"
+          TopLeft="107.5,201.5" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\DimEmployee\OLE DB Destination"
+          TopLeft="126.5,301.5" />
+        <EdgeLayout
+          Id="Package\DimEmployee.Paths[Data Conversion Output]"
+          TopLeft="188,243.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="27,58"
+              Start="0,0"
+              End="27,50.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25"
+                    Point2="0,29"
+                    Point3="4,29" />
+                  <mssgle:LineSegment
+                    End="23,29" />
+                  <mssgle:CubicBezierSegment
+                    Point1="23,29"
+                    Point2="27,29"
+                    Point3="27,33" />
+                  <mssgle:LineSegment
+                    End="27,50.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DimEmployee.Paths[Flat File Source Output]"
+          TopLeft="173.5,43.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="9.5,26.5"
+              Start="0,0"
+              End="9.5,19">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,9.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,9.25"
+                    Point2="0,13.25"
+                    Point3="4,13.25" />
+                  <mssgle:LineSegment
+                    End="5.5,13.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="5.5,13.25"
+                    Point2="9.5,13.25"
+                    Point3="9.5,17.25" />
+                  <mssgle:LineSegment
+                    End="9.5,19" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DimEmployee.Paths[Derived Column Output1]"
+          TopLeft="102,91">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="4.5,57.5"
+              Start="0,0"
+              End="-3,57.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-18.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-18.5,0"
+                    Point2="-22.5,0"
+                    Point3="-22.5,4" />
+                  <mssgle:LineSegment
+                    End="-22.5,53.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-22.5,53.5"
+                    Point2="-22.5,57.5"
+                    Point3="-18.5,57.5" />
+                  <mssgle:LineSegment
+                    End="-3,57.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DimEmployee.Paths[Derived Column Output]"
+          TopLeft="186.75,169.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,32"
+              Start="0,0"
+              End="0,24.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DimEmployee\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
